@@ -31,6 +31,7 @@ import {MaterialModule} from './shared/material-module';
 import { SearchBarComponent } from './library/search-bar/search-bar.component';
 import { BookDetailsElementComponent } from './shared/book-details-element/book-details-element.component';
 import { BookAvailabilityDetailComponent } from './library/book-details/book-availability-detail/book-availability-detail.component';
+import { BookTagsDetailComponent } from './library/book-details/book-tags-detail/book-tags-detail.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { BookAvailabilityDetailComponent } from './library/book-details/book-ava
     SearchBarComponent,
     BookDetailsElementComponent,
     BookAvailabilityDetailComponent,
+    BookTagsDetailComponent,
   ],
   imports: [
     BrowserModule,
