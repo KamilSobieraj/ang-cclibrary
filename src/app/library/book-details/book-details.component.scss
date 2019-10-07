@@ -1,0 +1,47 @@
+.book-details-list {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.25fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-gap: 10px;
+  &__element {
+  }
+
+  &__book-cover {
+    grid-area: 1 / 1 / 6 / 2;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+  }
+  &__book-title {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  &__book-author {
+    grid-area: 2 / 2 / 3 / 4;
+  }
+  &__book-editor {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+  &__book-year {
+    grid-area: 3 / 3 / 4 / 4;
+  }
+  &__book-localization{
+    grid-area: 4 / 3 / 5 / 4;
+  }
+  &__book-availability {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  &__book-remarks {
+    grid-area: 4 / 2 / 5 / 3;
+  }
+  &__book-tags {
+    grid-area: 5 / 2 / 6 / 4;
+  }
+}
+
+button {
+  margin-left: 5%;
+}
+

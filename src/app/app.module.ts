@@ -29,6 +29,7 @@ import {AdminDashboardComponent} from './dashboard/admin-dashboard/admin-dashboa
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './shared/material-module';
 import { SearchBarComponent } from './library/search-bar/search-bar.component';
+import { BookDetailsElementComponent } from './shared/book-details-element/book-details-element.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SearchBarComponent } from './library/search-bar/search-bar.component';
     EmailPasswordFormComponent,
     AdminDashboardComponent,
     SearchBarComponent,
+    BookDetailsElementComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { SearchBarComponent } from './library/search-bar/search-bar.component';
     HttpClientModule,
     MatListModule,
     MatTableModule,
-    MaterialModule
+    MaterialModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

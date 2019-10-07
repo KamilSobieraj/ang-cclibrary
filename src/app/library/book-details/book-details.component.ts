@@ -5,6 +5,8 @@ import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 import {Book} from '../book';
 import {BooksService} from '../books.service';
 import {Location} from '@angular/common';
+import {MatIconRegistry} from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-book-details',
@@ -16,7 +18,12 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
 
   constructor(private activatedRoute: ActivatedRoute,
               private booksService: BooksService,
-              private location: Location) { }
+              private location: Location,
+              private matIconRegistry: MatIconRegistry,
+              private domSanitizer: DomSanitizer) {
+    this.matIconRegistry
+      .addSvgIcon('book-cover', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/book3.svg'));
+  }
 
   ngOnInit() {
     this.getBookDetails();

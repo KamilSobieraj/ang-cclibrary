@@ -1,27 +1,51 @@
 <button
   mat-button color="primary"
   (click)="onGoBack()">Wróć</button>
-<mat-list role="list">
-  <mat-list-item role="listitem">Tytuł: {{bookDetails.title}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item role="listitem">Autor: {{bookDetails.author}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item role="listitem">Wydawca: {{bookDetails.editorName}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item role="listitem">Rok wydania: {{bookDetails.publicationYear}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item role="listitem">Lokalizacja: {{bookDetails.currentLocation}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item role="listitem">Dostępna: {{bookDetails.isAvailable}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item role="listitem">Uwagi: {{bookDetails.remarks}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list role="list" >Tagi:
-    <mat-list-item role="listitem" *ngFor="let tag of bookDetails.tags">{{tag}}</mat-list-item>
-  </mat-list>
-  <mat-divider></mat-divider>
-  <mat-list role="list" *ngIf="bookDetails.reservations !== []">Kolejka:
-    <mat-list-item role="listitem" *ngFor="let reservation of bookDetails.reservations">{{reservation}}</mat-list-item>
-  </mat-list>
-  <mat-divider></mat-divider>
+<mat-list role="list" class="book-details-list">
+  <mat-icon svgIcon="book-cover" class="book-details-list__element book-details-list__book-cover"></mat-icon>
+  <app-book-details-element
+    header="Tytuł"
+    content="{{bookDetails.title}}"
+    class="book-details-list__book-title">
+  </app-book-details-element>
+  <app-book-details-element
+    header="Autor"
+    content="{{bookDetails.author}}"
+    class="book-details-list__book-author">
+  </app-book-details-element>
+  <app-book-details-element
+    header="Wydawca"
+    content="{{bookDetails.editorName}}"
+    class="book-details-list__book-editor">
+  </app-book-details-element>
+  <app-book-details-element
+    header="Rok wydania"
+    content="{{bookDetails.publicationYear}}"
+    class="book-details-list__book-year">
+  </app-book-details-element>
+  <app-book-details-element
+    header="Lokalizacja"
+    content="{{bookDetails.currentLocation}}"
+    class="book-details-list__book-localization">
+  </app-book-details-element>
+  <app-book-details-element
+    header="akcja"
+    content="{{bookDetails.isAvailable}}"
+    class="book-details-list__book-availability">
+  </app-book-details-element>
+  <app-book-details-element
+    header="Uwagi"
+    content="{{bookDetails.remarks}}"
+    class="book-details-list__book-remarks">
+  </app-book-details-element>
+  <mat-card class="book-details-list__element book-details-list__book-tags">
+    <mat-card-subtitle>Tagi</mat-card-subtitle>
+    <mat-card-title *ngFor="let tag of bookDetails.tags">{{tag}}</mat-card-title>
+  </mat-card>
+<!--  <mat-list-item role="listitem" class="book-details-list__element book-details-list__book-tags">Tagi:&#160; <span *ngFor="let tag of bookDetails.tags">{{tag}},&#160; </span>-->
+<!--    <mat-list-item role="listitem" *ngFor="let tag of bookDetails.tags">{{tag}}</mat-list-item>-->
+<!--  </mat-list-item>-->
+<!--  <mat-list role="list" class="book-details-list__element book-details-list__book-reservations" *ngIf="bookDetails.reservations !== []">Kolejka:-->
+<!--    <mat-list-item role="listitem" *ngFor="let reservation of bookDetails.reservations">{{reservation}}</mat-list-item>-->
+<!--  </mat-list>-->
 </mat-list>
