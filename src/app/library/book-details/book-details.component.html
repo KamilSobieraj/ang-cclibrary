@@ -28,11 +28,10 @@
     content="{{bookDetails.currentLocation}}"
     class="book-details-list__book-localization">
   </app-book-details-element>
-  <app-book-details-element
-    header="akcja"
-    content="{{bookDetails.isAvailable}}"
+  <app-book-availability-detail
+    [isAvailable]="bookDetails.isAvailable"
     class="book-details-list__book-availability">
-  </app-book-details-element>
+  </app-book-availability-detail>
   <app-book-details-element
     header="Uwagi"
     content="{{bookDetails.remarks}}"
@@ -42,9 +41,7 @@
     <mat-card-subtitle>Tagi</mat-card-subtitle>
     <mat-card-title *ngFor="let tag of bookDetails.tags">{{tag}}</mat-card-title>
   </mat-card>
-<!--  <mat-list-item role="listitem" class="book-details-list__element book-details-list__book-tags">Tagi:&#160; <span *ngFor="let tag of bookDetails.tags">{{tag}},&#160; </span>-->
-<!--    <mat-list-item role="listitem" *ngFor="let tag of bookDetails.tags">{{tag}}</mat-list-item>-->
-<!--  </mat-list-item>-->
+
 <!--  <mat-list role="list" class="book-details-list__element book-details-list__book-reservations" *ngIf="bookDetails.reservations !== []">Kolejka:-->
 <!--    <mat-list-item role="listitem" *ngFor="let reservation of bookDetails.reservations">{{reservation}}</mat-list-item>-->
 <!--  </mat-list>-->

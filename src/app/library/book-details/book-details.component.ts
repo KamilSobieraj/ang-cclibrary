@@ -33,8 +33,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
     this.activatedRoute.params
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe((params: Params) => {
-        this.bookDetails = this.booksService.getBookDetail(params['id']);
-        console.log(this.bookDetails);
+        this.bookDetails = this.booksService.getBookDetail(params.id);
       });
   }
 
@@ -43,6 +42,6 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // ! need to be called (even empty) for componentDestroyed(this) to work
+    // ! need to be called (even empty) due to componentDestroyed(this) to work
   }
 }

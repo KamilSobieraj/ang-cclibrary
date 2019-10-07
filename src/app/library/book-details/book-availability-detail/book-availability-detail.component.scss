@@ -1,0 +1,7 @@
+.book-details-list__book-availability {
+  &--available {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

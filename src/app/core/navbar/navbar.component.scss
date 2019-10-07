@@ -2,6 +2,9 @@
   &__title {
     display: flex;
     justify-content: center;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__login-status {
     display: flex;

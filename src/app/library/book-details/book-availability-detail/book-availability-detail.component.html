@@ -1,0 +1,17 @@
+<ng-container *ngIf="isAvailable; then order else bookUnavailable">
+</ng-container>
+<ng-template #bookUnavailable>
+  <app-book-details-element
+    header="status"
+    content="kniżka niedostępna..."
+    class="book-details-list__book-availability--unavailable">
+  </app-book-details-element>
+</ng-template>
+<ng-template #order>
+  <app-book-details-element
+    header="status"
+    content="zamów!"
+    class="book-details-list__book-availability--available"
+    routerLink="/dashboard">
+  </app-book-details-element>
+</ng-template>

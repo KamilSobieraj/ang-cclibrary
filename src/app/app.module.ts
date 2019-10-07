@@ -30,6 +30,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './shared/material-module';
 import { SearchBarComponent } from './library/search-bar/search-bar.component';
 import { BookDetailsElementComponent } from './shared/book-details-element/book-details-element.component';
+import { BookAvailabilityDetailComponent } from './library/book-details/book-availability-detail/book-availability-detail.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { BookDetailsElementComponent } from './shared/book-details-element/book-
     AdminDashboardComponent,
     SearchBarComponent,
     BookDetailsElementComponent,
+    BookAvailabilityDetailComponent,
   ],
   imports: [
     BrowserModule,
