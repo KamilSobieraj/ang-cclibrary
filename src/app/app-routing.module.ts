@@ -6,10 +6,12 @@ import {DashboardPanelComponent} from './dashboard/dashboard-panel/dashboard-pan
 import {LoginPanelComponent} from './dashboard/login-panel/login-panel.component';
 import {AdminDashboardComponent} from './dashboard/admin-dashboard/admin-dashboard.component';
 import {BookDetailsComponent} from './library/book-details/book-details.component';
+import {OrderPanelComponent} from './order-panel/order-panel.component';
 
 const routes: Routes = [
   {path: 'library', component: LibraryComponent},
   {path: 'library/book-details/:id', component: BookDetailsComponent},
+  {path: 'order-panel', component: OrderPanelComponent},
   {path: 'dashboard', component: DashboardPanelComponent},
   {path: 'dashboard/admin', component: AdminDashboardComponent},
   {path: 'login', component: LoginPanelComponent},

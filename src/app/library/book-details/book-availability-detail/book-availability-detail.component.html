@@ -3,15 +3,16 @@
 <ng-template #bookUnavailable>
   <app-book-details-element
     header="status"
-    content="kniżka niedostępna..."
-    class="book-details-list__book-availability--unavailable">
+    content="Książka niedostępna - Rezerwuj"
+    class="book-details-list__book-availability"
+    routerLink="/order-panel">
   </app-book-details-element>
 </ng-template>
 <ng-template #order>
   <app-book-details-element
     header="status"
-    content="zamów!"
-    class="book-details-list__book-availability--available"
-    routerLink="/dashboard">
+    content="Książka dostępna - Zamów!"
+    class="book-details-list__book-availability"
+    routerLink="/order-panel">
   </app-book-details-element>
 </ng-template>
