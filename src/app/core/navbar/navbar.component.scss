@@ -1,0 +1,17 @@
+.navbar {
+  &__title {
+    display: flex;
+    justify-content: center;
+  }
+  &__login-status {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+  }
+  &__button {
+    width: 10%;
+    display: flex;
+    margin-right: 5%;
+    margin-left: auto;
+  }
+}

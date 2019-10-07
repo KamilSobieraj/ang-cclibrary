@@ -1,0 +1,6 @@
+<h1 class="navbar__title">CCLibrary</h1>
+<p class="navbar__login-status">You're logged as: {{this.isUserLoggedIn ? "Jest" : "Anonim"}}</p>
+
+<button class="navbar__button" *ngIf="!isUserLoggedIn" mat-button color="primary" (click)="goToLoginPanel()">Login</button>
+<button class="navbar__button" *ngIf="isUserLoggedIn" mat-button color="primary" (click)="logoutUser()">Logout</button>
+

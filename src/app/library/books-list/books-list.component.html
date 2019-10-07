@@ -1,0 +1,21 @@
+<app-search-bar></app-search-bar>
+<table mat-table [dataSource]="booksTableDataSource" class="mat-elevation-z8 books-table" >
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Tytuł </th>
+    <td mat-cell class="books-table__title-cell" *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef> Autor </th>
+    <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+  </ng-container>
+  <ng-container matColumnDef="currentLocation">
+    <th mat-header-cell *matHeaderCellDef> Lokalizacja </th>
+    <td mat-cell *matCellDef="let element"> {{element.currentLocation}} </td>
+  </ng-container>
+  <ng-container matColumnDef="isAvailable" >
+    <th mat-header-cell *matHeaderCellDef> Dostępna? </th>
+    <td mat-cell *matCellDef="let element"> {{element.isAvailable ? "tak" : "nie"}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row routerLink="/library/book-details/{{row.id}}" class="books-table__row" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

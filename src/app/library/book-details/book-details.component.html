@@ -1,0 +1,27 @@
+<button
+  mat-button color="primary"
+  (click)="onGoBack()">Wróć</button>
+<mat-list role="list">
+  <mat-list-item role="listitem">Tytuł: {{bookDetails.title}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item role="listitem">Autor: {{bookDetails.author}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item role="listitem">Wydawca: {{bookDetails.editorName}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item role="listitem">Rok wydania: {{bookDetails.publicationYear}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item role="listitem">Lokalizacja: {{bookDetails.currentLocation}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item role="listitem">Dostępna: {{bookDetails.isAvailable}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item role="listitem">Uwagi: {{bookDetails.remarks}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list role="list" >Tagi:
+    <mat-list-item role="listitem" *ngFor="let tag of bookDetails.tags">{{tag}}</mat-list-item>
+  </mat-list>
+  <mat-divider></mat-divider>
+  <mat-list role="list" *ngIf="bookDetails.reservations !== []">Kolejka:
+    <mat-list-item role="listitem" *ngFor="let reservation of bookDetails.reservations">{{reservation}}</mat-list-item>
+  </mat-list>
+  <mat-divider></mat-divider>
+</mat-list>

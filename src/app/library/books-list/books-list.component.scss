@@ -1,0 +1,24 @@
+@import "../../shared/sass/variables";
+
+.serachbar {
+  font-size: 14px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.books-table {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  &__row {
+    &:hover {
+      cursor: pointer;
+      background-color: $color-hover;
+    }
+  }
+  &__title-cell {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

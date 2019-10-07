@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "email": "kamil.sobieraj@codeconcept.pl",
+      "password": "$2a$10$w7yoRwBlu0DagKEjEMUqve9yEmIX4QI5kLaFFTRgPZbILbryMTQmC",
+      "id": "4065ba97-b3bc-487e-ae54-33e2fcc56ae4"
+    }
+  ],
+  "books":
+  [
+    {
+      "id": "01",
+      "title": "Randomowy tytuł książki.",
+      "author": "Marek Cukierberg",
+      "publicationYear": "2018",
+      "editorName": "Goggle Ed.",
+      "tags":
+      [
+        "PHP",
+        "Laravel"
+      ],
+      "remarks": "Książka ma wyrwane pojedyncze strony",
+      "currentLocation": "VI piętro",
+      "isAvailable": true,
+      "history":
+      [
+        "o06",
+        "o22"
+      ],
+      "reservations":
+      []
+    },
+    {
+      "id": "02",
+      "title": "Angular Ninja",
+      "author": "Johan Kusturica",
+      "publicationYear": "2019",
+      "editorName": "Frontend Masters",
+      "tags":
+      [
+        "Javascript",
+        "Angular",
+        "Frontend"
+      ],
+      "remarks": "",
+      "currentLocation": "VI piętro",
+      "isAvailable": false,
+      "history":
+      [
+        "o63",
+        "o01"
+      ],
+      "reservations":
+      [
+        "u01",
+        "u35"
+      ]
+    }
+  ]
+}
