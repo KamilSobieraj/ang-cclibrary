@@ -30,7 +30,9 @@
   </app-book-details-element>
   <app-book-availability-detail
     [isAvailable]="bookDetails.isAvailable"
-    class="book-details-list__book-availability">
+    class="book-details-list__book-availability"
+    [bookID]="bookDetails.id"
+  >
   </app-book-availability-detail>
   <app-book-details-element
     header="Uwagi"

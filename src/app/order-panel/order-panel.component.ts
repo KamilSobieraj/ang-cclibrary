@@ -10,12 +10,17 @@ import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 })
 export class OrderPanelComponent implements OnInit, OnDestroy {
   isBookAvailable: boolean;
+  bookID: string;
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.orderService.isBookAvailable$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(isAvailable => this.isBookAvailable = isAvailable);
+
+    this.orderService.chosenBookID$
+      .pipe(takeUntil(componentDestroyed(this)))
+      .subscribe(bookID => this.bookID = bookID);
   }
 
   ngOnDestroy(): void {

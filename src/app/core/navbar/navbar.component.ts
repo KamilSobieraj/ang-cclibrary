@@ -30,6 +30,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // ! need to be called (even empty) for componentDestroyed(this) to work
+    // ! need to be called (even empty) due to componentDestroyed(this) to work
   }
 }

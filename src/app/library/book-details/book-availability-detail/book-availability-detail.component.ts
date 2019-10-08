@@ -8,10 +8,13 @@ import {OrderService} from '../../../order-panel/order.service';
 })
 export class BookAvailabilityDetailComponent implements OnInit {
 @Input() isAvailable: boolean;
+@Input() bookID: string;
+
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.orderService.isBookAvailable$.next(this.isAvailable);
-  }
+    this.orderService.chosenBookID$.next(this.bookID);
 
+  }
 }

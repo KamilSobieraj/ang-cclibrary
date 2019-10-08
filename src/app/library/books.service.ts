@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {DatabaseService} from '../core/database.service';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {Book} from './book';
 
 @Injectable({
