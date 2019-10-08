@@ -35,7 +35,6 @@ export class AuthService {
         this.isUserLoggedIn$.next(true);
         localStorage.setItem('userData', atob(user.accessToken.split('.')[1]));
         localStorage.setItem('userLoginStatus', 'user is logged in');
-        console.log(user);
         this.router.navigate(['dashboard']);
       }
     );

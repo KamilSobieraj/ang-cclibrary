@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../dashboard/auth.service';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
+import {UserService} from '../../dashboard/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -27,6 +28,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logoutUser(): void {
     this.authService.logoutUser();
+  }
+
+  getCurrentUserEmail(): string {
+    return JSON.parse(localStorage.getItem('userData')).email;
   }
 
   ngOnDestroy(): void {

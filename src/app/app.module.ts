@@ -32,6 +32,7 @@ import { BookDetailsElementComponent } from './shared/book-details-element/book-
 import { BookAvailabilityDetailComponent } from './library/book-details/book-availability-detail/book-availability-detail.component';
 import { BookTagsDetailComponent } from './library/book-details/book-tags-detail/book-tags-detail.component';
 import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
+import { UserDataCardComponent } from './dashboard/user-dashboard/user-data-card/user-data-card.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.
     BookAvailabilityDetailComponent,
     BookTagsDetailComponent,
     UserDashboardComponent,
+    UserDataCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <h1 class="navbar__title" routerLink="/library">CCLibrary</h1>
-<p class="navbar__login-status">You're logged as: {{this.isUserLoggedIn ? "Admin" : "Anonim"}}</p>
+<p class="navbar__login-status">You're logged as: {{this.isUserLoggedIn ? this.getCurrentUserEmail() : 'Anonim'}}</p>
 
 <div class="navbar__button-row">
 <button class="navbar__button" *ngIf="!isUserLoggedIn" mat-button color="primary" (click)="goToLoginPanel()">Login</button>

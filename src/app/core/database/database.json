@@ -9,29 +9,8 @@
     },
     {
       "email": "kellycmi@interia.pl",
-      "password": "$2a$10$mwa9qWGu.BelERC0KxJkv.G816AhDugp25cWlmuPvuJBvIsyqIKk2",
-      "id": "c178e2ce-18f1-4b46-88b1-916c486335be",
-      "userType": "admin",
-      "history": []
-    },
-    {
-      "email": "ole@nor.no",
-      "password": "$2a$10$FPlmbbhqM6XwDwXcnLBTJOLh10aJvQjeWC4Ku9Bk8QjpPD9ov/bHq",
-      "id": "846a7318-1e07-4eea-9675-d40a32ba1c97",
-      "userType": "regular",
-      "history": []
-    },
-    {
-      "email": "maniek@manki.com",
-      "password": "$2a$10$ukr/TnFqMGpIeu7Ji6mmR.oIMVh6gcInnovhygctI2osQqLPIBEne",
-      "id": "20c9b684-5327-45f0-a3d5-4ef24adc7a02",
-      "userType": "admin",
-      "history": []
-    },
-    {
-      "email": "lelek@lol.com",
-      "password": "$2a$10$Lw9LRPVJ5.S4RKm6nGMOveMrmW8Cb5RxC0SPxSk/5fVIEiBqCAzYa",
-      "id": "ebfbd551-9f07-4669-b867-cba20ec98280",
+      "password": "$2a$10$bWAZsoUVJ6LhnsFgKmBK9uYTSJSFw7qQnSdAILkJYmhXSQKwGzbWK",
+      "id": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "userType": "regular",
       "history": []
     }
