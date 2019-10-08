@@ -2,33 +2,59 @@
   "users": [
     {
       "email": "kamil.sobieraj@codeconcept.pl",
-      "password": "$2a$10$w7yoRwBlu0DagKEjEMUqve9yEmIX4QI5kLaFFTRgPZbILbryMTQmC",
-      "id": "4065ba97-b3bc-487e-ae54-33e2fcc56ae4"
+      "password": "$2a$10$f8yQDVtDRZiC6eKtQvL6degjKbUl0pGYTfqSRMVMlTCs6VdlE9.Ka",
+      "id": "95b3a863-edbf-4b69-a28a-611e32988ed1",
+      "userType": "admin",
+      "history": []
+    },
+    {
+      "email": "kellycmi@interia.pl",
+      "password": "$2a$10$mwa9qWGu.BelERC0KxJkv.G816AhDugp25cWlmuPvuJBvIsyqIKk2",
+      "id": "c178e2ce-18f1-4b46-88b1-916c486335be",
+      "userType": "admin",
+      "history": []
+    },
+    {
+      "email": "ole@nor.no",
+      "password": "$2a$10$FPlmbbhqM6XwDwXcnLBTJOLh10aJvQjeWC4Ku9Bk8QjpPD9ov/bHq",
+      "id": "846a7318-1e07-4eea-9675-d40a32ba1c97",
+      "userType": "regular",
+      "history": []
+    },
+    {
+      "email": "maniek@manki.com",
+      "password": "$2a$10$ukr/TnFqMGpIeu7Ji6mmR.oIMVh6gcInnovhygctI2osQqLPIBEne",
+      "id": "20c9b684-5327-45f0-a3d5-4ef24adc7a02",
+      "userType": "admin",
+      "history": []
+    },
+    {
+      "email": "lelek@lol.com",
+      "password": "$2a$10$Lw9LRPVJ5.S4RKm6nGMOveMrmW8Cb5RxC0SPxSk/5fVIEiBqCAzYa",
+      "id": "ebfbd551-9f07-4669-b867-cba20ec98280",
+      "userType": "regular",
+      "history": []
     }
   ],
-  "books":
-  [
+  "books": [
     {
       "id": "01",
       "title": "Randomowy tytuł książki.",
       "author": "Marek Cukierberg",
       "publicationYear": "2018",
       "editorName": "Goggle Ed.",
-      "tags":
-      [
+      "tags": [
         "PHP",
         "Laravel"
       ],
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history":
-      [
+      "history": [
         "o06",
         "o22"
       ],
-      "reservations":
-      []
+      "reservations": []
     },
     {
       "id": "02",
@@ -36,8 +62,7 @@
       "author": "Johan Kusturica",
       "publicationYear": "2019",
       "editorName": "Frontend Masters",
-      "tags":
-      [
+      "tags": [
         "Javascript",
         "Angular",
         "Frontend"
@@ -45,13 +70,11 @@
       "remarks": "",
       "currentLocation": "VI piętro",
       "isAvailable": false,
-      "history":
-      [
+      "history": [
         "o63",
         "o01"
       ],
-      "reservations":
-      [
+      "reservations": [
         "u01",
         "u35"
       ]

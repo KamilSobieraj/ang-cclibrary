@@ -7,12 +7,13 @@ import {LoginPanelComponent} from './dashboard/login-panel/login-panel.component
 import {AdminDashboardComponent} from './dashboard/admin-dashboard/admin-dashboard.component';
 import {BookDetailsComponent} from './library/book-details/book-details.component';
 import {OrderPanelComponent} from './order-panel/order-panel.component';
+import {AuthGuard} from './dashboard/auth.guard';
 
 const routes: Routes = [
   {path: 'library', component: LibraryComponent},
   {path: 'library/book-details/:id', component: BookDetailsComponent},
   {path: 'order-panel', component: OrderPanelComponent},
-  {path: 'dashboard', component: DashboardPanelComponent},
+  {path: 'dashboard', component: DashboardPanelComponent, canActivate: [AuthGuard]},
   {path: 'dashboard/admin', component: AdminDashboardComponent},
   {path: 'login', component: LoginPanelComponent},
   {path: '', redirectTo: '/library', pathMatch: 'full'},

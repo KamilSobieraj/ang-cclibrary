@@ -23,7 +23,6 @@ import {
 } from '@angular/material';
 import { LoginPanelComponent } from './dashboard/login-panel/login-panel.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AddUserComponent } from './dashboard/admin-dashboard/add-user/add-user.component';
 import { EmailPasswordFormComponent } from './shared/email-password-form/email-password-form.component';
 import {AdminDashboardComponent} from './dashboard/admin-dashboard/admin-dashboard.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -32,6 +31,7 @@ import { SearchBarComponent } from './library/search-bar/search-bar.component';
 import { BookDetailsElementComponent } from './shared/book-details-element/book-details-element.component';
 import { BookAvailabilityDetailComponent } from './library/book-details/book-availability-detail/book-availability-detail.component';
 import { BookTagsDetailComponent } from './library/book-details/book-tags-detail/book-tags-detail.component';
+import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -46,13 +46,13 @@ import { BookTagsDetailComponent } from './library/book-details/book-tags-detail
     DashboardPanelComponent,
     NavbarComponent,
     LoginPanelComponent,
-    AddUserComponent,
     EmailPasswordFormComponent,
     AdminDashboardComponent,
     SearchBarComponent,
     BookDetailsElementComponent,
     BookAvailabilityDetailComponent,
     BookTagsDetailComponent,
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,

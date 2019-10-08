@@ -14,6 +14,6 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit() {
   }
   onAddNewUser($event): void {
-    this.authService.addNewUser($event.userEmail, $event.userPassword);
+    this.authService.addNewUser($event.userEmail, $event.userPassword, $event.userType);
   }
 }

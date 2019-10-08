@@ -26,13 +26,19 @@ export class AuthService {
   }
 
   loginUser(email: string, password: string): void {
-    if (email === 'admin@admin' && password === 'admin') {
-      this.isUserLoggedIn$.next(true);
-      localStorage.setItem('userLoginStatus', 'user is logged in');
-      this.router.navigate(['dashboard']);
-    } else {
-      alert('Invalid credentials');
-    }
+    const loginData = {
+      email,
+      password
+    };
+    this.httpClient.post<any>(this.databaseURL + '/login/', JSON.stringify(loginData), this.httpOptions).subscribe(
+      user => {
+        this.isUserLoggedIn$.next(true);
+        localStorage.setItem('userData', atob(user.accessToken.split('.')[1]));
+        localStorage.setItem('userLoginStatus', 'user is logged in');
+        console.log(user);
+        this.router.navigate(['dashboard']);
+      }
+    );
   }
 
   logoutUser(): void {
@@ -45,11 +51,13 @@ export class AuthService {
     return (localStorage.getItem('userLoginStatus') !== null) ? true : false;
   }
 
-  addNewUser(email: string, password: string): void {
+  addNewUser(email: string, password: string, userType: string): void {
     const userData = {
       email,
       password,
-      id: uuid.v4()
+      id: uuid.v4(),
+      userType,
+      history: []
     };
     this.httpClient.post<any>(this.databaseURL + '/register/', JSON.stringify(userData), this.httpOptions)
       .pipe(

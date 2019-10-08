@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
-import {Book} from '../book';
+import {BookModel} from '../book.model';
 import {BooksService} from '../books.service';
 import {Location} from '@angular/common';
 import {MatIconRegistry} from '@angular/material';
@@ -14,7 +14,7 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./book-details.component.scss']
 })
 export class BookDetailsComponent implements OnInit, OnDestroy {
-  bookDetails: Book;
+  bookDetails: BookModel;
 
   constructor(private activatedRoute: ActivatedRoute,
               private booksService: BooksService,

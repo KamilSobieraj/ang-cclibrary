@@ -12,6 +12,8 @@ export class EmailPasswordFormComponent implements OnInit {
   @Output() submitForm = new EventEmitter();
   isPasswordHidden = true;
   @Input() header: string;
+  @Input() buttonTitle: string;
+  @Input() addUserType: boolean;
 
   emailPasswordForm: FormGroup;
 
@@ -20,12 +22,13 @@ export class EmailPasswordFormComponent implements OnInit {
   ngOnInit() {
     this.emailPasswordForm = this.formBuilder.group({
       userEmail: ['', [Validators.required, Validators.email]],
-      userPassword: ''
+      userPassword: '',
+      userType: 'regular'
     });
   }
 
   onSubmit() {
-    this.submitForm.emit({userEmail: this.emailInput, userPassword: this.passwordInput});
+    this.submitForm.emit({userEmail: this.emailInput, userPassword: this.passwordInput, userType: this.userTypeInput });
   }
 
   getEmailLoginErrorMessage() {
@@ -40,6 +43,10 @@ export class EmailPasswordFormComponent implements OnInit {
 
   get passwordInput(): string {
     return this.emailPasswordForm.get('userPassword').value;
+  }
+
+  get userTypeInput() {
+    return this.emailPasswordForm.get('userType').value;
   }
 
 }

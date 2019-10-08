@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {DatabaseService} from '../core/database.service';
 import {Observable, Subject} from 'rxjs';
-import {Book} from './book';
+import {BookModel} from './book.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
-  booksData: Book[];
+  booksData: BookModel[];
 
   constructor(private databaseService: DatabaseService) {
     this.getBooksData().subscribe(booksData => this.booksData = booksData);
