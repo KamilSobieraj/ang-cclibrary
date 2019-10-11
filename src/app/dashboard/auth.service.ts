@@ -2,23 +2,19 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {Router} from '@angular/router';
 import * as uuid from 'uuid';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {catchError, retry} from 'rxjs/operators';
+import {DatabaseService} from '../core/database.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   isUserLoggedIn$ = new BehaviorSubject(this.userLoginStatusHandler());
-  databaseURL = 'http://localhost:3000';
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    })
-  };
 
   constructor(private router: Router,
-              private httpClient: HttpClient) {
+              private httpClient: HttpClient,
+              private databaseService: DatabaseService) {
   }
 
   userLoginStatus(): Observable<boolean> {
@@ -30,7 +26,8 @@ export class AuthService {
       email,
       password
     };
-    this.httpClient.post<any>(this.databaseURL + '/login/', JSON.stringify(loginData), this.httpOptions).subscribe(
+    this.httpClient.post<any>(this.databaseService.databaseURL + '/login/', JSON.stringify(loginData), this.databaseService.httpOptions)
+      .subscribe(
       user => {
         this.isUserLoggedIn$.next(true);
         localStorage.setItem('userData', atob(user.accessToken.split('.')[1]));
@@ -56,9 +53,10 @@ export class AuthService {
       password,
       id: uuid.v4(),
       userType,
-      history: []
+      history: [],
+      currentBorrowedBooks: []
     };
-    this.httpClient.post<any>(this.databaseURL + '/register/', JSON.stringify(userData), this.httpOptions)
+    this.httpClient.post<any>(this.databaseService.databaseURL + '/register/', JSON.stringify(userData), this.databaseService.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)

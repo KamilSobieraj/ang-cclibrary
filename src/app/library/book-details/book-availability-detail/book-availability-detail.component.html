@@ -5,7 +5,6 @@
     header="status"
     content="Książka niedostępna - Rezerwuj"
     class="book-details-list__book-availability"
-
     routerLink="/order-panel">
   </app-book-details-element>
 </ng-template>
@@ -14,6 +13,6 @@
     header="status"
     content="Książka dostępna - Zamów!"
     class="book-details-list__book-availability"
-    routerLink="/order-panel">
+    (click)="onOrderBook()">
   </app-book-details-element>
 </ng-template>

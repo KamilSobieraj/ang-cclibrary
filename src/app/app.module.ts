@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BooksListComponent } from './library/books-list/books-list.component';
 import { BookDetailsComponent } from './library/book-details/book-details.component';
 import { OrderPanelComponent } from './order-panel/order-panel.component';
-import { OrderBookComponent } from './order-panel/order-book/order-book.component';
 import { ReserveBookComponent } from './order-panel/reserve-book/reserve-book.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { LibraryComponent } from './library/library.component';
@@ -33,6 +32,7 @@ import { BookAvailabilityDetailComponent } from './library/book-details/book-ava
 import { BookTagsDetailComponent } from './library/book-details/book-tags-detail/book-tags-detail.component';
 import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
 import { UserDataCardComponent } from './dashboard/user-dashboard/user-data-card/user-data-card.component';
+import { OperationsHistoryComponent } from './dashboard/user-dashboard/operations-history/operations-history.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,6 @@ import { UserDataCardComponent } from './dashboard/user-dashboard/user-data-card
     BooksListComponent,
     BookDetailsComponent,
     OrderPanelComponent,
-    OrderBookComponent,
     ReserveBookComponent,
     PageNotFoundComponent,
     LibraryComponent,
@@ -55,6 +54,7 @@ import { UserDataCardComponent } from './dashboard/user-dashboard/user-data-card
     BookTagsDetailComponent,
     UserDashboardComponent,
     UserDataCardComponent,
+    OperationsHistoryComponent,
   ],
   imports: [
     BrowserModule,

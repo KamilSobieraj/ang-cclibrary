@@ -1,8 +1,10 @@
-<h1 class="navbar__title" routerLink="/library">CCLibrary</h1>
-<p class="navbar__login-status">You're logged as: {{this.isUserLoggedIn ? this.getCurrentUserEmail() : 'Anonim'}}</p>
+<div class="navbar">
+  <h1 class="navbar__title" routerLink="/library">CCLibrary</h1>
+  <p class="navbar__login-status">You're logged as: {{this.isUserLoggedIn ? this.getCurrentUserEmail() : 'Anonim'}}</p>
 
-<div class="navbar__button-row">
-<button class="navbar__button" *ngIf="!isUserLoggedIn" mat-button color="primary" (click)="goToLoginPanel()">Login</button>
-<button class="navbar__button" *ngIf="isUserLoggedIn" mat-button color="primary" routerLink="/dashboard">Dashboard</button>
-<button class="navbar__button" *ngIf="isUserLoggedIn" mat-button color="primary" (click)="logoutUser()">Logout</button>
+  <div class="navbar__button-row">
+  <button class="navbar__button" *ngIf="!isUserLoggedIn" mat-button color="primary" (click)="goToLoginPanel()">Login</button>
+  <button class="navbar__button" *ngIf="isUserLoggedIn" mat-button color="primary" routerLink="/dashboard">Dashboard</button>
+  <button class="navbar__button" *ngIf="isUserLoggedIn" mat-button color="primary" (click)="logoutUser()">Logout</button>
+  </div>
 </div>

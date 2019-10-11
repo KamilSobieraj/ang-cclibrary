@@ -12,19 +12,13 @@ import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
   templateUrl: './dashboard-panel.component.html',
   styleUrls: ['./dashboard-panel.component.scss']
 })
-export class DashboardPanelComponent implements OnInit, OnDestroy {
+export class DashboardPanelComponent implements OnInit {
   currentUserData: User;
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
               private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getCurrentUserData()
-      .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(currentUserData => this.currentUserData = currentUserData);
-  }
-
-  ngOnDestroy(): void {
-    // ! need to be called (even empty) for componentDestroyed(this) to work
+    this.userService.currentUserData$.subscribe(res => this.currentUserData = res);
   }
 }

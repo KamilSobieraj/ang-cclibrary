@@ -1,10 +1,1 @@
-<p>order-panel works!</p>
-<p>chosen book ID: {{bookID}}</p>
-<p>is book available: {{isBookAvailable}}</p>
-<ng-container *ngIf="isBookAvailable; then orderPanel else reservePanel"></ng-container>
-<ng-template #orderPanel>
-  <app-order-book></app-order-book>
-</ng-template>
-<ng-template #reservePanel>
   <app-reserve-book></app-reserve-book>
-</ng-template>

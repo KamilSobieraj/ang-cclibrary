@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {OrderService} from '../../../order-panel/order.service';
+import {BooksService} from '../../books.service';
+import {Router} from '@angular/router';
+import {OperationsService} from '../../../order-panel/operations.service';
 
 @Component({
   selector: 'app-book-availability-detail',
@@ -10,11 +12,21 @@ export class BookAvailabilityDetailComponent implements OnInit {
 @Input() isAvailable: boolean;
 @Input() bookID: string;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private booksService: BooksService,
+              private operationService: OperationsService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.orderService.isBookAvailable$.next(this.isAvailable);
-    this.orderService.chosenBookID$.next(this.bookID);
+    this.booksService.isBookAvailable$.next(this.isAvailable);
+    this.booksService.chosenBookID$.next(this.bookID);
+  }
 
+  onOrderBook() {
+    this.booksService.changeBookAvailabilityStatusInDB(false);
+    this.operationService.addNewOrderOperation();
+    window.alert('Ksiązka zamówiona - udaj się do miejsca jej lokalizacji i zaczytuj!');
+    // TODO: Make it right
+    setTimeout(() => this.router.navigate(['/dashboard']), 500);
+    // this.router.navigate(['/dashboard']);
   }
 }

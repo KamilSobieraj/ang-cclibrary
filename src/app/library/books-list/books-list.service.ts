@@ -15,7 +15,7 @@ export class BooksListService {
   }
 
   setBooksSetForTable() {
-    this.booksService.getBooksData()
+    this.booksService.getBooksDataFromDB()
       .subscribe(booksData => {
         const bookSet = [];
         booksData.map(book => {

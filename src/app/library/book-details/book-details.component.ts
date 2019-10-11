@@ -33,7 +33,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
     this.activatedRoute.params
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe((params: Params) => {
-        this.bookDetails = this.booksService.getBookDetail(params.id);
+        this.bookDetails = this.booksService.getBookDetails(params.id);
       });
   }
 

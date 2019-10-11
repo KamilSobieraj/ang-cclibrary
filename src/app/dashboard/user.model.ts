@@ -1,3 +1,5 @@
+import {CurrentBorrowedBooks} from './currentBorrowedBooks.model';
+
 export interface User {
   id: string;
   userType: string;
@@ -5,4 +7,5 @@ export interface User {
   password: string;
   userName?: string;
   history: string[];
+  currentBorrowedBooks: CurrentBorrowedBooks[];
 }

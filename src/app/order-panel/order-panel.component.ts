@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {OrderService} from './order.service';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
+import {BooksService} from '../library/books.service';
 
 @Component({
   selector: 'app-order-panel',
@@ -11,18 +11,19 @@ import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 export class OrderPanelComponent implements OnInit, OnDestroy {
   isBookAvailable: boolean;
   bookID: string;
-  constructor(private orderService: OrderService) { }
+  constructor(private booksService: BooksService) { }
 
   ngOnInit() {
-    this.orderService.isBookAvailable$
+    this.booksService.isBookAvailable$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(isAvailable => this.isBookAvailable = isAvailable);
 
-    this.orderService.chosenBookID$
+    this.booksService.chosenBookID$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(bookID => this.bookID = bookID);
   }
 
   ngOnDestroy(): void {
+    // ! need to be called (even empty) for componentDestroyed(this) to work
   }
 }
