@@ -41,6 +41,12 @@ export class UserService {
     this.sendUpdatedUserDataToDB(this.currentUserData);
   }
 
+  addNewReturnOperationToCurrentUser(newOperationID: string, orderedBookID: string) {
+    this.currentUserData.history.push(newOperationID);
+    // this.currentUserData.currentBorrowedBooks.push({bookID: orderedBookID, operationID: newOperationID});
+    this.sendUpdatedUserDataToDB(this.currentUserData);
+  }
+
   sendUpdatedUserDataToDB(newUserData: User) {
     this.httpClient
       .put<User>(this.databaseService.databaseURL + '/users/' + this.getCurrentUserID(),
