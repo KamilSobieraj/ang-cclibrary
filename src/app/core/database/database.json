@@ -10,18 +10,24 @@
     },
     {
       "email": "kellycmi@interia.pl",
-      "password": "$2a$10$pdERp78Oz/lT8RMASBcYkO2nu8BSEg6Ha5enPf6EVs4VhKA7uYS9m",
+      "password": "$2a$10$1RiC/dC/xTM3rSG6i4KJheiTZnCIr2PRAm6vixYTxebtEwjxRchIq",
       "id": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "userType": "regular",
       "history": [
-        "borrowab112d07-0420-48bb-bd27-fbf88c9d144f",
-        "borrowd06e50d6-d3fd-4a15-836c-e33da2a3cdcf",
-        "returnade80848-c5af-4f26-8502-5d144587caa0",
-        "borrow3ffe4b1f-eec7-48cf-8747-0e1251896979",
-        "returnb2933bf9-567b-448b-8479-be7540c5c740",
-        "return414d791d-116b-45e7-9268-77af6036c872"
+        "borrow-439141fc-119d-4616-83a0-6887e491348a",
+        "borrow-a403062f-3aee-4acb-b14a-ecd6d01d4af3",
+        "return-6f83d3f1-df5c-46d4-bf24-5244a817562c",
+        "borrow-9fa01249-f2a9-411c-b42d-90baf03197dd",
+        "return-5e71fc87-0056-43b0-b799-53f2cbfc984b",
+        "return-7dd53820-f5f5-4214-b9f2-3380b34cc08c",
+        "borrow-ab4f0d2b-d199-4efc-83db-184516d3e9c9"
       ],
-      "currentBorrowedBooks": []
+      "currentBorrowedBooks": [
+        {
+          "bookID": "01",
+          "operationID": "borrow-ab4f0d2b-d199-4efc-83db-184516d3e9c9"
+        }
+      ]
     }
   ],
   "books": [
@@ -37,13 +43,11 @@
       ],
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
-      "isAvailable": true,
+      "isAvailable": false,
       "history": [
         "o06",
         "o22",
-        "borrowab112d07-0420-48bb-bd27-fbf88c9d144f",
-        "borrow3ffe4b1f-eec7-48cf-8747-0e1251896979",
-        "returnb2933bf9-567b-448b-8479-be7540c5c740"
+        "borrow-439141fc-119d-4616-83a0-6887e491348a"
       ],
       "reservations": []
     },
@@ -64,8 +68,10 @@
       "history": [
         "o63",
         "o01",
-        "borrowd06e50d6-d3fd-4a15-836c-e33da2a3cdcf",
-        "returnade80848-c5af-4f26-8502-5d144587caa0"
+        "borrow-a403062f-3aee-4acb-b14a-ecd6d01d4af3",
+        "return-6f83d3f1-df5c-46d4-bf24-5244a817562c",
+        "borrow-9fa01249-f2a9-411c-b42d-90baf03197dd",
+        "return-5e71fc87-0056-43b0-b799-53f2cbfc984b"
       ],
       "reservations": [
         "u01",
@@ -75,51 +81,59 @@
   ],
   "operations": [
     {
-      "id": "borrowab112d07-0420-48bb-bd27-fbf88c9d144f",
+      "id": "borrow-439141fc-119d-4616-83a0-6887e491348a",
       "bookID": "Randomowy tytuł książki.",
-      "date": "2019-10-14T05:26:29.587Z",
+      "date": "2019-10-14T06:08:02.794Z",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "order",
+      "operationType": "borrow",
       "movedTo": "w chuj"
     },
     {
-      "id": "borrowd06e50d6-d3fd-4a15-836c-e33da2a3cdcf",
+      "id": "borrow-a403062f-3aee-4acb-b14a-ecd6d01d4af3",
       "bookID": "Angular Ninja",
-      "date": "2019-10-14T05:26:34.418Z",
+      "date": "2019-10-14T06:08:08.010Z",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "order",
+      "operationType": "borrow",
       "movedTo": "w chuj"
     },
     {
-      "id": "returnade80848-c5af-4f26-8502-5d144587caa0",
+      "id": "return-6f83d3f1-df5c-46d4-bf24-5244a817562c",
       "bookID": "Angular Ninja",
-      "date": "2019-10-14T05:26:37.051Z",
+      "date": "2019-10-14T06:08:10.642Z",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "operationType": "return",
       "movedTo": "w chuj"
     },
     {
-      "id": "borrow3ffe4b1f-eec7-48cf-8747-0e1251896979",
-      "bookID": "Randomowy tytuł książki.",
-      "date": "2019-10-14T05:26:42.610Z",
+      "id": "borrow-9fa01249-f2a9-411c-b42d-90baf03197dd",
+      "bookID": "Angular Ninja",
+      "date": "2019-10-14T06:08:17.261Z",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "order",
+      "operationType": "borrow",
       "movedTo": "w chuj"
     },
     {
-      "id": "returnb2933bf9-567b-448b-8479-be7540c5c740",
-      "bookID": "Randomowy tytuł książki.",
-      "date": "2019-10-14T05:26:52.779Z",
+      "id": "return-5e71fc87-0056-43b0-b799-53f2cbfc984b",
+      "bookID": "Angular Ninja",
+      "date": "2019-10-14T06:08:24.325Z",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "operationType": "return",
       "movedTo": "w chuj"
     },
     {
-      "id": "return414d791d-116b-45e7-9268-77af6036c872",
-      "bookID": "Randomowy tytuł książki.",
-      "date": "2019-10-14T05:26:57.692Z",
+      "id": "return-7dd53820-f5f5-4214-b9f2-3380b34cc08c",
+      "bookID": "Angular Ninja",
+      "date": "2019-10-14T06:08:25.205Z",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "operationType": "return",
+      "movedTo": "w chuj"
+    },
+    {
+      "id": "borrow-ab4f0d2b-d199-4efc-83db-184516d3e9c9",
+      "bookID": "Randomowy tytuł książki.",
+      "date": "2019-10-14T06:08:30.725Z",
+      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
+      "operationType": "borrow",
       "movedTo": "w chuj"
     }
   ]

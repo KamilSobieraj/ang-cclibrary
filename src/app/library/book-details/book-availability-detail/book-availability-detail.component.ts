@@ -23,7 +23,7 @@ export class BookAvailabilityDetailComponent implements OnInit {
 
   onOrderBook() {
     this.booksService.changeBookAvailabilityStatusInDB(false);
-    this.operationService.addNewOrderOperation();
+    this.operationService.addNewOperation('borrow');
     window.alert('Ksiązka zamówiona - udaj się do miejsca jej lokalizacji i zaczytuj!');
     // TODO: Make it right
     setTimeout(() => this.router.navigate(['/dashboard']), 500);

@@ -16,34 +16,17 @@ export class OperationsService {
               private booksService: BooksService) {
   }
 
-  addNewOrderOperation() {
-    const operationID = `borrow${uuid.v4()}`;
+  addNewOperation(operationType: string) {
+    const operationID = `${operationType}-${uuid.v4()}`;
     const bookData = this.booksService.getBookDetails();
     bookData.history.push(operationID);
-    this.userService.addNewOrderOperationToCurrentUser(operationID, bookData.id);
+    this.userService.addNewOperationToCurrentUser(operationID, bookData.id);
     const newOperation = {
       id: operationID,
       bookID: bookData.title,
       date: new Date(),
       userID: this.userService.getCurrentUserID(),
-      operationType: 'order',
-      movedTo: 'w chuj'
-    };
-    this.httpClient.post<any>(this.database.databaseURL + '/operations/', JSON.stringify(newOperation), this.database.httpOptions)
-      .subscribe();
-  }
-
-  addReturnBookOperation() {
-    const operationID = `return${uuid.v4()}`;
-    const bookData = this.booksService.getBookDetails();
-    bookData.history.push(operationID);
-    this.userService.addNewReturnOperationToCurrentUser(operationID, bookData.id);
-    const newOperation = {
-      id: operationID,
-      bookID: bookData.title,
-      date: new Date(),
-      userID: this.userService.getCurrentUserID(),
-      operationType: 'return',
+      operationType,
       movedTo: 'w chuj'
     };
     this.httpClient.post<any>(this.database.databaseURL + '/operations/', JSON.stringify(newOperation), this.database.httpOptions)

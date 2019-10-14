@@ -26,7 +26,7 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
   }
   onReturnBook(bookID: string) {
     this.userService.removeBookFromBorrowed(bookID);
-    this.operationsService.addReturnBookOperation();
+    this.operationsService.addNewOperation('return');
   }
 
   ngOnDestroy(): void {

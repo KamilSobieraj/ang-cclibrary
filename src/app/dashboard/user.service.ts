@@ -35,15 +35,13 @@ export class UserService {
     return JSON.parse(localStorage.getItem('userData')).sub;
   }
 
-  addNewOrderOperationToCurrentUser(newOperationID: string, orderedBookID: string) {
+  addNewOperationToCurrentUser(newOperationID: string, orderedBookID: string) {
     this.currentUserData.history.push(newOperationID);
-    this.currentUserData.currentBorrowedBooks.push({bookID: orderedBookID, operationID: newOperationID});
-    this.sendUpdatedUserDataToDB(this.currentUserData);
-  }
-
-  addNewReturnOperationToCurrentUser(newOperationID: string, orderedBookID: string) {
-    this.currentUserData.history.push(newOperationID);
-    // this.currentUserData.currentBorrowedBooks.push({bookID: orderedBookID, operationID: newOperationID});
+    // If borrow book operation
+    if (newOperationID.includes('borrow')) {
+      this.currentUserData.currentBorrowedBooks.push({bookID: orderedBookID, operationID: newOperationID});
+      console.log(newOperationID.includes('borrow'));
+    }
     this.sendUpdatedUserDataToDB(this.currentUserData);
   }
 
