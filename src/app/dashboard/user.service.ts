@@ -7,15 +7,18 @@ import {DatabaseService} from '../core/database.service';
 import {BooksService} from '../library/books.service';
 import {Operation} from '../order-panel/operation.model';
 import {CurrentBorrowedBooks} from './currentBorrowedBooks.model';
+import {OperationsService} from '../order-panel/operations.service';
+import {BookModel} from '../library/book.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  operationsHistory$ = new BehaviorSubject([]);
+  currentUserOperationsIDS$ = new BehaviorSubject([]);
   currentBorrowedBooks$ = new BehaviorSubject<CurrentBorrowedBooks[]>([]);
   currentUserData$ = new BehaviorSubject<User>(null);
   currentUserData: User;
+  currentUserOperationsIDS;
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
@@ -40,7 +43,6 @@ export class UserService {
     // If borrow book operation
     if (newOperationID.includes('borrow')) {
       this.currentUserData.currentBorrowedBooks.push({bookID: orderedBookID, operationID: newOperationID});
-      console.log(newOperationID.includes('borrow'));
     }
     this.sendUpdatedUserDataToDB(this.currentUserData);
   }
@@ -53,9 +55,9 @@ export class UserService {
       .subscribe();
   }
 
-  getCurrentUserOperations(): Observable<Operation[]> {
-    this.operationsHistory$.next(this.currentUserData.history);
-    return this.operationsHistory$.asObservable();
+  getCurrentUserOperationsIDS(): Observable<Operation[]> {
+    this.currentUserOperationsIDS$.next(this.currentUserData.history);
+    return this.currentUserOperationsIDS$.asObservable();
   }
 
   getCurrentUserCurrentBorrowedBooks(): Observable<CurrentBorrowedBooks[]> {

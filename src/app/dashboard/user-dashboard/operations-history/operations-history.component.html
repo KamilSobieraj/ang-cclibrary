@@ -1,8 +1,10 @@
-<ul> Historia operacji:
-  <li *ngFor="let operation of currentUserHistory">{{operation}}</li>
-</ul>
 <ul> Obecnie wypozyczone ksiązki:
   <li *ngFor="let book of currentBorrowedBooks">BookID: {{book.bookID}}; OperationID: {{book.operationID}}
     <button (click)="onReturnBook(book.bookID)">Oddaj</button>
   </li>
 </ul>
+<ul> all:
+  <li *ngFor="let el of table">Książkę {{el.title}} {{el.operationType.toLowerCase()}} dnia {{el.operationDate}}
+  </li>
+</ul>
+

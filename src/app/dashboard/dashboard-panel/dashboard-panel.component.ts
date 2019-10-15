@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {UserService} from '../user.service';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
+import {OperationsService} from '../../order-panel/operations.service';
 
 @Component({
   selector: 'app-dashboard-panel',
@@ -16,7 +17,8 @@ export class DashboardPanelComponent implements OnInit {
   currentUserData: User;
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private operationsService: OperationsService) { }
 
   ngOnInit() {
     this.userService.currentUserData$.subscribe(res => this.currentUserData = res);
