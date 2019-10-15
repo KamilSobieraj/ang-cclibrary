@@ -10,26 +10,22 @@
     },
     {
       "email": "kellycmi@interia.pl",
-      "password": "$2a$10$ekDBa1i9nn.i/y0p3UY3POgdrl2jEiR3D2P5PlqZ8W0PU79XtG..m",
+      "password": "$2a$10$ynI7Yfr5OVmC5I..jTwXaO.kpiDio89TTMhkruISwMa2WyjQqnBSm",
       "id": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "userType": "regular",
       "history": [
-        "borrow-ceae70ae-e3ef-49b4-a8a5-25f5f4dbedc6",
-        "borrow-629fcd12-60b9-4f6b-a9aa-252cdb4beae2",
-        "return-74196d48-de22-40cc-a55d-92f30bd1cf3b",
-        "return-5529024e-70e4-41a0-91c6-23884581aaba",
-        "borrow-6192e9b7-43d2-4961-875a-c18f1eaa863f",
-        "return-a65e92e2-9827-4e72-a529-e114619515c4",
-        "borrow-23457fa1-614b-4150-b7b9-710509225db4",
-        "return-c4c9d2ac-0678-41a7-b504-f1ebcfb60247",
-        "borrow-ef540cee-583a-4949-b142-83d48cee0b5e",
-        "return-789e2a52-80e5-49f5-8d75-3c7ae68f4a4f",
-        "borrow-494cb4ab-c5ab-4c3e-ae13-b4161010ab7c",
-        "return-2b0fce45-42f6-423f-b06e-dcb0d9a7d0c2",
-        "borrow-9b787064-1658-4c80-977f-032073003b70",
-        "borrow-9d09cedc-fd85-4a1e-aceb-d75e4b624134",
-        "return-65736c98-cda1-451f-a1da-f97fb1e2bf94",
-        "return-42f0aa34-a92b-4e41-a8c3-e96d4dcc3059"
+        "borrow-2ef80613-2e23-4a7c-8e7d-6d55cb409ba7",
+        "return-04ab7d56-c0ae-492d-99da-ffc74ae06420",
+        "borrow-0e169891-cbe2-47b7-9aa6-8b9a0e6990b7",
+        "borrow-931441bd-7818-480a-8dc5-14eaacf5fbec",
+        "return-ab5e1d8b-9b9f-48d5-80a2-f74ced5228d0",
+        "return-c10bae6e-f405-4199-8705-b2b2e5798607",
+        "borrow-1e63711f-48d4-48f1-8aef-e7cf821fbd7f",
+        "borrow-db9f06e8-8de3-4c45-80c7-8b63526e179b",
+        "return-7f532eed-acf2-4b44-b746-0a72aedcd522",
+        "return-1cc1345b-0129-43d0-a12b-3c0fe133bac4",
+        "borrow-0f81a988-d89d-427d-873d-e58bf88b647b",
+        "return-06e36969-4e7e-4f55-96da-4320e14cfe25"
       ],
       "currentBorrowedBooks": []
     }
@@ -51,15 +47,10 @@
       "history": [
         "o06",
         "o22",
-        "borrow-ceae70ae-e3ef-49b4-a8a5-25f5f4dbedc6",
-        "return-5529024e-70e4-41a0-91c6-23884581aaba",
-        "borrow-6192e9b7-43d2-4961-875a-c18f1eaa863f",
-        "return-a65e92e2-9827-4e72-a529-e114619515c4",
-        "borrow-23457fa1-614b-4150-b7b9-710509225db4",
-        "borrow-ef540cee-583a-4949-b142-83d48cee0b5e",
-        "borrow-494cb4ab-c5ab-4c3e-ae13-b4161010ab7c",
-        "return-2b0fce45-42f6-423f-b06e-dcb0d9a7d0c2",
-        "borrow-9b787064-1658-4c80-977f-032073003b70"
+        "borrow-2ef80613-2e23-4a7c-8e7d-6d55cb409ba7",
+        "return-04ab7d56-c0ae-492d-99da-ffc74ae06420",
+        "borrow-1e63711f-48d4-48f1-8aef-e7cf821fbd7f",
+        "borrow-0f81a988-d89d-427d-873d-e58bf88b647b"
       ],
       "reservations": []
     },
@@ -80,8 +71,7 @@
       "history": [
         "o63",
         "o01",
-        "borrow-629fcd12-60b9-4f6b-a9aa-252cdb4beae2",
-        "borrow-9d09cedc-fd85-4a1e-aceb-d75e4b624134"
+        "borrow-db9f06e8-8de3-4c45-80c7-8b63526e179b"
       ],
       "reservations": [
         "u01",
@@ -91,129 +81,65 @@
   ],
   "operations": [
     {
-      "id": "borrow-ceae70ae-e3ef-49b4-a8a5-25f5f4dbedc6",
+      "id": "return-ab5e1d8b-9b9f-48d5-80a2-f74ced5228d0",
       "bookID": "01",
-      "date": "2019-10-15 14:51:31",
+      "date": "2019-10-15 15:10:57",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "borrow",
+      "operationType": "return",
       "movedTo": "w chuj"
     },
     {
-      "id": "borrow-629fcd12-60b9-4f6b-a9aa-252cdb4beae2",
+      "id": "return-c10bae6e-f405-4199-8705-b2b2e5798607",
       "bookID": "02",
-      "date": "2019-10-15 14:51:46",
+      "date": "2019-10-15 15:10:58",
+      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
+      "operationType": "return",
+      "movedTo": "w chuj"
+    },
+    {
+      "id": "borrow-1e63711f-48d4-48f1-8aef-e7cf821fbd7f",
+      "bookID": "01",
+      "date": "2019-10-15 15:11:3",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "operationType": "borrow",
       "movedTo": "w chuj"
     },
     {
-      "id": "return-74196d48-de22-40cc-a55d-92f30bd1cf3b",
+      "id": "borrow-db9f06e8-8de3-4c45-80c7-8b63526e179b",
       "bookID": "02",
-      "date": "2019-10-15 14:51:51",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "return",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "return-5529024e-70e4-41a0-91c6-23884581aaba",
-      "bookID": "01",
-      "date": "2019-10-15 14:51:53",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "return",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "borrow-6192e9b7-43d2-4961-875a-c18f1eaa863f",
-      "bookID": "01",
-      "date": "2019-10-15 14:52:3",
+      "date": "2019-10-15 15:11:7",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "operationType": "borrow",
       "movedTo": "w chuj"
     },
     {
-      "id": "return-a65e92e2-9827-4e72-a529-e114619515c4",
-      "bookID": "01",
-      "date": "2019-10-15 14:52:6",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "return",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "borrow-23457fa1-614b-4150-b7b9-710509225db4",
-      "bookID": "01",
-      "date": "2019-10-15 14:52:15",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "borrow",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "return-c4c9d2ac-0678-41a7-b504-f1ebcfb60247",
-      "bookID": "01",
-      "date": "2019-10-15 14:52:23",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "return",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "borrow-ef540cee-583a-4949-b142-83d48cee0b5e",
-      "bookID": "01",
-      "date": "2019-10-15 14:53:48",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "borrow",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "return-789e2a52-80e5-49f5-8d75-3c7ae68f4a4f",
-      "bookID": "01",
-      "date": "2019-10-15 14:53:51",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "return",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "borrow-494cb4ab-c5ab-4c3e-ae13-b4161010ab7c",
-      "bookID": "01",
-      "date": "2019-10-15 14:55:53",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "borrow",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "return-2b0fce45-42f6-423f-b06e-dcb0d9a7d0c2",
-      "bookID": "01",
-      "date": "2019-10-15 14:55:57",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "return",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "borrow-9b787064-1658-4c80-977f-032073003b70",
-      "bookID": "01",
-      "date": "2019-10-15 14:56:6",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "borrow",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "borrow-9d09cedc-fd85-4a1e-aceb-d75e4b624134",
+      "id": "return-7f532eed-acf2-4b44-b746-0a72aedcd522",
       "bookID": "02",
-      "date": "2019-10-15 14:56:9",
-      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
-      "operationType": "borrow",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "return-65736c98-cda1-451f-a1da-f97fb1e2bf94",
-      "bookID": "02",
-      "date": "2019-10-15 14:56:22",
+      "date": "2019-10-15 15:11:14",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "operationType": "return",
       "movedTo": "w chuj"
     },
     {
-      "id": "return-42f0aa34-a92b-4e41-a8c3-e96d4dcc3059",
+      "id": "return-1cc1345b-0129-43d0-a12b-3c0fe133bac4",
       "bookID": "01",
-      "date": "2019-10-15 14:56:23",
+      "date": "2019-10-15 15:11:15",
+      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
+      "operationType": "return",
+      "movedTo": "w chuj"
+    },
+    {
+      "id": "borrow-0f81a988-d89d-427d-873d-e58bf88b647b",
+      "bookID": "01",
+      "date": "2019-10-15 15:12:19",
+      "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
+      "operationType": "borrow",
+      "movedTo": "w chuj"
+    },
+    {
+      "id": "return-06e36969-4e7e-4f55-96da-4320e14cfe25",
+      "bookID": "01",
+      "date": "2019-10-15 15:12:21",
       "userID": "6e576e01-785c-4e84-9191-f1eeac7c6339",
       "operationType": "return",
       "movedTo": "w chuj"

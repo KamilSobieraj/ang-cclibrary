@@ -6,6 +6,7 @@ import {DatabaseService} from '../core/database.service';
 import {BooksService} from '../library/books.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Operation} from './operation.model';
+import {BookModel} from '../library/book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class OperationsService {
   allOperationsData: Operation[];
   allOperationsData$ = new BehaviorSubject<Operation[]>(null);
   operationsData$ = new BehaviorSubject<Operation[]>([]);
+  operationsHistoryDataForTable$ = new BehaviorSubject<BookModel[]>(null);
 
   constructor(private userService: UserService,
               private httpClient: HttpClient,
@@ -26,7 +28,7 @@ export class OperationsService {
         this.allOperationsData = operationsData;
       });
     this.userService.currentUserOperationsIDS$
-      .subscribe(currentUserOperationsIDSHistory => this.currentUserOperationsIDS = currentUserOperationsIDSHistory).unsubscribe();
+      .subscribe(currentUserOperationsIDSHistory => this.currentUserOperationsIDS = currentUserOperationsIDSHistory);
   }
 
   getOperationsDataFromDB(): Observable<any> {
@@ -73,5 +75,24 @@ export class OperationsService {
         }
       });
       return bookID;
+  }
+
+  setOperationsHistoryData() {
+    const historySet = [];
+    this.currentUserOperationsIDS.map(operationID => {
+      const newPosition = this.getBookData(operationID.toString());
+      historySet.push({...newPosition, operationID});
+      historySet.map((operation) => {
+        this.allOperationsData.filter(operationFromDB => (operationFromDB.id === operation.operationID)).map(op => operation.operationDate = op.date);
+      });
+      historySet.map(operation => {
+        if (operation.operationID.includes('borrow')) {
+          operation.operationType = 'Wypożyczono';
+        } else {
+          operation.operationType = 'Oddano';
+        }
+      });
+    });
+    this.operationsHistoryDataForTable$.next(historySet);
   }
 }

@@ -22,7 +22,6 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
   currentUserHistoryOperationsIDS: Operation[];
   allOperations;
   currentBorrowedBooks: {}[];
-  table$ = new BehaviorSubject<BookModel[]>(null);
   table;
   operationsHistoryTable: OperationsHistoryTable[];
   currentUserOperationsData$ = new BehaviorSubject<Operation[]>(null);
@@ -40,34 +39,14 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
     this.operationsService.getOperationsData()
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(operationsData => this.allOperations = operationsData);
-    this.table$.subscribe(res => this.table = res);
-    this.setDataForTable();
-
+    this.operationsService.operationsHistoryDataForTable$.subscribe(res => this.table = res);
+    this.operationsService.setOperationsHistoryData();
   }
 
   onReturnBook(bookID: string) {
     this.userService.removeBookFromBorrowed(bookID);
     this.operationsService.addNewOperation('return', bookID);
-    this.setDataForTable();
-  }
-
-  setDataForTable() {
-    const historySet = [];
-    this.currentUserHistoryOperationsIDS.map(operationID => {
-      const newPosition = this.operationsService.getBookData(operationID.toString());
-      historySet.push({...newPosition, operationID});
-      historySet.map((operation) => {
-        this.allOperations.filter(operationFromDB => (operationFromDB.id === operation.operationID)).map(op => operation.operationDate = op.date);
-      });
-      historySet.map(operation => {
-        if (operation.operationID.includes('borrow')) {
-          operation.operationType = 'Wypożyczono';
-        } else {
-          operation.operationType = 'Oddano';
-        }
-      });
-    });
-    this.table$.next(historySet);
+    this.operationsService.setOperationsHistoryData();
   }
 
   ngOnDestroy(): void {
