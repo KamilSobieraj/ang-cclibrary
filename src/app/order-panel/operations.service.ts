@@ -4,9 +4,11 @@ import {UserService} from '../dashboard/user.service';
 import {HttpClient} from '@angular/common/http';
 import {DatabaseService} from '../core/database.service';
 import {BooksService} from '../library/books.service';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {Operation} from './operation.model';
 import {BookModel} from '../library/book.model';
+import {MatTableDataSource} from '@angular/material';
+import {BookTable} from '../library/books-list/book-table';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,8 @@ export class OperationsService {
   allOperationsData$ = new BehaviorSubject<Operation[]>(null);
   operationsData$ = new BehaviorSubject<Operation[]>([]);
   operationsHistoryDataForTable$ = new BehaviorSubject<BookModel[]>(null);
+  operationsHistoryTableDataSource$ = new Subject<MatTableDataSource<any>>();
+  currentUserBorrowedBooks;
 
   constructor(private userService: UserService,
               private httpClient: HttpClient,
@@ -29,14 +33,39 @@ export class OperationsService {
       });
     this.userService.currentUserOperationsIDS$
       .subscribe(currentUserOperationsIDSHistory => this.currentUserOperationsIDS = currentUserOperationsIDSHistory);
+    this.userService.currentBorrowedBooks$.subscribe(currentUserBorrowedBooks => this.currentUserBorrowedBooks = currentUserBorrowedBooks);
   }
 
   getOperationsDataFromDB(): Observable<any> {
     return this.databaseService.getData('operations');
   }
+
   getOperationsData(): Observable<Operation[]> {
     this.operationsData$.next(this.allOperationsData);
     return this.operationsData$.asObservable();
+  }
+
+  getCurrentUserBorrowedBooksDetails() {
+    const borrowedBooksDetails = [];
+
+    this.currentUserBorrowedBooks.map(borrowDetails => {
+      const borrowedBookDate = this.getOperationData(borrowDetails.operationID).date;
+      const bookID = this.getOperationData(borrowDetails.operationID).bookID;
+      const borrowedBookTitle = this.booksService.getBookDetails(bookID).title;
+      borrowedBooksDetails.push({borrowedBookTitle, borrowedBookDate, bookID});
+    });
+    console.log(borrowedBooksDetails);
+    // this.userService.currentBorrowedBooks$.next(borrowedBooksDetails);
+  }
+
+  getOperationData(operationID: string) {
+    let operationOutput;
+    this.allOperationsData.map(operation => {
+      if (operation.id === operationID) {
+        operationOutput = operation;
+      }
+    });
+    return operationOutput;
   }
 
   addNewOperation(operationType: string, bookID: string) {
@@ -94,5 +123,6 @@ export class OperationsService {
       });
     });
     this.operationsHistoryDataForTable$.next(historySet);
+    this.operationsHistoryTableDataSource$.next(new MatTableDataSource(historySet));
   }
 }

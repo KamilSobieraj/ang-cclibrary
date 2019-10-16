@@ -1,16 +1,9 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {OperationsService} from '../../../order-panel/operations.service';
 import {Operation} from '../../../order-panel/operation.model';
 import {UserService} from '../../user.service';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
-import {BooksService} from '../../../library/books.service';
-import {BookModel} from '../../../library/book.model';
-import {User} from '../../user.model';
-import {HttpClient} from '@angular/common/http';
-import {DatabaseService} from '../../../core/database.service';
-import {BehaviorSubject} from 'rxjs';
-import {OperationsHistoryTable} from './operations-history-table.model';
 import {MatTableDataSource} from '@angular/material';
 
 @Component({
@@ -22,9 +15,8 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
   currentUserHistoryOperationsIDS: Operation[];
   allOperations;
   currentBorrowedBooks: {}[];
-  table;
-  operationsHistoryTable: OperationsHistoryTable[];
-  currentUserOperationsData$ = new BehaviorSubject<Operation[]>(null);
+  operationsHistoryTableDataSource: MatTableDataSource<any>;
+  displayedColumns = ['title', 'operationType', 'date'];
 
   constructor(private operationsService: OperationsService,
               private userService: UserService) { }
@@ -35,12 +27,17 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
       .subscribe(currentUserHistoryOperationsIDS => this.currentUserHistoryOperationsIDS = currentUserHistoryOperationsIDS);
     this.userService.getCurrentUserCurrentBorrowedBooks()
       .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(currentBorrowedBooks => this.currentBorrowedBooks = currentBorrowedBooks);
+      .subscribe(currentBorrowedBooks => {
+        this.currentBorrowedBooks = currentBorrowedBooks;
+        console.log(currentBorrowedBooks);
+      });
     this.operationsService.getOperationsData()
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(operationsData => this.allOperations = operationsData);
-    this.operationsService.operationsHistoryDataForTable$.subscribe(res => this.table = res);
+    this.operationsService.operationsHistoryDataForTable$.pipe(takeUntil(componentDestroyed(this)))
+      .subscribe(operationsHistory => this.operationsHistoryTableDataSource = new MatTableDataSource(operationsHistory));
     this.operationsService.setOperationsHistoryData();
+    this.operationsService.getCurrentUserBorrowedBooksDetails();
   }
 
   onReturnBook(bookID: string) {

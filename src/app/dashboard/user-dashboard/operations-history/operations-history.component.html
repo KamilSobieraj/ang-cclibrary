@@ -1,10 +1,22 @@
+<!--<app-search-bar></app-search-bar>-->
 <ul> Obecnie wypozyczone ksiązki:
-  <li *ngFor="let book of currentBorrowedBooks">BookID: {{book.bookID}}; OperationID: {{book.operationID}}
+  <li *ngFor="let book of currentBorrowedBooks">BookID: {{book.bookID}}; Date: {{book.operationID}}
     <button (click)="onReturnBook(book.bookID)">Oddaj</button>
   </li>
 </ul>
-<ul> all:
-  <li *ngFor="let el of table">Książkę {{el.title}} {{el.operationType.toLowerCase()}} dnia {{el.operationDate}}
-  </li>
-</ul>
-
+<table mat-table [dataSource]="operationsHistoryTableDataSource" class="mat-elevation-z8 books-table" >
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Tytuł </th>
+    <td mat-cell class="books-table__title-cell" *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+  <ng-container matColumnDef="operationType">
+    <th mat-header-cell *matHeaderCellDef> Operacja </th>
+    <td mat-cell *matCellDef="let element"> {{element.operationType}} </td>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Data </th>
+    <td mat-cell *matCellDef="let element"> {{element.operationDate}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row class="books-table__row" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

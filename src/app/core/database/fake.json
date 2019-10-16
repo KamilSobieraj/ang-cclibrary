@@ -10,13 +10,11 @@
     },
     {
       "email": "kellycmi@interia.pl",
-      "password": "$2a$10$Oa7z/V11MAY.LmiyXhzyreZI.q5UFbvC3vkNITNxdMUYWTozyNiP6",
-      "id": "6e576e01-785c-4e84-9191-f1eeac7c6339",
+      "password": "$2a$10$14kDWyfg9L6eGDEyIh6hm.citvTa30XnlAVxG8dvP1N0TXRXDNqu2",
+      "id": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
       "userType": "regular",
-      "history": [
-      ],
-      "currentBorrowedBooks": [
-      ]
+      "history": [],
+      "currentBorrowedBooks": []
     }
   ],
   "books": [
