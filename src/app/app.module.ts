@@ -33,6 +33,7 @@ import { BookTagsDetailComponent } from './library/book-details/book-tags-detail
 import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
 import { UserDataCardComponent } from './dashboard/user-dashboard/user-data-card/user-data-card.component';
 import { OperationsHistoryComponent } from './dashboard/user-dashboard/operations-history/operations-history.component';
+import { CurrentBorrowedBooksComponent } from './dashboard/user-dashboard/current-borrowed-books/current-borrowed-books.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { OperationsHistoryComponent } from './dashboard/user-dashboard/operation
     UserDashboardComponent,
     UserDataCardComponent,
     OperationsHistoryComponent,
+    CurrentBorrowedBooksComponent,
   ],
   imports: [
     BrowserModule,

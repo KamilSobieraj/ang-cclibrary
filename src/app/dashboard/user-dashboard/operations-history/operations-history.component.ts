@@ -17,6 +17,7 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
   currentBorrowedBooks: {}[];
   operationsHistoryTableDataSource: MatTableDataSource<any>;
   displayedColumns = ['title', 'operationType', 'date'];
+  borrowed;
 
   constructor(private operationsService: OperationsService,
               private userService: UserService) { }
@@ -29,7 +30,7 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(currentBorrowedBooks => {
         this.currentBorrowedBooks = currentBorrowedBooks;
-        console.log(currentBorrowedBooks);
+        // console.log(currentBorrowedBooks);
       });
     this.operationsService.getOperationsData()
       .pipe(takeUntil(componentDestroyed(this)))
@@ -38,6 +39,12 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
       .subscribe(operationsHistory => this.operationsHistoryTableDataSource = new MatTableDataSource(operationsHistory));
     this.operationsService.setOperationsHistoryData();
     this.operationsService.getCurrentUserBorrowedBooksDetails();
+    this.userService.abojawiem$
+      .pipe(takeUntil(componentDestroyed(this)))
+      .subscribe(res => {
+        this.borrowed = res;
+        // console.log(res);
+      });
   }
 
   onReturnBook(bookID: string) {

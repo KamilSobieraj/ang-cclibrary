@@ -8,7 +8,6 @@ import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {Operation} from './operation.model';
 import {BookModel} from '../library/book.model';
 import {MatTableDataSource} from '@angular/material';
-import {BookTable} from '../library/books-list/book-table';
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +53,8 @@ export class OperationsService {
       const borrowedBookTitle = this.booksService.getBookDetails(bookID).title;
       borrowedBooksDetails.push({borrowedBookTitle, borrowedBookDate, bookID});
     });
-    console.log(borrowedBooksDetails);
+    // console.log(borrowedBooksDetails);
+    this.userService.abojawiem$.next(borrowedBooksDetails);
     // this.userService.currentBorrowedBooks$.next(borrowedBooksDetails);
   }
 
@@ -85,6 +85,7 @@ export class OperationsService {
       .post<any>(this.databaseService.databaseURL + '/operations/', JSON.stringify(newOperation), this.databaseService.httpOptions)
       .subscribe();
     this.allOperationsData.push(newOperation);
+    this.userService.allOperationsData.push(newOperation);
   }
 
   getCurrentDate() {

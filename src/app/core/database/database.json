@@ -10,16 +10,23 @@
     },
     {
       "email": "kellycmi@interia.pl",
-      "password": "$2a$10$corg852RPHNP8HfL2gLiNOgj4614h/CVcDgfdoy4Tx8h2hSnPVd/S",
+      "password": "$2a$10$5xmJhj/DwtZT2yQWFoNeBOW0V1toT182nzpwYUn/KtuXZRmege40S",
       "id": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
       "userType": "regular",
       "history": [
-        "borrow-0c0e373e-01d5-4e22-9f1c-73e5f7223454",
-        "borrow-5d89747f-dfec-4c15-835d-c7a84b7485d1",
-        "return-65e586c4-71c5-42af-8391-fa0cecdcf6dd",
-        "return-57cdbc8a-331f-40f3-ada5-96dbb01834d3"
+        "borrow-03de550b-cdaf-4897-9c2c-f44059b96a47",
+        "borrow-adf3300e-3c2e-4112-9c02-d2e2f07083c1"
       ],
-      "currentBorrowedBooks": []
+      "currentBorrowedBooks": [
+        {
+          "bookID": "01",
+          "operationID": "borrow-03de550b-cdaf-4897-9c2c-f44059b96a47"
+        },
+        {
+          "bookID": "02",
+          "operationID": "borrow-adf3300e-3c2e-4112-9c02-d2e2f07083c1"
+        }
+      ]
     }
   ],
   "books": [
@@ -35,7 +42,7 @@
       ],
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
-      "isAvailable": true,
+      "isAvailable": false,
       "history": [
         "o06",
         "o22"
@@ -55,11 +62,10 @@
       ],
       "remarks": "",
       "currentLocation": "VI piętro",
-      "isAvailable": true,
+      "isAvailable": false,
       "history": [
         "o63",
-        "o01",
-        "borrow-5d89747f-dfec-4c15-835d-c7a84b7485d1"
+        "o01"
       ],
       "reservations": [
         "u01",
@@ -69,35 +75,19 @@
   ],
   "operations": [
     {
-      "id": "borrow-0c0e373e-01d5-4e22-9f1c-73e5f7223454",
+      "id": "borrow-03de550b-cdaf-4897-9c2c-f44059b96a47",
       "bookID": "01",
-      "date": "2019-10-16 10:55:33",
+      "date": "2019-10-16 14:26:51",
       "userID": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
       "operationType": "borrow",
       "movedTo": "w chuj"
     },
     {
-      "id": "borrow-5d89747f-dfec-4c15-835d-c7a84b7485d1",
+      "id": "borrow-adf3300e-3c2e-4112-9c02-d2e2f07083c1",
       "bookID": "02",
-      "date": "2019-10-16 10:57:33",
+      "date": "2019-10-16 14:27:3",
       "userID": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
       "operationType": "borrow",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "return-65e586c4-71c5-42af-8391-fa0cecdcf6dd",
-      "bookID": "02",
-      "date": "2019-10-16 10:57:35",
-      "userID": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
-      "operationType": "return",
-      "movedTo": "w chuj"
-    },
-    {
-      "id": "return-57cdbc8a-331f-40f3-ada5-96dbb01834d3",
-      "bookID": "01",
-      "date": "2019-10-16 10:57:36",
-      "userID": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
-      "operationType": "return",
       "movedTo": "w chuj"
     }
   ]
