@@ -1,21 +1,5 @@
 {
   "users": [
-    {
-      "email": "kamil.sobieraj@codeconcept.pl",
-      "password": "$2a$10$f8yQDVtDRZiC6eKtQvL6degjKbUl0pGYTfqSRMVMlTCs6VdlE9.Ka",
-      "id": "95b3a863-edbf-4b69-a28a-611e32988ed1",
-      "userType": "admin",
-      "history": [],
-      "currentBorrowedBooks": []
-    },
-    {
-      "email": "kellycmi@interia.pl",
-      "password": "$2a$10$FSp5Olzv8XHkAI768PnM3u9JJatLx2mYK65B/UqWFy2tXcnAPyBZq",
-      "id": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
-      "userType": "regular",
-      "history": [],
-      "currentBorrowedBooks": []
-    }
   ],
   "books": [
     {
