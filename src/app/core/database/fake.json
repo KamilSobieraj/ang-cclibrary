@@ -10,7 +10,7 @@
     },
     {
       "email": "kellycmi@interia.pl",
-      "password": "$2a$10$14kDWyfg9L6eGDEyIh6hm.citvTa30XnlAVxG8dvP1N0TXRXDNqu2",
+      "password": "$2a$10$FSp5Olzv8XHkAI768PnM3u9JJatLx2mYK65B/UqWFy2tXcnAPyBZq",
       "id": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
       "userType": "regular",
       "history": [],
@@ -31,10 +31,7 @@
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [
-        "o06",
-        "o22"
-      ],
+      "history": [],
       "reservations": []
     },
     {
@@ -51,14 +48,88 @@
       "remarks": "",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [
-        "o63",
-        "o01"
+      "history": [],
+      "reservations": []
+    },
+    {
+      "id": "03",
+      "title": "You Don't Know JS",
+      "author": "Kyle Simpson",
+      "publicationYear": "2016",
+      "editorName": "Github",
+      "tags": [
+        "Javascript"
       ],
-      "reservations": [
-        "u01",
-        "u35"
-      ]
+      "remarks": "e-book",
+      "currentLocation": "VI piętro",
+      "isAvailable": true,
+      "history": [],
+      "reservations": []
+    },
+    {
+      "id": "04",
+      "title": "Programming Bitcoin",
+      "author": "Jimmy Song",
+      "publicationYear": "2019",
+      "editorName": "O'Reilly Media",
+      "tags": [
+        "Bitcoin"
+      ],
+      "remarks": "",
+      "currentLocation": "VI piętro",
+      "isAvailable": true,
+      "history": [],
+      "reservations": []
+    },
+    {
+      "id": "05",
+      "title": "Scope & Closures",
+      "author": "Kyle Simpson",
+      "publicationYear": "2017",
+      "editorName": "O'Reilly Media",
+      "tags": [
+        "JavaScript"
+      ],
+      "remarks": "",
+      "currentLocation": "VI piętro",
+      "isAvailable": true,
+      "history": [],
+      "reservations": []
+    },
+    {
+      "id": "06",
+      "title": "Learning PHP, MySQL, JavaScript, CSS & HTML5",
+      "author": "Robin Nixon",
+      "publicationYear": "2018",
+      "editorName": "O'Reilly Media",
+      "tags": [
+        "JavaScript",
+        "PHP",
+        "MySQL",
+        "CSS",
+        "HTML"
+      ],
+      "remarks": "",
+      "currentLocation": "VI piętro",
+      "isAvailable": true,
+      "history": [],
+      "reservations": []
+    },
+    {
+      "id": "07",
+      "title": "JavaScript & jQuery",
+      "author": "David Sawy",
+      "publicationYear": "2018",
+      "editorName": "O'Reilly Media",
+      "tags": [
+        "JavaScript",
+        "jQuery"
+      ],
+      "remarks": "wydanie w języku staroaramejskim",
+      "currentLocation": "VI piętro",
+      "isAvailable": true,
+      "history": [],
+      "reservations": []
     }
   ],
   "operations": []

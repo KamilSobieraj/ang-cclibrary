@@ -1,0 +1,17 @@
+@import "src/app/shared/sass/variables";
+
+.operations-history-table {
+  width: 70%;
+  margin: 20px auto 50px auto;
+
+  &__title-cell {
+    &:hover {
+      cursor: pointer;
+      background-color: $color-hover;
+    }
+  }
+}
+
+h3 {
+  margin-left: 15%;
+}
