@@ -7,23 +7,6 @@
       "userType": "admin",
       "history": [],
       "currentBorrowedBooks": []
-    },
-    {
-      "email": "kellycmi@interia.pl",
-      "password": "$2a$10$6eNk/VDIZ8PZ4Dnpai5R7OnVSfBP4QdyQZ4avV32HsV1nfv5YeT9C",
-      "id": "5ad63e30-25a9-422b-9662-6bff4418200d",
-      "userType": "regular",
-      "history": [
-        "borrow-a7a3088b-ab69-4fd2-8a45-c7f5a79dfe88",
-        "return-ddf20047-5841-452e-85bf-ed37af7a587b",
-        "borrow-7c9bd201-90a7-4852-a76c-2be574cf794b"
-      ],
-      "currentBorrowedBooks": [
-        {
-          "bookID": "4c555151-9bbc-4fd8-8edc-3b0832ba0cd5",
-          "operationID": "borrow-7c9bd201-90a7-4852-a76c-2be574cf794b"
-        }
-      ]
     }
   ],
   "books": [
@@ -87,7 +70,9 @@
       "remarks": "",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [],
+      "history": [
+        "borrow-78cc8017-8aba-4cd8-8824-cd8d65619a30"
+      ],
       "reservations": []
     },
     {
@@ -102,7 +87,9 @@
       "remarks": "",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [],
+      "history": [
+        "borrow-7b42c343-7af6-4596-8542-0f431da0e115"
+      ],
       "reservations": []
     },
     {
@@ -195,6 +182,54 @@
       "history": [],
       "reservations": [],
       "bookCoverUrl": ""
+    },
+    {
+      "id": "c08c7eae-f796-417d-b09d-c7e5b0e6fbd9",
+      "title": "tytuł",
+      "author": "autor",
+      "publicationYear": "rok",
+      "editorName": "wydaw",
+      "tags": [],
+      "remarks": "uwagi",
+      "currentLocation": "lokal",
+      "isAvailable": true,
+      "history": [],
+      "reservations": [],
+      "bookCoverUrl": "link"
+    },
+    {
+      "id": "e0caea5b-aa57-4003-b990-6b185da68ee4",
+      "title": "Tagi",
+      "author": "tagi",
+      "publicationYear": "",
+      "editorName": "tagi ewryłer",
+      "tags": [
+        "Javascript",
+        "PHP"
+      ],
+      "remarks": "",
+      "currentLocation": "",
+      "isAvailable": true,
+      "history": [],
+      "reservations": [],
+      "bookCoverUrl": ""
+    },
+    {
+      "id": "19404a95-1883-49f7-8a12-33e40d79a64c",
+      "title": "asdf",
+      "author": "asdf",
+      "publicationYear": "",
+      "editorName": "",
+      "tags": [
+        "cokolwiek",
+        "Maniek"
+      ],
+      "remarks": "",
+      "currentLocation": "",
+      "isAvailable": false,
+      "history": [],
+      "reservations": [],
+      "bookCoverUrl": ""
     }
   ],
   "operations": [
@@ -220,6 +255,46 @@
       "date": "2019-10-17 10:27:56",
       "userID": "5ad63e30-25a9-422b-9662-6bff4418200d",
       "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "borrow-a7267d64-1c46-46c3-9d25-4606f7c1575d",
+      "bookID": "19404a95-1883-49f7-8a12-33e40d79a64c",
+      "date": "2019-10-17 11:49:25",
+      "userID": "7d046a10-58b8-4851-b04f-5430092440e4",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "borrow-78cc8017-8aba-4cd8-8824-cd8d65619a30",
+      "bookID": "04",
+      "date": "2019-10-17 11:49:29",
+      "userID": "7d046a10-58b8-4851-b04f-5430092440e4",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "borrow-7b42c343-7af6-4596-8542-0f431da0e115",
+      "bookID": "05",
+      "date": "2019-10-17 11:49:34",
+      "userID": "7d046a10-58b8-4851-b04f-5430092440e4",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "return-25332436-a23b-46a2-80ad-10f2ebb9bc66",
+      "bookID": "05",
+      "date": "2019-10-17 11:49:44",
+      "userID": "7d046a10-58b8-4851-b04f-5430092440e4",
+      "operationType": "return",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "return-88a3a630-ef5c-473a-83f7-e73ea2b05d4f",
+      "bookID": "04",
+      "date": "2019-10-17 11:49:45",
+      "userID": "7d046a10-58b8-4851-b04f-5430092440e4",
+      "operationType": "return",
       "movedTo": "somewhere"
     }
   ]

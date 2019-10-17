@@ -52,7 +52,27 @@
           name="publicationYear"
         >
       </mat-form-field>
-      <app-tags-chips></app-tags-chips>
+      <mat-form-field class="form__input">
+        <input
+          matInput
+          placeholder="Uwagi"
+          class="form-control"
+          aria-describedby="Dodatkowe uwagi"
+          [(ngModel)]="book.remarks"
+          name="remarks"
+        >
+      </mat-form-field>
+      <mat-form-field class="form__input">
+        <input
+          matInput
+          placeholder="Link do okładki"
+          class="form-control"
+          aria-describedby="Link do okładki"
+          [(ngModel)]="book.bookCoverUrl"
+          name="bookCoverURL"
+        >
+      </mat-form-field>
+      <app-tags-chips class="form__input"></app-tags-chips>
       <button
         mat-button
         type="submit"

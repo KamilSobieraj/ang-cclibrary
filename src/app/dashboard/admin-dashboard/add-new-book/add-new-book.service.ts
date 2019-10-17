@@ -3,12 +3,14 @@ import {BookModel} from '../../../library/book.model';
 import {HttpClient} from '@angular/common/http';
 import {DatabaseService} from '../../../core/database.service';
 import {catchError, retry} from 'rxjs/operators';
-import {throwError} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddNewBookService {
+  private formTags$ = new Subject<string[]>();
+  tags: string[] = [];
 
   constructor(private httpClient: HttpClient,
               private databaseService: DatabaseService) { }
@@ -19,6 +21,7 @@ export class AddNewBookService {
         retry(1),
         catchError(this.errorHandler))
       .subscribe();
+    this.resetFormTags();
   }
 
   errorHandler(error) {
@@ -32,5 +35,18 @@ export class AddNewBookService {
     }
     window.alert(`Something went wrong: ${errorMessage}`);
     return throwError(errorMessage);
+  }
+
+  getFormTags(): Observable<string[]> {
+    return this.formTags$.asObservable();
+  }
+
+  setFormTags(newTag) {
+    this.tags.push(newTag);
+    this.formTags$.next(this.tags);
+  }
+
+  resetFormTags() {
+    this.formTags$.next([]);
   }
 }
