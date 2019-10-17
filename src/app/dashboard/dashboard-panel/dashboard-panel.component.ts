@@ -17,8 +17,7 @@ export class DashboardPanelComponent implements OnInit {
   currentUserData: User;
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
-              private userService: UserService,
-              private operationsService: OperationsService) { }
+              private userService: UserService) { }
 
   ngOnInit() {
     this.userService.currentUserData$.subscribe(res => this.currentUserData = res);

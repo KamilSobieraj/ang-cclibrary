@@ -1,9 +1,6 @@
-<p>dashboard-panel works!</p>
 <ng-container *ngIf="currentUserData">
   <ng-container *ngIf="currentUserData.userType === 'admin'; then adminPanel else regularPanel"></ng-container>
 </ng-container>
-<h2 *ngIf="currentUserData">email: {{currentUserData.email}}</h2>
-<p *ngIf="currentUserData">id: {{this.userService.getCurrentUserID()}}</p>
 
 <ng-template #adminPanel><app-admin-dashboard></app-admin-dashboard></ng-template>
 <ng-template #regularPanel><app-user-dashboard></app-user-dashboard></ng-template>

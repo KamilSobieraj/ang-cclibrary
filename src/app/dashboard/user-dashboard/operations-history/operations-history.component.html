@@ -1,9 +1,3 @@
-<ul> Aktualnie wypozyczone książki:
-  <li *ngFor="let bookk of borrowed">Tytuł: {{bookk.borrowedBookTitle}} Date: {{bookk.borrowedBookDate}} ID: {{bookk.bookID}}
-    <button (click)="onReturnBook(bookk.bookID)">Oddaj</button>
-  </li>
-</ul>
-
 <table mat-table [dataSource]="operationsHistoryTableDataSource" class="mat-elevation-z8 books-table" >
   <ng-container matColumnDef="title">
     <th mat-header-cell *matHeaderCellDef> Tytuł </th>

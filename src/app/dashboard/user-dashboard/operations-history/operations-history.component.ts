@@ -12,44 +12,20 @@ import {MatTableDataSource} from '@angular/material';
   styleUrls: ['./operations-history.component.scss']
 })
 export class OperationsHistoryComponent implements OnInit, OnDestroy {
-  currentUserHistoryOperationsIDS: Operation[];
   allOperations;
-  currentBorrowedBooks: {}[];
   operationsHistoryTableDataSource: MatTableDataSource<any>;
   displayedColumns = ['title', 'operationType', 'date'];
-  borrowed;
 
-  constructor(private operationsService: OperationsService,
-              private userService: UserService) { }
+  constructor(private operationsService: OperationsService) { }
 
   ngOnInit() {
-    this.userService.getCurrentUserOperationsIDS()
-      .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(currentUserHistoryOperationsIDS => this.currentUserHistoryOperationsIDS = currentUserHistoryOperationsIDS);
-    this.userService.getCurrentUserCurrentBorrowedBooks()
-      .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(currentBorrowedBooks => {
-        this.currentBorrowedBooks = currentBorrowedBooks;
-        // console.log(currentBorrowedBooks);
-      });
     this.operationsService.getOperationsData()
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(operationsData => this.allOperations = operationsData);
+
     this.operationsService.operationsHistoryDataForTable$.pipe(takeUntil(componentDestroyed(this)))
       .subscribe(operationsHistory => this.operationsHistoryTableDataSource = new MatTableDataSource(operationsHistory));
-    this.operationsService.setOperationsHistoryData();
-    this.operationsService.getCurrentUserBorrowedBooksDetails();
-    this.userService.abojawiem$
-      .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(res => {
-        this.borrowed = res;
-        // console.log(res);
-      });
-  }
 
-  onReturnBook(bookID: string) {
-    this.userService.removeBookFromBorrowed(bookID);
-    this.operationsService.addNewOperation('return', bookID);
     this.operationsService.setOperationsHistoryData();
   }
 

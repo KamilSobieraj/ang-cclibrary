@@ -18,6 +18,7 @@ export class OperationsService {
   allOperationsData$ = new BehaviorSubject<Operation[]>(null);
   operationsData$ = new BehaviorSubject<Operation[]>([]);
   operationsHistoryDataForTable$ = new BehaviorSubject<BookModel[]>(null);
+  currentBorrowedBooksForTable$ = new BehaviorSubject<BookModel[]>(null);
   operationsHistoryTableDataSource$ = new Subject<MatTableDataSource<any>>();
   currentUserBorrowedBooks;
 
@@ -32,7 +33,7 @@ export class OperationsService {
       });
     this.userService.currentUserOperationsIDS$
       .subscribe(currentUserOperationsIDSHistory => this.currentUserOperationsIDS = currentUserOperationsIDSHistory);
-    this.userService.currentBorrowedBooks$.subscribe(currentUserBorrowedBooks => this.currentUserBorrowedBooks = currentUserBorrowedBooks);
+    this.userService.currentBorrowedBooksBasicData$.subscribe(currentUserBorrowedBooks => this.currentUserBorrowedBooks = currentUserBorrowedBooks);
   }
 
   getOperationsDataFromDB(): Observable<any> {
@@ -40,6 +41,7 @@ export class OperationsService {
   }
 
   getOperationsData(): Observable<Operation[]> {
+    this.userService.currentUserOperationsIDS$.next(this.userService.currentUserData.history);
     this.operationsData$.next(this.allOperationsData);
     return this.operationsData$.asObservable();
   }
@@ -53,9 +55,8 @@ export class OperationsService {
       const borrowedBookTitle = this.booksService.getBookDetails(bookID).title;
       borrowedBooksDetails.push({borrowedBookTitle, borrowedBookDate, bookID});
     });
-    // console.log(borrowedBooksDetails);
-    this.userService.abojawiem$.next(borrowedBooksDetails);
-    // this.userService.currentBorrowedBooks$.next(borrowedBooksDetails);
+
+    this.userService.currentBorrowedBooks2$.next(borrowedBooksDetails);
   }
 
   getOperationData(operationID: string) {
@@ -79,7 +80,7 @@ export class OperationsService {
       date: this.getCurrentDate(),
       userID: this.userService.getCurrentUserID(),
       operationType,
-      movedTo: 'w chuj'
+      movedTo: 'somewhere'
     };
     this.httpClient
       .post<any>(this.databaseService.databaseURL + '/operations/', JSON.stringify(newOperation), this.databaseService.httpOptions)
