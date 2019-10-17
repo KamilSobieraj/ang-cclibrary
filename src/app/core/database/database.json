@@ -10,11 +10,20 @@
     },
     {
       "email": "kellycmi@interia.pl",
-      "password": "$2a$10$FSp5Olzv8XHkAI768PnM3u9JJatLx2mYK65B/UqWFy2tXcnAPyBZq",
-      "id": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
+      "password": "$2a$10$6eNk/VDIZ8PZ4Dnpai5R7OnVSfBP4QdyQZ4avV32HsV1nfv5YeT9C",
+      "id": "5ad63e30-25a9-422b-9662-6bff4418200d",
       "userType": "regular",
-      "history": [],
-      "currentBorrowedBooks": []
+      "history": [
+        "borrow-a7a3088b-ab69-4fd2-8a45-c7f5a79dfe88",
+        "return-ddf20047-5841-452e-85bf-ed37af7a587b",
+        "borrow-7c9bd201-90a7-4852-a76c-2be574cf794b"
+      ],
+      "currentBorrowedBooks": [
+        {
+          "bookID": "4c555151-9bbc-4fd8-8edc-3b0832ba0cd5",
+          "operationID": "borrow-7c9bd201-90a7-4852-a76c-2be574cf794b"
+        }
+      ]
     }
   ],
   "books": [
@@ -130,7 +139,88 @@
       "isAvailable": true,
       "history": [],
       "reservations": []
+    },
+    {
+      "id": "4c555151-9bbc-4fd8-8edc-3b0832ba0cd5",
+      "title": "Wspaniała książka",
+      "author": "Niesamowity autor",
+      "publicationYear": "666",
+      "editorName": "BiedaWydawca",
+      "tags": [],
+      "remarks": "",
+      "currentLocation": "Poza biurem",
+      "isAvailable": false,
+      "history": [],
+      "reservations": [],
+      "bookCoverUrl": ""
+    },
+    {
+      "id": "51276241-7253-42b5-9978-b74895110f48",
+      "title": "Material",
+      "author": "Design",
+      "publicationYear": "",
+      "editorName": "",
+      "tags": [],
+      "remarks": "",
+      "currentLocation": "",
+      "isAvailable": true,
+      "history": [],
+      "reservations": [],
+      "bookCoverUrl": ""
+    },
+    {
+      "id": "043ef756-9483-45ec-bec0-daac47ba3ee3",
+      "title": "Jeszcze jeden",
+      "author": "Twoja stara",
+      "publicationYear": "654",
+      "editorName": "PAP",
+      "tags": [],
+      "remarks": "",
+      "currentLocation": "Świetlica",
+      "isAvailable": true,
+      "history": [],
+      "reservations": [],
+      "bookCoverUrl": ""
+    },
+    {
+      "id": "1f06a5c7-8a98-4133-92d2-15d336863100",
+      "title": "jaaaaa",
+      "author": "i jaaa",
+      "publicationYear": "",
+      "editorName": "jaaa",
+      "tags": [],
+      "remarks": "",
+      "currentLocation": "",
+      "isAvailable": true,
+      "history": [],
+      "reservations": [],
+      "bookCoverUrl": ""
     }
   ],
-  "operations": []
+  "operations": [
+    {
+      "id": "borrow-a7a3088b-ab69-4fd2-8a45-c7f5a79dfe88",
+      "bookID": "03",
+      "date": "2019-10-17 9:51:36",
+      "userID": "5ad63e30-25a9-422b-9662-6bff4418200d",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "return-ddf20047-5841-452e-85bf-ed37af7a587b",
+      "bookID": "03",
+      "date": "2019-10-17 9:52:1",
+      "userID": "5ad63e30-25a9-422b-9662-6bff4418200d",
+      "operationType": "return",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "borrow-7c9bd201-90a7-4852-a76c-2be574cf794b",
+      "bookID": "4c555151-9bbc-4fd8-8edc-3b0832ba0cd5",
+      "date": "2019-10-17 10:27:56",
+      "userID": "5ad63e30-25a9-422b-9662-6bff4418200d",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    }
+  ]
 }
