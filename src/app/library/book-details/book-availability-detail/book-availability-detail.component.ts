@@ -29,8 +29,7 @@ export class BookAvailabilityDetailComponent implements OnInit {
     if (!this.isUserLoggedIn) {
       this.router.navigate(['/dashboard']);
     } else {
-      this.booksService.changeBookAvailabilityStatusInDB(false);
-      this.operationService.addNewOperation('borrow', this.bookID);
+      this.operationService.onBookAction('borrow', this.bookID);
       window.alert('Ksiązka zamówiona - udaj się do miejsca jej lokalizacji i zaczytuj!');
       // TODO: Make it right
       setTimeout(() => this.router.navigate(['/dashboard']), 500);

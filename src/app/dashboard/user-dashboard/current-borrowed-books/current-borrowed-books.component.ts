@@ -36,7 +36,7 @@ export class CurrentBorrowedBooksComponent implements OnInit, OnDestroy {
 
   onReturnBook(bookID: string) {
     this.userService.removeBookFromBorrowed(bookID);
-    this.operationsService.addNewOperation('return', bookID);
+    this.operationsService.onBookAction('return', bookID);
     this.operationsService.setOperationsHistoryData();
   }
 

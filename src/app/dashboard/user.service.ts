@@ -81,7 +81,6 @@ export class UserService {
     this.sendUpdatedUserDataToDB(userData);
     this.currentBorrowedBooks2$.next(borrowedBooks);
     this.currentBorrowedBooksBasicData$.next(this.currentUserData.currentBorrowedBooks);
-    this.booksService.changeBookAvailabilityStatusInDB(true, bookID);
   }
 
   getCurrentUserBorrowedBooksDetails() {

@@ -9,6 +9,7 @@ import {Operation} from './operation.model';
 import {BookModel} from '../library/book.model';
 import {MatTableDataSource} from '@angular/material';
 import {AuthService} from '../dashboard/auth.service';
+import {BookHistoryService} from '../library/book-details/book-operations-history-list/book-history.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,6 @@ export class OperationsService {
   allOperationsData$ = new BehaviorSubject<Operation[]>(null);
   operationsData$ = new BehaviorSubject<Operation[]>([]);
   operationsHistoryDataForTable$ = new BehaviorSubject<BookModel[]>(null);
-  currentBorrowedBooksForTable$ = new BehaviorSubject<BookModel[]>(null);
   operationsHistoryTableDataSource$ = new Subject<MatTableDataSource<any>>();
   currentUserBorrowedBooks;
 
@@ -71,14 +71,20 @@ export class OperationsService {
     return operationOutput;
   }
 
-  addNewOperation(operationType: string, bookID: string) {
-    const operationID = `${operationType}-${uuid.v4()}`;
+  onBookAction(actionType: string, bookID) {
+    const operationID = `${actionType}-${uuid.v4()}`;
     const bookData = this.booksService.getBookDetails(bookID);
     bookData.history.push(operationID);
-    this.userService.addNewOperationToCurrentUser(operationID, bookData.id);
+    bookData.isAvailable = (actionType === 'return');
+    this.booksService.sendUpdatedBookDataToDB(bookData, bookID);
+    this.addNewOperation(actionType, operationID, bookID);
+  }
+
+  addNewOperation(operationType: string, operationID: string, bookID: string) {
+    this.userService.addNewOperationToCurrentUser(operationID, bookID);
     const newOperation = {
       id: operationID,
-      bookID: bookData.id,
+      bookID,
       date: this.getCurrentDate(),
       userID: this.authService.getCurrentUserID(),
       operationType,
@@ -95,6 +101,7 @@ export class OperationsService {
     const currentDate = new Date();
     return `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1)}-${currentDate.getDate()} ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
   }
+
   getBookData(operationID: string) {
     const bookID = this.getBookIDFromOperations(operationID);
     return this.booksService.getBookDetails(bookID);

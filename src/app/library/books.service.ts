@@ -27,15 +27,9 @@ export class BooksService {
     return this.booksData.find(book => book.id === id);
   }
 
-  sendUpdatedBookDataToDB(newBookData: BookModel, bookID: string = this.chosenBookID) {
+  sendUpdatedBookDataToDB(newBookData: BookModel, bookID: string) {
     this.httpClient
       .put(this.databaseService.databaseURL + '/books/' + bookID, JSON.stringify(newBookData), this.databaseService.httpOptions)
       .subscribe();
-  }
-
-  changeBookAvailabilityStatusInDB(changeTo: boolean, bookID: string = this.chosenBookID) {
-    const bookData = this.getBookDetails(bookID);
-    bookData.isAvailable = changeTo;
-    this.sendUpdatedBookDataToDB(bookData, bookID);
   }
 }
