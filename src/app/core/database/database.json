@@ -1,18 +1,18 @@
 {
   "users": [
     {
-      "email": "fake@fake.com",
-      "password": "$2a$10$TnyKEYQm6WdGB0DyKI2H/.L4oolUUQrY5SDVBPuc9DEoQa7LuLJoa",
-      "id": "15531ba6-0aea-4031-93ac-3b15b25867c9",
-      "userType": "regular",
+      "email": "fake2@fake.com",
+      "password": "$2a$10$f8yQDVtDRZiC6eKtQvL6degjKbUl0pGYTfqSRMVMlTCs6VdlE9.Ka",
+      "id": "95b3a863-edbf-4b69-a28a-611e32988ed1",
+      "userType": "admin",
       "history": [],
       "currentBorrowedBooks": []
     },
     {
-      "email": "fake2@fake2.com",
-      "password": "$2a$10$XJJEBs.g5sskOCQyV8azG.zbUoNCXLJyos8Bx2p2.mRDwLqSDxZ0O",
-      "id": "157153b0-47e6-4b31-89ff-04299223d1a4",
-      "userType": "admin",
+      "email": "fake@fake.com",
+      "password": "$2a$10$FSp5Olzv8XHkAI768PnM3u9JJatLx2mYK65B/UqWFy2tXcnAPyBZq",
+      "id": "d3a9dbd6-232a-478b-8358-99fe5ee076c6",
+      "userType": "regular",
       "history": [],
       "currentBorrowedBooks": []
     }
@@ -30,7 +30,7 @@
       ],
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
-      "isAvailable": false,
+      "isAvailable": true,
       "history": [],
       "reservations": []
     },
@@ -48,8 +48,7 @@
       "remarks": "",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [
-      ],
+      "history": [],
       "reservations": []
     },
     {
@@ -64,8 +63,7 @@
       "remarks": "e-book",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [
-      ],
+      "history": [],
       "reservations": []
     },
     {
@@ -79,9 +77,8 @@
       ],
       "remarks": "",
       "currentLocation": "VI piętro",
-      "isAvailable": false,
-      "history": [
-      ],
+      "isAvailable": true,
+      "history": [],
       "reservations": []
     },
     {
@@ -96,8 +93,7 @@
       "remarks": "",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [
-      ],
+      "history": [],
       "reservations": []
     },
     {

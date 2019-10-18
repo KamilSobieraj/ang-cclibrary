@@ -18,4 +18,8 @@ export class DatabaseService {
   getData(path): Observable<any> {
     return this.httpClient.get(`${this.databaseURL}/${path}/`);
   }
+
+  deleteData(collection: string, id: string) {
+    return this.httpClient.delete(`${this.databaseURL}/${collection}/${id}`);
+  }
 }
