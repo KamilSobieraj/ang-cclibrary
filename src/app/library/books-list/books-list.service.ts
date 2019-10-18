@@ -3,6 +3,8 @@ import {MatTableDataSource} from '@angular/material';
 import {Subject} from 'rxjs';
 import {BookTable} from './book-table';
 import {BooksService} from '../books.service';
+import {UserService} from '../../dashboard/user.service';
+import {User} from '../../dashboard/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,11 @@ import {BooksService} from '../books.service';
 export class BooksListService {
   booksTableSet$ = new Subject<BookTable[]>();
   booksTableDataSource$ = new Subject<MatTableDataSource<any>>();
+  currentUserData: User;
 
-  constructor(private booksService: BooksService) {
+  constructor(private booksService: BooksService,
+              private userService: UserService) {
+    this.userService.currentUserData$.subscribe(currentUserData => this.currentUserData = currentUserData);
   }
 
   setBooksSetForTable() {

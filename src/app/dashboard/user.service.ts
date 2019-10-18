@@ -41,11 +41,7 @@ export class UserService {
   }
 
   getCurrentUserDataFromDB(): Observable<User> {
-    return this.httpClient.get<User>(this.databaseService.databaseURL + '/users/' + this.getCurrentUserID());
-  }
-
-  getCurrentUserID(): string {
-    return JSON.parse(localStorage.getItem('userData')).sub;
+    return this.httpClient.get<User>(this.databaseService.databaseURL + '/users/' + this.authService.getCurrentUserID());
   }
 
   addNewOperationToCurrentUser(newOperationID: string, orderedBookID: string) {
@@ -59,7 +55,7 @@ export class UserService {
 
   sendUpdatedUserDataToDB(newUserData: User) {
     this.httpClient
-      .put<User>(this.databaseService.databaseURL + '/users/' + this.getCurrentUserID(),
+      .put<User>(this.databaseService.databaseURL + '/users/' + this.authService.getCurrentUserID(),
         JSON.stringify(newUserData),
         this.databaseService.httpOptions)
       .subscribe();

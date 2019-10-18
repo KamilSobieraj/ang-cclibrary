@@ -8,6 +8,7 @@ import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {Operation} from './operation.model';
 import {BookModel} from '../library/book.model';
 import {MatTableDataSource} from '@angular/material';
+import {AuthService} from '../dashboard/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,8 @@ export class OperationsService {
   constructor(private userService: UserService,
               private httpClient: HttpClient,
               private databaseService: DatabaseService,
-              private booksService: BooksService) {
+              private booksService: BooksService,
+              private authService: AuthService) {
     this.getOperationsDataFromDB()
       .subscribe((operationsData: Operation[]) => {
         this.allOperationsData$.next(operationsData);
@@ -78,7 +80,7 @@ export class OperationsService {
       id: operationID,
       bookID: bookData.id,
       date: this.getCurrentDate(),
-      userID: this.userService.getCurrentUserID(),
+      userID: this.authService.getCurrentUserID(),
       operationType,
       movedTo: 'somewhere'
     };

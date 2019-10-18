@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../dashboard/auth.service';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
+import {UserService} from '../../dashboard/user.service';
+import {User} from '../../dashboard/user.model';
 
 @Component({
   selector: 'app-navbar',
@@ -11,15 +13,19 @@ import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   isUserLoggedIn: boolean;
+  userData;
 
   constructor(private router: Router,
               private authService: AuthService,
-  ) { }
+              private userService: UserService) { }
 
   ngOnInit() {
     this.authService.userLoginStatus()
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(isUserLoggedIn => this.isUserLoggedIn = isUserLoggedIn);
+    this.userService.currentUserData$
+      .pipe(takeUntil(componentDestroyed(this)))
+      .subscribe(currentUserData => this.userData = currentUserData);
   }
 
   goToLoginPanel(): void {

@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {BooksListService} from './books-list.service';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 import {takeUntil} from 'rxjs/operators';
+import {AuthService} from '../../dashboard/auth.service';
 
 @Component({
   selector: 'app-books-list',
@@ -14,7 +15,9 @@ export class BooksListComponent implements OnInit, OnDestroy {
   displayedColumns = ['title', 'author', 'currentLocation', 'isAvailable'];
   booksTableDataSource: MatTableDataSource<any>;
 
-  constructor(private booksService: BooksService, private booksListService: BooksListService) { }
+  constructor(private booksService: BooksService,
+              private booksListService: BooksListService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.booksListService.setBooksSetForTable();

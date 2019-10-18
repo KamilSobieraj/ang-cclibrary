@@ -15,11 +15,13 @@ import {OperationsService} from '../../order-panel/operations.service';
 })
 export class DashboardPanelComponent implements OnInit {
   currentUserData: User;
+
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
-              private userService: UserService) { }
+              private userService: UserService) {
+  }
 
   ngOnInit() {
-    this.userService.currentUserData$.subscribe(res => this.currentUserData = res);
+    this.userService.currentUserData$.subscribe(currentUserData => this.currentUserData = currentUserData);
   }
 }

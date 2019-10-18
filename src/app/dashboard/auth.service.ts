@@ -5,12 +5,14 @@ import * as uuid from 'uuid';
 import {HttpClient} from '@angular/common/http';
 import {catchError, retry} from 'rxjs/operators';
 import {DatabaseService} from '../core/database.service';
+import {User} from './user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  isUserLoggedIn$ = new BehaviorSubject(this.userLoginStatusHandler());
+  isUserLoggedIn$ = new BehaviorSubject(this.isUserLoginStatusHandler());
+  userType$ = new BehaviorSubject<string>(this.getCurrentUserType());
 
   constructor(private router: Router,
               private httpClient: HttpClient,
@@ -32,18 +34,38 @@ export class AuthService {
         this.isUserLoggedIn$.next(true);
         localStorage.setItem('userData', atob(user.accessToken.split('.')[1]));
         localStorage.setItem('userLoginStatus', 'user is logged in');
+        this.setUserType();
         this.router.navigate(['dashboard']);
       }
     );
   }
 
+  setUserType() {
+    this.httpClient
+      .get<User>(this.databaseService.databaseURL + '/users/' + this.getCurrentUserID())
+      .subscribe(res => {
+        this.userType$.next(res.userType);
+        localStorage.setItem('userType', res.userType);
+      }
+      );
+  }
+
+  getCurrentUserID(): string {
+    return JSON.parse(localStorage.getItem('userData')).sub;
+  }
+
+  getCurrentUserType(): string {
+    return localStorage.getItem('userType');
+  }
+
   logoutUser(): void {
     this.isUserLoggedIn$.next(false);
+    this.userType$.next(null);
     localStorage.removeItem('userLoginStatus');
     this.router.navigate(['/library']);
   }
 
-  userLoginStatusHandler(): boolean {
+  isUserLoginStatusHandler(): boolean {
     return (localStorage.getItem('userLoginStatus') !== null) ? true : false;
   }
 
