@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormControl, Validators} from '@angular/forms';
-import {AuthService} from '../auth.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login-panel',
@@ -9,14 +9,12 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./login-panel.component.scss']
 })
 export class LoginPanelComponent implements OnInit {
-  @Input()  userLoginEmail: string;
-  @Input()  userLoginPassword: string;
+  @Input() userLoginEmail: string;
+  @Input() userLoginPassword: string;
 
-  constructor(private router: Router,
-              private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmitLogin($event): void {
     this.authService.loginUser($event.userEmail, $event.userPassword);

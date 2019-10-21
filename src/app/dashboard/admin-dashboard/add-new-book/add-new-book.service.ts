@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {BookModel} from '../../../library/book.model';
-import {HttpClient} from '@angular/common/http';
-import {DatabaseService} from '../../../core/database.service';
-import {catchError, retry} from 'rxjs/operators';
-import {Observable, Subject, throwError} from 'rxjs';
+import { BookModel } from '../../../library/book.model';
+import { HttpClient } from '@angular/common/http';
+import { DatabaseService } from '../../../core/database.service';
+import { catchError, retry } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,22 @@ export class AddNewBookService {
   private formTags$ = new Subject<string[]>();
   tags: string[] = [];
 
-  constructor(private httpClient: HttpClient,
-              private databaseService: DatabaseService) { }
+  constructor(
+    private httpClient: HttpClient,
+    private databaseService: DatabaseService
+  ) {}
 
-  addNewBook(book: BookModel) {
-    this.httpClient.post<any>(this.databaseService.databaseURL + '/books/', JSON.stringify(book), this.databaseService.httpOptions)
+  addNewBook(book: BookModel): void {
+    this.httpClient
+      .post<any>(
+        this.databaseService.databaseURL + '/books/',
+        JSON.stringify(book),
+        this.databaseService.httpOptions
+      )
       .pipe(
         retry(1),
-        catchError(this.errorHandler))
+        catchError(this.errorHandler)
+      )
       .subscribe();
     this.resetFormTags();
   }

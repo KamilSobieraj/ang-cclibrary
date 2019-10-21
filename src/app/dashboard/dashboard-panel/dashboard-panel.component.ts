@@ -1,12 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {AuthService} from '../auth.service';
-import {User} from '../user.model';
-import {Observable} from 'rxjs';
-import {UserService} from '../user.service';
-import {takeUntil} from 'rxjs/operators';
-import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
-import {OperationsService} from '../../order-panel/operations.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
+import { User } from '../user.model';
+import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
+import { takeUntil } from 'rxjs/operators';
+import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
+import { OperationsService } from '../../order-panel/operations.service';
 
 @Component({
   selector: 'app-dashboard-panel',
@@ -16,12 +16,15 @@ import {OperationsService} from '../../order-panel/operations.service';
 export class DashboardPanelComponent implements OnInit {
   currentUserData: User;
 
-  constructor(private httpClient: HttpClient,
-              private authService: AuthService,
-              private userService: UserService) {
-  }
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
-    this.userService.currentUserData$.subscribe(currentUserData => this.currentUserData = currentUserData);
+    this.userService.currentUserData$.subscribe(
+      currentUserData => (this.currentUserData = currentUserData)
+    );
   }
 }

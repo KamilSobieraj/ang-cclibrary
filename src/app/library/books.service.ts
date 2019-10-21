@@ -8,26 +8,26 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class BooksService {
-  booksData: BookModel[];
+  allBooksData: BookModel[];
   chosenBookID$ = new BehaviorSubject<string>('');
   chosenBookID: string;
   isBookAvailable$ = new BehaviorSubject(false);
 
   constructor(private databaseService: DatabaseService,
               private httpClient: HttpClient) {
-    this.getBooksDataFromDB().subscribe((booksData: BookModel[]) => this.booksData = booksData);
+    this.getBooksDataFromDB().subscribe((booksData: BookModel[]) => this.allBooksData = booksData);
     this.chosenBookID$.subscribe((chosenBookID: string) => this.chosenBookID = chosenBookID);
   }
 
-  getBooksDataFromDB(): Observable<any> {
+  getBooksDataFromDB(): Observable<BookModel[]> {
     return this.databaseService.getData('books');
   }
 
-  getBookDetails(id = this.chosenBookID): BookModel {
-    return this.booksData.find(book => book.id === id);
+  getBookDetails(id: string = this.chosenBookID): BookModel {
+    return this.allBooksData.find(book => book.id === id);
   }
 
-  sendUpdatedBookDataToDB(newBookData: BookModel, bookID: string) {
+  sendUpdatedBookDataToDB(newBookData: BookModel, bookID: string): void {
     this.httpClient
       .put(this.databaseService.databaseURL + '/books/' + bookID, JSON.stringify(newBookData), this.databaseService.httpOptions)
       .subscribe();

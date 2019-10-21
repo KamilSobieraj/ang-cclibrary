@@ -16,8 +16,7 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
   constructor(private operationsService: OperationsService) {}
 
   ngOnInit() {
-    this.operationsService
-      .getOperationsData()
+    this.operationsService.getOperationsData()
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe();
 
@@ -25,9 +24,7 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(
         operationsHistory =>
-          (this.operationsHistoryTableDataSource = new MatTableDataSource(
-            operationsHistory
-          ))
+          (this.operationsHistoryTableDataSource = new MatTableDataSource(operationsHistory))
       );
 
     this.operationsService.setOperationsHistoryData();

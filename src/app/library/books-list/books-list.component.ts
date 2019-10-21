@@ -1,11 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BooksService} from '../books.service';
+// tslint:disable-next-line:no-submodule-imports
 import {MatTableDataSource} from '@angular/material/table';
 import {BooksListService} from './books-list.service';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 import {takeUntil} from 'rxjs/operators';
 import {AuthService} from '../../dashboard/auth.service';
 import {DatabaseService} from '../../core/database.service';
+import {BookTable} from './book-table';
 
 @Component({
   selector: 'app-books-list',
@@ -14,7 +16,7 @@ import {DatabaseService} from '../../core/database.service';
 })
 export class BooksListComponent implements OnInit, OnDestroy {
   displayedColumns = [];
-  booksTableDataSource: MatTableDataSource<any>;
+  booksTableDataSource: MatTableDataSource<BookTable>;
 
   constructor(private booksService: BooksService,
               private booksListService: BooksListService,
@@ -24,9 +26,8 @@ export class BooksListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.booksListService.setBooksSetForTable();
     this.booksListService.setBooksTableDataSource();
-    this.booksListService.booksTableDataSource$
+    this.booksListService.booksListTableDataSource$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(booksTableDataSource => this.booksTableDataSource = booksTableDataSource);
   }
@@ -37,9 +38,8 @@ export class BooksListComponent implements OnInit, OnDestroy {
       this.displayedColumns = ['title', 'author', 'currentLocation', 'isAvailable'];
   }
 
-  onRemoveBook(bookID: string) {
+  onRemoveBook(bookID: string): void {
     this.database.deleteData('books', bookID).subscribe(res => {
-      this.booksListService.setBooksSetForTable();
       this.booksListService.setBooksTableDataSource();
     });
   }

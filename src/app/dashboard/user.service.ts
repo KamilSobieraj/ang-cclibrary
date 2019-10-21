@@ -64,7 +64,7 @@ export class UserService {
       .subscribe();
   }
 
-  getCurrentUserCurrentBorrowedBooks(): Observable<CurrentBorrowedBookBasic[]> {
+  getCurrentUserCurrentBorrowedBooksBasicData(): Observable<CurrentBorrowedBookBasic[]> {
     this.currentBorrowedBooksBasicData$.next(this.currentUserData.currentBorrowedBooks);
     return this.currentBorrowedBooksBasicData$.asObservable();
   }

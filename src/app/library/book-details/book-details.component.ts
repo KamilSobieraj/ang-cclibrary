@@ -1,12 +1,12 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {takeUntil} from 'rxjs/operators';
-import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
-import {BookModel} from '../book.model';
-import {BooksService} from '../books.service';
-import {Location} from '@angular/common';
-import {MatIconRegistry} from '@angular/material';
-import {DomSanitizer} from '@angular/platform-browser';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
+import { BookModel } from '../book.model';
+import { BooksService } from '../books.service';
+import { Location } from '@angular/common';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-book-details',
@@ -16,20 +16,22 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class BookDetailsComponent implements OnInit, OnDestroy {
   bookDetails: BookModel;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private booksService: BooksService,
-              private location: Location,
-              private matIconRegistry: MatIconRegistry,
-              private domSanitizer: DomSanitizer) {
-    this.matIconRegistry
-      .addSvgIcon('book-cover', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/book3.svg'));
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private booksService: BooksService,
+    private location: Location,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.matIconRegistry.addSvgIcon('book-cover', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/book3.svg')
+    );
   }
 
   ngOnInit() {
     this.getBookDetails();
   }
 
-  getBookDetails() {
+  getBookDetails(): void {
     this.activatedRoute.params
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe((params: Params) => {
@@ -37,7 +39,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
       });
   }
 
-  onGoBack() {
+  onGoBack(): void {
     this.location.back();
   }
 

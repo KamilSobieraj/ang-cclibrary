@@ -1,11 +1,22 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent} from '@angular/material';
-import {map, startWith, takeUntil} from 'rxjs/operators';
-import {AddNewBookService} from '../add-new-book.service';
-import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+// tslint:disable-next-line:no-submodule-imports
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import {
+  MatAutocomplete,
+  MatAutocompleteSelectedEvent,
+  MatChipInputEvent
+} from '@angular/material';
+import { map, startWith, takeUntil } from 'rxjs/operators';
+import { AddNewBookService } from '../add-new-book.service';
+import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
 
 @Component({
   selector: 'app-tags-chips',
@@ -22,17 +33,22 @@ export class TagsChipsComponent implements OnInit, OnDestroy {
   tags: string[] = [];
   allTags: string[] = [];
 
-  @ViewChild('tagInput', {static: false}) tagInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
+  @ViewChild('tagInput', { static: false }) tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
 
   constructor(private addNewBookService: AddNewBookService) {
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
-      map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
+      map((tag: string | null) =>
+        tag ? this._filter(tag) : this.allTags.slice()
+      )
+    );
   }
 
   ngOnInit() {
-    this.addNewBookService.getFormTags().pipe(takeUntil(componentDestroyed(this))).subscribe(tags => this.tags = tags);
+    this.addNewBookService.getFormTags()
+      .pipe(takeUntil(componentDestroyed(this)))
+      .subscribe(tags => (this.tags = tags));
   }
 
   add(event: MatChipInputEvent): void {
@@ -69,7 +85,9 @@ export class TagsChipsComponent implements OnInit, OnDestroy {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allTags.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
+    return this.allTags.filter(
+      tag => tag.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 
   ngOnDestroy(): void {

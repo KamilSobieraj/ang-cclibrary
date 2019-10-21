@@ -21,8 +21,7 @@ export class BookOperationsHistoryListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.operationsService
-      .getOperationsData()
+    this.operationsService.getOperationsData()
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe();
     this.bookHistoryTableDataSource = new MatTableDataSource<BookHistory>(

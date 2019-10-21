@@ -9,6 +9,7 @@ import { Operation } from './operation.model';
 import { BookModel } from '../library/book.model';
 import { MatTableDataSource } from '@angular/material';
 import { AuthService } from '../dashboard/auth.service';
+import {CurrentBorrowedBookBasic} from '../dashboard/currentBorrowedBookBasic.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,10 @@ import { AuthService } from '../dashboard/auth.service';
 export class OperationsService {
   currentUserOperationsIDS: Operation[];
   allOperationsData: Operation[];
-  allOperationsData$ = new BehaviorSubject<Operation[]>(null);
   operationsData$ = new BehaviorSubject<Operation[]>([]);
   operationsHistoryDataForTable$ = new BehaviorSubject<BookModel[]>(null);
   operationsHistoryTableDataSource$ = new Subject<MatTableDataSource<any>>();
-  currentUserBorrowedBooks;
+  currentUserBorrowedBooksBasicData: CurrentBorrowedBookBasic[];
 
   constructor(
     private userService: UserService,
@@ -30,7 +30,6 @@ export class OperationsService {
     private authService: AuthService
   ) {
     this.getOperationsDataFromDB().subscribe((operationsData: Operation[]) => {
-      this.allOperationsData$.next(operationsData);
       this.allOperationsData = operationsData;
     });
     this.userService.currentUserOperationsIDS$.subscribe(
@@ -39,7 +38,7 @@ export class OperationsService {
     );
     this.userService.currentBorrowedBooksBasicData$.subscribe(
       currentUserBorrowedBooks =>
-        (this.currentUserBorrowedBooks = currentUserBorrowedBooks)
+        (this.currentUserBorrowedBooksBasicData = currentUserBorrowedBooks)
     );
   }
 
@@ -55,11 +54,12 @@ export class OperationsService {
     return this.operationsData$.asObservable();
   }
 
-  getCurrentUserBorrowedBooksDetails() {
+  setCurrentUserBorrowedBooksDetails() {
     const borrowedBooksDetails = [];
-
-    this.currentUserBorrowedBooks.map(borrowDetails => {
-      const borrowedBookDate = this.getOperationData(borrowDetails.operationID).date;
+    this.userService.getCurrentUserCurrentBorrowedBooksBasicData().subscribe();
+    this.currentUserBorrowedBooksBasicData.map(borrowDetails => {
+      const borrowedBookDate = this.getOperationData(borrowDetails.operationID)
+        .date;
       const bookID = this.getOperationData(borrowDetails.operationID).bookID;
       const borrowedBookTitle = this.booksService.getBookDetails(bookID).title;
       borrowedBooksDetails.push({
