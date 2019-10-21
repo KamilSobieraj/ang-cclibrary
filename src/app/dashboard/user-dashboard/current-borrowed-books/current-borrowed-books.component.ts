@@ -25,7 +25,7 @@ export class CurrentBorrowedBooksComponent implements OnInit, OnDestroy {
 
     this.operationsService.getCurrentUserBorrowedBooksDetails();
 
-    this.userService.currentBorrowedBooks2$
+    this.userService.currentBorrowedBooksDetails$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(currentBorrowedBooks => {
         this.borrowedBooksTableDataSource = new MatTableDataSource(currentBorrowedBooks);

@@ -1,4 +1,4 @@
-export interface CurrentBorrowedBooks {
+export interface CurrentBorrowedBookBasic {
       bookID: string;
       operationID: string;
 }

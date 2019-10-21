@@ -1,1 +1,22 @@
-<p>book-operations-history-list works!</p>
+<h3>Historia wypożyczeń:</h3>
+<table
+  mat-table
+  [dataSource]="bookHistoryTableDataSource"
+  class="mat-elevation-z8 operations-history-table">
+  <ng-container matColumnDef="userEmail">
+    <th mat-header-cell *matHeaderCellDef>Użytkownik</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.userEmail }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="operationType">
+    <th mat-header-cell *matHeaderCellDef>Operacja</th>
+    <td mat-cell *matCellDef="let element">{{ element.operationType === 'borrow' ? 'Wypożyczono' : 'Oddano' }}</td>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Data</th>
+    <td mat-cell *matCellDef="let element">{{ element.operationDate }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

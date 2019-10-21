@@ -6,7 +6,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {DatabaseService} from '../core/database.service';
 import {BooksService} from '../library/books.service';
 import {Operation} from '../order-panel/operation.model';
-import {CurrentBorrowedBooks} from './currentBorrowedBooks.model';
+import {CurrentBorrowedBookBasic} from './currentBorrowedBookBasic.model';
+import {CurrentBorrowedBookDetails} from './currentBorrowedBookDetails.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,11 @@ export class UserService {
 
   currentUserData$ = new BehaviorSubject<User>(null);
   currentUserData: User;
-  currentBorrowedBooksBasicData$ = new BehaviorSubject<CurrentBorrowedBooks[]>([]);
-  currentBorrowedBooks2$ = new BehaviorSubject<any>(null);
+  currentBorrowedBooksBasicData$ = new BehaviorSubject<CurrentBorrowedBookBasic[]>([]);
+  currentBorrowedBooksDetails$ = new BehaviorSubject<CurrentBorrowedBookDetails[]>(null);
   allOperationsData: Operation[];
   allOperationsData$ = new BehaviorSubject<Operation[]>(null);
+  allUsersData: User[];
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
@@ -33,7 +35,8 @@ export class UserService {
       .subscribe((operationsData: Operation[]) => {
         this.allOperationsData$.next(operationsData);
       });
-    this.allOperationsData$.subscribe(res => this.allOperationsData = res);
+    this.allOperationsData$.subscribe(allOperationsData => this.allOperationsData = allOperationsData);
+    this.databaseService.getData('users').subscribe(allUsersData => this.allUsersData = allUsersData)
   }
 
   getOperationsDataFromDB(): Observable<any> {
@@ -61,12 +64,12 @@ export class UserService {
       .subscribe();
   }
 
-  getCurrentUserCurrentBorrowedBooks(): Observable<CurrentBorrowedBooks[]> {
+  getCurrentUserCurrentBorrowedBooks(): Observable<CurrentBorrowedBookBasic[]> {
     this.currentBorrowedBooksBasicData$.next(this.currentUserData.currentBorrowedBooks);
     return this.currentBorrowedBooksBasicData$.asObservable();
   }
 
-  removeBookFromBorrowed(bookID: string) {
+  removeBookFromBorrowed(bookID: string): void {
     const userData = this.currentUserData;
     const borrowedBooks = this.getCurrentUserBorrowedBooksDetails().filter(
       chosenBook => {
@@ -79,11 +82,11 @@ export class UserService {
       }
     );
     this.sendUpdatedUserDataToDB(userData);
-    this.currentBorrowedBooks2$.next(borrowedBooks);
+    this.currentBorrowedBooksDetails$.next(borrowedBooks);
     this.currentBorrowedBooksBasicData$.next(this.currentUserData.currentBorrowedBooks);
   }
 
-  getCurrentUserBorrowedBooksDetails() {
+  getCurrentUserBorrowedBooksDetails(): CurrentBorrowedBookDetails[] {
     const borrowedBooksDetails = [];
     this.currentUserData.currentBorrowedBooks.map(borrowDetails => {
       const borrowedBookDate = this.getOperationData(borrowDetails.operationID).date;
@@ -94,7 +97,7 @@ export class UserService {
     return borrowedBooksDetails;
   }
 
-  getOperationData(operationID: string) {
+  getOperationData(operationID: string): Operation {
     let operationOutput;
     this.allOperationsData.map(operation => {
       if (operation.id === operationID) {
@@ -102,5 +105,14 @@ export class UserService {
       }
     });
     return operationOutput;
+  }
+
+  getUserDataByID(id: string): User[] {
+    return this.allUsersData.filter(userData => {
+      if (userData.id === id) {
+        return userData;
+        }
+      }
+    );
   }
 }

@@ -7,6 +7,9 @@ import {catchError, retry} from 'rxjs/operators';
 import {DatabaseService} from '../core/database.service';
 import {User} from './user.model';
 
+// TODO:
+// Wyczyścić localStorage i zobaczyć co się dzieje
+
 @Injectable({
   providedIn: 'root'
 })

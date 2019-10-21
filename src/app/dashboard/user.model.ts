@@ -1,4 +1,4 @@
-import {CurrentBorrowedBooks} from './currentBorrowedBooks.model';
+import {CurrentBorrowedBookBasic} from './currentBorrowedBookBasic.model';
 
 export interface User {
   id: string;
@@ -7,5 +7,5 @@ export interface User {
   password: string;
   userName?: string;
   history: string[];
-  currentBorrowedBooks: CurrentBorrowedBooks[];
+  currentBorrowedBooks: CurrentBorrowedBookBasic[];
 }

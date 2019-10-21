@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "email": "kamil.sobieraj@codeconcept.pl",
+      "email": "fake@codeconcept.pl",
       "password": "$2a$10$f8yQDVtDRZiC6eKtQvL6degjKbUl0pGYTfqSRMVMlTCs6VdlE9.Ka",
       "id": "95b3a863-edbf-4b69-a28a-611e32988ed1",
       "userType": "admin",
@@ -9,14 +9,12 @@
       "currentBorrowedBooks": []
     },
     {
-      "email": "kellycmi@interia.pl",
-      "password": "$2a$10$TgBjqcRxmz7JUqKOOk0XWepy6IE0.Mnw2r.QxSzGTk17WBL0BiJh.",
-      "id": "7d749819-47e6-4765-8c09-b12cb415deae",
+      "email": "fake@interia.pl",
+      "password": "$2a$10$tJ5yaUI1fRjY3dxrHjxFeOnh.iW6yv1I4shST2h/nlu84elOd4L0G",
+      "id": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "userType": "regular",
-      "history": [
-      ],
-      "currentBorrowedBooks": [
-      ]
+      "history": [],
+      "currentBorrowedBooks": []
     }
   ],
   "books": [
