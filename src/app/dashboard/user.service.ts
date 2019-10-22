@@ -27,16 +27,20 @@ export class UserService {
               private authService: AuthService,
               private databaseService: DatabaseService,
               private booksService: BooksService) {
-    this.getCurrentUserDataFromDB().subscribe((currentUserData: User) => {
-      this.currentUserData$.next(currentUserData);
-      this.currentUserData = currentUserData;
-    });
+    this.getCurrentUserData();
     this.getOperationsDataFromDB()
       .subscribe((operationsData: Operation[]) => {
         this.allOperationsData$.next(operationsData);
       });
     this.allOperationsData$.subscribe(allOperationsData => this.allOperationsData = allOperationsData);
     this.databaseService.getData('users').subscribe(allUsersData => this.allUsersData = allUsersData)
+  }
+
+  getCurrentUserData() {
+    this.getCurrentUserDataFromDB().subscribe((currentUserData: User) => {
+      this.currentUserData$.next(currentUserData);
+      this.currentUserData = currentUserData;
+    });
   }
 
   getOperationsDataFromDB(): Observable<any> {

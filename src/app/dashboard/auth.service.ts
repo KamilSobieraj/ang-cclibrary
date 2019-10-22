@@ -7,9 +7,6 @@ import { catchError, retry } from 'rxjs/operators';
 import { DatabaseService } from '../core/database.service';
 import { User } from './user.model';
 
-// TODO:
-// Wyczyścić localStorage i zobaczyć co się dzieje
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,8 +17,9 @@ export class AuthService {
   constructor(
     private router: Router,
     private httpClient: HttpClient,
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
   ) {
+    // ? It is needed when local storage is empty
     if (localStorage.getItem('userData') === null) {
       localStorage.setItem('userData',
         '{"email":"anonym@codeconcept.pl","iat":1571655225,"exp":1571658825,"sub":"83af4acb-fdd7-49cc-aa05-d63c5e94d03a"}');
@@ -50,6 +48,7 @@ export class AuthService {
         this.setUserType();
         this.router.navigate(['dashboard']);
       });
+
   }
 
   setUserType() {

@@ -10,13 +10,12 @@ import {Router} from '@angular/router';
 export class AdminDashboardComponent implements OnInit {
   @Input()  userLoginEmail: string;
   @Input()  userLoginPassword: string;
-  constructor(private authService: AuthService,
-              private router: Router) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
   onAddNewUser($event): void {
     this.authService.addNewUser($event.userEmail, $event.userPassword, $event.userType);
-    this.router.navigate(['/login']);
+    window.location.reload();
   }
 }

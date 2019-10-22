@@ -19,11 +19,16 @@ export class DashboardPanelComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.userService.currentUserData$.subscribe(
-      currentUserData => this.currentUserData = currentUserData
-    );
+    this.userService.getCurrentUserData();
+    // TODO: make it right!
+    setTimeout(() => this.getCurrentUserData(),100);
   }
 
+  getCurrentUserData() {
+    this.userService.currentUserData$.subscribe(
+      currentUserData => this.currentUserData = currentUserData
+    )
+  }
   ngOnDestroy(): void {
     // ! need to be called (even empty) for componentDestroyed(this) to work
   }
