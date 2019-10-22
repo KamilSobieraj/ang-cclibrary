@@ -21,7 +21,12 @@ export class AuthService {
     private router: Router,
     private httpClient: HttpClient,
     private databaseService: DatabaseService
-  ) {}
+  ) {
+    if (localStorage.getItem('userData') === null) {
+      localStorage.setItem('userData',
+        '{"email":"anonym@codeconcept.pl","iat":1571655225,"exp":1571658825,"sub":"83af4acb-fdd7-49cc-aa05-d63c5e94d03a"}');
+    }
+  }
 
   userLoginStatus(): Observable<boolean> {
     return this.isUserLoggedIn$.asObservable();

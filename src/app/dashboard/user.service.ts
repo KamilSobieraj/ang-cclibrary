@@ -44,7 +44,7 @@ export class UserService {
   }
 
   getCurrentUserDataFromDB(): Observable<User> {
-    return this.httpClient.get<User>(this.databaseService.databaseURL + '/users/' + this.authService.getCurrentUserID());
+    return this.httpClient.get<User>(this.databaseService.databaseURL + '/users/' + this.authService.getCurrentUserID())
   }
 
   addNewOperationToCurrentUser(newOperationID: string, orderedBookID: string) {
@@ -57,9 +57,11 @@ export class UserService {
   }
 
   sendUpdatedUserDataToDB(newUserData: User) {
+    const updatedUserData = newUserData;
+    delete updatedUserData.password;
     this.httpClient
-      .put<User>(this.databaseService.databaseURL + '/users/' + this.authService.getCurrentUserID(),
-        JSON.stringify(newUserData),
+      .patch<User>(this.databaseService.databaseURL + '/users/' + this.authService.getCurrentUserID(),
+        JSON.stringify(updatedUserData),
         this.databaseService.httpOptions)
       .subscribe();
   }
