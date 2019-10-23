@@ -13,6 +13,7 @@ export class AddNewUserComponent implements OnInit {
 
   ngOnInit() {
   }
+
   onAddNewUser($event): void {
     this.authService.addNewUser($event.userEmail, $event.userPassword, $event.userType);
     window.location.reload();
