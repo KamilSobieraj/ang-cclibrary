@@ -1,4 +1,7 @@
 <mat-card class="book-details-list__element">
   <mat-card-subtitle>{{header}}</mat-card-subtitle>
-  <mat-card-title>{{content !== '' ? content : '-'}}</mat-card-title>
+  <mat-card-title>
+    <mat-icon *ngIf="iconName==='book-available' || iconName==='book-unavailable'" svgIcon="{{iconName}}" class=""></mat-icon>
+    {{content !== '' ? content : '-'}}
+  </mat-card-title>
 </mat-card>

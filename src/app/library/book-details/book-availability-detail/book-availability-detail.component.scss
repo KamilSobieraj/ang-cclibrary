@@ -1,5 +1,12 @@
 .book-details-list__book-availability {
+  &--available {
     &:hover {
       cursor: pointer;
     }
+  }
+  &--unavailable {
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
 }

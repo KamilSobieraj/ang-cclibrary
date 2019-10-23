@@ -8,6 +8,8 @@ import {takeUntil} from 'rxjs/operators';
 import {AuthService} from '../../dashboard/auth.service';
 import {DatabaseService} from '../../core/database.service';
 import {BookTable} from './book-table';
+import {MatIconRegistry} from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-books-list',
@@ -21,8 +23,14 @@ export class BooksListComponent implements OnInit, OnDestroy {
   constructor(private booksService: BooksService,
               private booksListService: BooksListService,
               private authService: AuthService,
-              private database: DatabaseService) {
+              private database: DatabaseService,
+              private matIconRegistry: MatIconRegistry,
+              private domSanitizer: DomSanitizer) {
     this.setCurrentUserTypeDisplayedColumns();
+    this.matIconRegistry.addSvgIcon('book-available',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../../../assets/icons/available.svg'));
+    this.matIconRegistry.addSvgIcon('book-unavailable',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../../../assets/icons/cross.svg'));
   }
 
   ngOnInit() {

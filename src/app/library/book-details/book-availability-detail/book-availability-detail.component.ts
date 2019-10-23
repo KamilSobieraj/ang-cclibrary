@@ -19,7 +19,9 @@ export class BookAvailabilityDetailComponent implements OnInit {
     private operationService: OperationsService,
     private router: Router,
     private authService: AuthService
-  ) {}
+  ) {
+
+  }
 
   ngOnInit() {
     this.booksService.isBookAvailable$.next(this.isAvailable);

@@ -14,7 +14,14 @@
   </ng-container>
   <ng-container matColumnDef="isAvailable" >
     <th mat-header-cell *matHeaderCellDef> Dostępna? </th>
-    <td mat-cell routerLink="/library/book-details/{{element.id}}" *matCellDef="let element"> {{element.isAvailable ? "tak" : "nie"}} </td>
+    <td mat-cell
+        routerLink="/library/book-details/{{element.id}}" *matCellDef="let element"
+        [class]="element.isAvailable ? 'books-table__title-cell-asd' : 'books-table__title-cell-dsa'">
+      <mat-icon
+        [class]="element.isAvailable ? 'available-icon--available' : 'available-icon--unavailable'"
+        [svgIcon]="element.isAvailable ? 'book-available' : 'book-unavailable'">
+      </mat-icon>
+    </td>
   </ng-container>
   <ng-container *ngIf="this.authService.userType$.getValue() === 'admin'" matColumnDef="removeBook" >
     <th mat-header-cell *matHeaderCellDef> ... </th>
