@@ -8,13 +8,18 @@ import {AdminDashboardComponent} from './dashboard/admin-dashboard/admin-dashboa
 import {BookDetailsComponent} from './library/book-details/book-details.component';
 import {OrderPanelComponent} from './order-panel/order-panel.component';
 import {AuthGuard} from './dashboard/auth.guard';
+import {AddNewUserComponent} from './dashboard/admin-dashboard/add-new-user/add-new-user.component';
+import {AddNewBookComponent} from './dashboard/admin-dashboard/add-new-book/add-new-book.component';
+import {AdminGuard} from './dashboard/admin-dashboard/admin.guard';
 
 const routes: Routes = [
   {path: 'library', component: LibraryComponent},
   {path: 'library/book-details/:id', component: BookDetailsComponent},
   {path: 'order-panel', component: OrderPanelComponent},
   {path: 'dashboard', component: DashboardPanelComponent, canActivate: [AuthGuard]},
-  {path: 'dashboard/admin', component: AdminDashboardComponent},
+  {path: 'dashboard/admin', component: AdminDashboardComponent, canActivate: [AdminGuard]},
+  {path: 'dashboard/admin/users', component: AddNewUserComponent, canActivate: [AdminGuard]},
+  {path: 'dashboard/admin/books', component: AddNewBookComponent, canActivate: [AdminGuard]},
   {path: 'login', component: LoginPanelComponent},
   {path: '', redirectTo: '/library', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}

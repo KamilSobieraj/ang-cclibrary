@@ -1,6 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AuthService} from '../auth.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,14 +6,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
-  @Input()  userLoginEmail: string;
-  @Input()  userLoginPassword: string;
-  constructor(private authService: AuthService) { }
+
+  constructor() { }
 
   ngOnInit() {
-  }
-  onAddNewUser($event): void {
-    this.authService.addNewUser($event.userEmail, $event.userPassword, $event.userType);
-    window.location.reload();
   }
 }

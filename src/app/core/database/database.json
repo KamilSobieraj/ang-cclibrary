@@ -13,7 +13,10 @@
       "password": "$2a$10$tJ5yaUI1fRjY3dxrHjxFeOnh.iW6yv1I4shST2h/nlu84elOd4L0G",
       "id": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "userType": "regular",
-      "history": [],
+      "history": [
+        "borrow-61ebc07f-30b6-4cdb-a7f2-e2197542b92f",
+        "return-7f3fc9f5-9073-46d0-83af-bb304c64de73"
+      ],
       "currentBorrowedBooks": []
     },
     {
@@ -35,39 +38,6 @@
   ],
   "books": [
     {
-      "id": "01",
-      "title": "Randomowy tytuł książki.",
-      "author": "Marek Cukierberg",
-      "publicationYear": "2018",
-      "editorName": "Goggle Ed.",
-      "tags": [
-        "PHP",
-        "Laravel"
-      ],
-      "remarks": "Książka ma wyrwane pojedyncze strony",
-      "currentLocation": "VI piętro",
-      "isAvailable": true,
-      "history": [],
-      "reservations": []
-    },
-    {
-      "id": "02",
-      "title": "Angular Ninja",
-      "author": "Johan Kusturica",
-      "publicationYear": "2019",
-      "editorName": "Frontend Masters",
-      "tags": [
-        "Javascript",
-        "Angular",
-        "Frontend"
-      ],
-      "remarks": "",
-      "currentLocation": "VI piętro",
-      "isAvailable": true,
-      "history": [],
-      "reservations": []
-    },
-    {
       "id": "03",
       "title": "You Don't Know JS",
       "author": "Kyle Simpson",
@@ -79,7 +49,10 @@
       "remarks": "e-book",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [],
+      "history": [
+        "borrow-61ebc07f-30b6-4cdb-a7f2-e2197542b92f",
+        "return-7f3fc9f5-9073-46d0-83af-bb304c64de73"
+      ],
       "reservations": []
     },
     {
@@ -148,5 +121,22 @@
       "reservations": []
     }
   ],
-  "operations": []
+  "operations": [
+    {
+      "id": "borrow-61ebc07f-30b6-4cdb-a7f2-e2197542b92f",
+      "bookID": "03",
+      "date": "2019-10-23 7:59:20",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "return-7f3fc9f5-9073-46d0-83af-bb304c64de73",
+      "bookID": "03",
+      "date": "2019-10-23 7:59:26",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "return",
+      "movedTo": "somewhere"
+    }
+  ]
 }
