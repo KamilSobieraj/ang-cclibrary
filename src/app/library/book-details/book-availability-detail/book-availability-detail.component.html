@@ -13,7 +13,9 @@
     header="status"
     content="Książka dostępna - Zamów!"
     iconName="book-available"
-    class="book-details-list__book-availability--available"
+    [ngClass]="(this.authService.getCurrentUserType() === 'admin') ?
+    'book-details-list__book-availability--unavailable' :
+    'book-details-list__book-availability--available'"
     (click)="onOrderBook()">
   </app-book-details-element>
 </ng-template>

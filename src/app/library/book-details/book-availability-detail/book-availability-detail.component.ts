@@ -32,15 +32,18 @@ export class BookAvailabilityDetailComponent implements OnInit {
   }
 
   onOrderBook() {
-    if (!this.isUserLoggedIn) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.operationService.onBookAction('borrow', this.bookID);
-      window.alert(
-        'Ksiązka zamówiona - udaj się do miejsca jej lokalizacji i zaczytuj!'
-      );
-      // TODO: Make it right
-      setTimeout(() => this.router.navigate(['/dashboard']), 500);
+    // ? Disable order when user status is admin
+    if (this.authService.getCurrentUserType() !== 'admin') {
+      if (!this.isUserLoggedIn) {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.operationService.onBookAction('borrow', this.bookID);
+        window.alert(
+          'Ksiązka zamówiona - udaj się do miejsca jej lokalizacji i zaczytuj!'
+        );
+        // TODO: Make it right
+        setTimeout(() => this.router.navigate(['/dashboard']), 500);
+      }
     }
   }
 }
