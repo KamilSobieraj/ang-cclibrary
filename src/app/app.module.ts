@@ -24,7 +24,7 @@ import { LoginPanelComponent } from './dashboard/login-panel/login-panel.compone
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EmailPasswordFormComponent } from './shared/email-password-form/email-password-form.component';
 import {AdminDashboardComponent} from './dashboard/admin-dashboard/admin-dashboard.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './shared/material-module';
 import { SearchBarComponent } from './library/search-bar/search-bar.component';
 import { BookDetailsElementComponent } from './shared/book-details-element/book-details-element.component';
@@ -34,11 +34,11 @@ import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.
 import { OperationsHistoryComponent } from './dashboard/user-dashboard/operations-history/operations-history.component';
 import { CurrentBorrowedBooksComponent } from './dashboard/user-dashboard/current-borrowed-books/current-borrowed-books.component';
 import { AddNewBookComponent } from './dashboard/admin-dashboard/add-new-book/add-new-book.component';
-import { TagsChipsComponent } from './dashboard/admin-dashboard/add-new-book/tags-chips/tags-chips.component';
 import { BookOperationsHistoryListComponent } from './library/book-details/book-operations-history-list/book-operations-history-list.component';
 import { AddNewUserComponent } from './dashboard/admin-dashboard/add-new-user/add-new-user.component';
 import { UpdateBookComponent } from './dashboard/admin-dashboard/update-book/update-book.component';
-import { TagsChipsUpdateComponent } from './dashboard/admin-dashboard/update-book/tags-chips-update/tags-chips-update.component';
+import { BookFormComponent } from './shared/book-form/book-form.component';
+import { BookFormTagsComponent } from './shared/book-form/book-form-tags/book-form-tags.component';
 
 @NgModule({
   declarations: [
@@ -62,11 +62,11 @@ import { TagsChipsUpdateComponent } from './dashboard/admin-dashboard/update-boo
     OperationsHistoryComponent,
     CurrentBorrowedBooksComponent,
     AddNewBookComponent,
-    TagsChipsComponent,
     BookOperationsHistoryListComponent,
     AddNewUserComponent,
     UpdateBookComponent,
-    TagsChipsUpdateComponent,
+    BookFormComponent,
+    BookFormTagsComponent,
   ],
   imports: [
     BrowserModule,

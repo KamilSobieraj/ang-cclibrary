@@ -12,6 +12,7 @@ import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
 })
 export class AddNewBookComponent implements OnInit, OnDestroy {
   book: BookModel;
+  tags;
 
   constructor(private addNewBookService: AddNewBookService) {
     this.book = {
@@ -33,7 +34,10 @@ export class AddNewBookComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.addNewBookService.getFormTags()
       .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(tags => (this.book.tags = tags));
+      .subscribe(tags => {
+        this.book.tags = tags;
+        this.tags = tags;
+      });
   }
 
   onSubmitForm() {
