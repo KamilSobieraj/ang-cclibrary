@@ -11,6 +11,7 @@ import {AuthGuard} from './dashboard/auth.guard';
 import {AddNewUserComponent} from './dashboard/admin-dashboard/add-new-user/add-new-user.component';
 import {AddNewBookComponent} from './dashboard/admin-dashboard/add-new-book/add-new-book.component';
 import {AdminGuard} from './dashboard/admin-dashboard/admin.guard';
+import {UpdateBookComponent} from './dashboard/admin-dashboard/update-book/update-book.component';
 
 const routes: Routes = [
   {path: 'library', component: LibraryComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'dashboard/admin', component: AdminDashboardComponent, canActivate: [AdminGuard]},
   {path: 'dashboard/admin/users', component: AddNewUserComponent, canActivate: [AdminGuard]},
   {path: 'dashboard/admin/books', component: AddNewBookComponent, canActivate: [AdminGuard]},
+  {path: 'dashboard/admin/update-book', component: UpdateBookComponent, canActivate: [AdminGuard]},
   {path: 'login', component: LoginPanelComponent},
   {path: '', redirectTo: '/library', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}

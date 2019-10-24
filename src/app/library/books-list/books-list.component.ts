@@ -10,6 +10,7 @@ import {DatabaseService} from '../../core/database.service';
 import {BookTable} from './book-table';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
+import {UpdateBookService} from '../../dashboard/admin-dashboard/update-book/update-book.service';
 
 @Component({
   selector: 'app-books-list',
@@ -24,6 +25,7 @@ export class BooksListComponent implements OnInit, OnDestroy {
               private booksListService: BooksListService,
               private authService: AuthService,
               private database: DatabaseService,
+              private updateBookService: UpdateBookService,
               private matIconRegistry: MatIconRegistry,
               private domSanitizer: DomSanitizer) {
     this.setCurrentUserTypeDisplayedColumns();
@@ -42,7 +44,7 @@ export class BooksListComponent implements OnInit, OnDestroy {
 
   setCurrentUserTypeDisplayedColumns() {
     this.authService.userType$.getValue() === 'admin' ?
-      this.displayedColumns = ['title', 'author', 'currentLocation', 'isAvailable', 'removeBook'] :
+      this.displayedColumns = ['title', 'author', 'currentLocation', 'isAvailable', 'removeBook', 'updateBook'] :
       this.displayedColumns = ['title', 'author', 'currentLocation', 'isAvailable'];
   }
 
@@ -51,6 +53,8 @@ export class BooksListComponent implements OnInit, OnDestroy {
       this.booksListService.setBooksTableDataSource();
     });
   }
+
+
 
   ngOnDestroy(): void {
     // ! need to be called (even empty) for componentDestroyed(this) to work

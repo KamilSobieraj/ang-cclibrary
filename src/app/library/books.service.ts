@@ -3,6 +3,7 @@ import {DatabaseService} from '../core/database.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {BookModel} from './book.model';
 import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,15 @@ export class BooksService {
   }
 
   getBooksDataFromDB(): Observable<BookModel[]> {
+    console.log('getBooksDataFromDB');
     return this.databaseService.getData('books');
+  }
+  updateAllBooksData() {
+    this.getBooksDataFromDB().subscribe((booksData: BookModel[]) => this.allBooksData = booksData);
   }
 
   getBookDetails(id: string = this.chosenBookID): BookModel {
+    this.updateAllBooksData();
     return this.allBooksData.find(book => book.id === id);
   }
 

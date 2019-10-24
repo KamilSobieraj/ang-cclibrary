@@ -37,6 +37,8 @@ import { AddNewBookComponent } from './dashboard/admin-dashboard/add-new-book/ad
 import { TagsChipsComponent } from './dashboard/admin-dashboard/add-new-book/tags-chips/tags-chips.component';
 import { BookOperationsHistoryListComponent } from './library/book-details/book-operations-history-list/book-operations-history-list.component';
 import { AddNewUserComponent } from './dashboard/admin-dashboard/add-new-user/add-new-user.component';
+import { UpdateBookComponent } from './dashboard/admin-dashboard/update-book/update-book.component';
+import { TagsChipsUpdateComponent } from './dashboard/admin-dashboard/update-book/tags-chips-update/tags-chips-update.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { AddNewUserComponent } from './dashboard/admin-dashboard/add-new-user/ad
     TagsChipsComponent,
     BookOperationsHistoryListComponent,
     AddNewUserComponent,
+    UpdateBookComponent,
+    TagsChipsUpdateComponent,
   ],
   imports: [
     BrowserModule,
