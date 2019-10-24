@@ -19,9 +19,8 @@ export class BookHistoryService {
     private operationsService: OperationsService,
     private userService: UserService
   ) {
-    this.getBooksData();
+    // this.getBooksData();
   }
-
   getBooksData(): BookModel {
     const chosenBookID = this.booksService.chosenBookID$.getValue();
     return this.booksService.getBookDetails(chosenBookID);
@@ -29,6 +28,7 @@ export class BookHistoryService {
 
   setBookHistoryData(): BookHistory[] {
     const bookHistoryDetails = [];
+    // TODO: Fix history error
     const chosenBookHistory = this.getBooksData().history;
     chosenBookHistory.map(operationID => {
       const operationData = this.operationsService.getOperationData(operationID);
@@ -42,4 +42,5 @@ export class BookHistoryService {
     });
     return bookHistoryDetails;
   }
+
 }
