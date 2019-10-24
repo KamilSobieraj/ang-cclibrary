@@ -1,7 +1,7 @@
 <button
   mat-button color="primary"
   (click)="onGoBack()">Wróć</button>
-<mat-list role="list" class="book-details-list">
+<mat-list role="list" class="book-details-list" *ngIf="bookDetails">
   <mat-icon svgIcon="book-cover" class="book-details-list__element book-details-list__book-cover"></mat-icon>
   <app-book-details-element
     header="Tytuł"
@@ -43,4 +43,4 @@
     class="book-details-list__element book-details-list__book-tags">
   </app-book-tags-detail>
 </mat-list>
-<app-book-operations-history-list></app-book-operations-history-list>
+<app-book-operations-history-list *ngIf="bookDetails"></app-book-operations-history-list>
