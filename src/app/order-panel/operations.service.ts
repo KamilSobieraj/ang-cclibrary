@@ -152,7 +152,7 @@ export class OperationsService {
         }
       });
     });
-    this.operationsHistoryDataForTable$.next(historySet);
+    this.operationsHistoryDataForTable$.next(historySet.reverse());
     this.operationsHistoryTableDataSource$.next(
       new MatTableDataSource(historySet)
     );

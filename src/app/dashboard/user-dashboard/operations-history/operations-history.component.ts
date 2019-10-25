@@ -9,7 +9,7 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
   templateUrl: './operations-history.component.html',
   styleUrls: ['./operations-history.component.scss']
 })
-export class OperationsHistoryComponent implements OnInit, OnDestroy, AfterViewInit {
+export class OperationsHistoryComponent implements OnInit, OnDestroy {
   operationsHistoryTableDataSource: MatTableDataSource<any>;
   displayedColumns = ['title', 'operationType', 'date'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -25,14 +25,13 @@ export class OperationsHistoryComponent implements OnInit, OnDestroy, AfterViewI
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(
         operationsHistory => {
-          (this.operationsHistoryTableDataSource = new MatTableDataSource(operationsHistory));
+          this.operationsHistoryTableDataSource = new MatTableDataSource(operationsHistory);
+          // TODO: remove error
+          this.operationsHistoryTableDataSource.paginator = this.paginator;
         }
       );
     this.operationsService.setOperationsHistoryData();
   }
-ngAfterViewInit(): void {
-  this.operationsHistoryTableDataSource.paginator = this.paginator
-}
 
   ngOnDestroy(): void {
     // ! need to be called (even empty) for componentDestroyed(this) to work

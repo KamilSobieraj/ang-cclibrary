@@ -11,7 +11,7 @@ import { BookHistory } from './book-history.model';
   templateUrl: './book-operations-history-list.component.html',
   styleUrls: ['./book-operations-history-list.component.scss']
 })
-export class BookOperationsHistoryListComponent implements OnInit, OnDestroy, AfterViewInit {
+export class BookOperationsHistoryListComponent implements OnInit, OnDestroy {
   bookHistoryTableDataSource: MatTableDataSource<BookHistory>;
   displayedColumns = ['userEmail', 'operationType', 'date'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -26,11 +26,8 @@ export class BookOperationsHistoryListComponent implements OnInit, OnDestroy, Af
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe();
     this.bookHistoryTableDataSource = new MatTableDataSource<BookHistory>(
-      this.bookHistoryService.setBookHistoryData()
+      this.bookHistoryService.setBookHistoryData().reverse()
     );
-  }
-
-  ngAfterViewInit(): void {
     this.bookHistoryTableDataSource.paginator = this.paginator
   }
 

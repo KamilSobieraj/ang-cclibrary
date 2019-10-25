@@ -9,7 +9,7 @@
       "currentBorrowedBooks": []
     },
     {
-      "email": "kamil.sobieraj@codeconcept.pl",
+      "email": "fake@codeconcept.pl",
       "password": "$2a$10$f8yQDVtDRZiC6eKtQvL6degjKbUl0pGYTfqSRMVMlTCs6VdlE9.Ka",
       "id": "95b3a863-edbf-4b69-a28a-611e32988ed1",
       "userType": "admin",
@@ -17,45 +17,12 @@
       "currentBorrowedBooks": []
     },
     {
-      "email": "kellycmi@interia.pl",
+      "email": "fake@interia.pl",
       "password": "$2a$10$tJ5yaUI1fRjY3dxrHjxFeOnh.iW6yv1I4shST2h/nlu84elOd4L0G",
       "id": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "userType": "regular",
-      "history": [
-        "borrow-c69b4c72-dc2e-4a81-b311-f7a8a9edd4b8",
-        "borrow-54bf589a-1fc5-4385-bb91-92ef8a609b8a",
-        "borrow-49ea8f6a-1804-4b69-aedc-42318d4ea577",
-        "borrow-57078e7f-b4e9-44f5-9387-b3be02cc25d4",
-        "borrow-f304d0f1-e2f3-432f-a1ac-80fba73309a6",
-        "borrow-58387808-2029-4c01-a87d-66181b0f91d6",
-        "return-b8943c64-c4ef-42e0-aab9-d4c25142e8bd",
-        "borrow-c0147ed0-feec-4fad-b425-ee44fee49a4e",
-        "return-5f2eadee-72e4-40bd-89bd-ce043dbc0d54",
-        "borrow-0b954f93-50ae-4316-8c13-dcfb4364884d",
-        "return-d86ea05d-a9bc-4d50-b770-bbbccfea3c89"
-      ],
-      "currentBorrowedBooks": [
-        {
-          "bookID": "02",
-          "operationID": "borrow-54bf589a-1fc5-4385-bb91-92ef8a609b8a"
-        },
-        {
-          "bookID": "03",
-          "operationID": "borrow-49ea8f6a-1804-4b69-aedc-42318d4ea577"
-        },
-        {
-          "bookID": "04",
-          "operationID": "borrow-57078e7f-b4e9-44f5-9387-b3be02cc25d4"
-        },
-        {
-          "bookID": "05",
-          "operationID": "borrow-f304d0f1-e2f3-432f-a1ac-80fba73309a6"
-        },
-        {
-          "bookID": "06",
-          "operationID": "borrow-58387808-2029-4c01-a87d-66181b0f91d6"
-        }
-      ]
+      "history": [],
+      "currentBorrowedBooks": []
     },
     {
       "email": "anonym@codeconcept.pl",
@@ -88,14 +55,7 @@
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [
-        "borrow-c69b4c72-dc2e-4a81-b311-f7a8a9edd4b8",
-        "return-b8943c64-c4ef-42e0-aab9-d4c25142e8bd",
-        "borrow-c0147ed0-feec-4fad-b425-ee44fee49a4e",
-        "return-5f2eadee-72e4-40bd-89bd-ce043dbc0d54",
-        "borrow-0b954f93-50ae-4316-8c13-dcfb4364884d",
-        "return-d86ea05d-a9bc-4d50-b770-bbbccfea3c89"
-      ],
+      "history": [],
       "reservations": []
     },
     {
@@ -111,10 +71,8 @@
       ],
       "remarks": "",
       "currentLocation": "VI piętro",
-      "isAvailable": false,
-      "history": [
-        "borrow-54bf589a-1fc5-4385-bb91-92ef8a609b8a"
-      ],
+      "isAvailable": true,
+      "history": [],
       "reservations": []
     },
     {
@@ -128,10 +86,8 @@
       ],
       "remarks": "e-book",
       "currentLocation": "VI piętro",
-      "isAvailable": false,
-      "history": [
-        "borrow-49ea8f6a-1804-4b69-aedc-42318d4ea577"
-      ],
+      "isAvailable": true,
+      "history": [],
       "reservations": []
     },
     {
@@ -145,10 +101,8 @@
       ],
       "remarks": "",
       "currentLocation": "VI piętro",
-      "isAvailable": false,
-      "history": [
-        "borrow-57078e7f-b4e9-44f5-9387-b3be02cc25d4"
-      ],
+      "isAvailable": true,
+      "history": [],
       "reservations": []
     },
     {
@@ -162,10 +116,8 @@
       ],
       "remarks": "",
       "currentLocation": "VI piętro",
-      "isAvailable": false,
-      "history": [
-        "borrow-f304d0f1-e2f3-432f-a1ac-80fba73309a6"
-      ],
+      "isAvailable": true,
+      "history": [],
       "reservations": []
     },
     {
@@ -183,10 +135,8 @@
       ],
       "remarks": "",
       "currentLocation": "VI piętro",
-      "isAvailable": false,
-      "history": [
-        "borrow-58387808-2029-4c01-a87d-66181b0f91d6"
-      ],
+      "isAvailable": true,
+      "history": [],
       "reservations": []
     },
     {
@@ -206,94 +156,5 @@
       "reservations": []
     }
   ],
-  "operations": [
-    {
-      "id": "borrow-c69b4c72-dc2e-4a81-b311-f7a8a9edd4b8",
-      "bookID": "01",
-      "date": "2019-10-25 10:26:0",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "borrow",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "borrow-54bf589a-1fc5-4385-bb91-92ef8a609b8a",
-      "bookID": "02",
-      "date": "2019-10-25 10:26:5",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "borrow",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "borrow-49ea8f6a-1804-4b69-aedc-42318d4ea577",
-      "bookID": "03",
-      "date": "2019-10-25 10:26:8",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "borrow",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "borrow-57078e7f-b4e9-44f5-9387-b3be02cc25d4",
-      "bookID": "04",
-      "date": "2019-10-25 10:28:49",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "borrow",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "borrow-f304d0f1-e2f3-432f-a1ac-80fba73309a6",
-      "bookID": "05",
-      "date": "2019-10-25 10:28:52",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "borrow",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "borrow-58387808-2029-4c01-a87d-66181b0f91d6",
-      "bookID": "06",
-      "date": "2019-10-25 10:28:59",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "borrow",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "return-b8943c64-c4ef-42e0-aab9-d4c25142e8bd",
-      "bookID": "01",
-      "date": "2019-10-25 11:49:25",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "return",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "borrow-c0147ed0-feec-4fad-b425-ee44fee49a4e",
-      "bookID": "01",
-      "date": "2019-10-25 11:49:27",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "borrow",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "return-5f2eadee-72e4-40bd-89bd-ce043dbc0d54",
-      "bookID": "01",
-      "date": "2019-10-25 11:49:31",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "return",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "borrow-0b954f93-50ae-4316-8c13-dcfb4364884d",
-      "bookID": "01",
-      "date": "2019-10-25 11:49:33",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "borrow",
-      "movedTo": "somewhere"
-    },
-    {
-      "id": "return-d86ea05d-a9bc-4d50-b770-bbbccfea3c89",
-      "bookID": "01",
-      "date": "2019-10-25 11:49:36",
-      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
-      "operationType": "return",
-      "movedTo": "somewhere"
-    }
-  ]
+  "operations": []
 }
