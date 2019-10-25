@@ -46,7 +46,13 @@ export class AuthService {
         localStorage.setItem('userData', atob(user.accessToken.split('.')[1]));
         localStorage.setItem('userLoginStatus', 'user is logged in');
         this.setUserType();
-        this.router.navigate(['dashboard']);
+        // TODO: do it right!
+        setTimeout(() => {
+          localStorage.getItem('userType') === 'admin' ?
+            this.router.navigate(['library']) :
+            this.router.navigate(['dashboard']);
+        }, 500)
+        // this.router.navigate(['dashboard']);
       });
 
   }
