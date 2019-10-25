@@ -3,7 +3,6 @@ import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angul
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatAutocomplete, MatChipInputEvent} from '@angular/material';
 import {UpdateBookService} from '../../../dashboard/admin-dashboard/update-book/update-book.service';
-import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 import {AddNewBookService} from '../../../dashboard/admin-dashboard/add-new-book/add-new-book.service';

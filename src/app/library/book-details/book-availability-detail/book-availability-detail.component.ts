@@ -40,11 +40,9 @@ export class BookAvailabilityDetailComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       } else {
         this.operationService.onBookAction('borrow', this.bookID);
-        // window.alert('Ksiązka zamówiona - udaj się do miejsca jej lokalizacji i zaczytuj!');
         this.modalService.onOpenDialog('Ksiązka zamówiona - udaj się do miejsca jej lokalizacji i zaczytuj!');
         // TODO: Make it right
         setTimeout(() => this.router.navigate(['/dashboard']), 500);
-        // this.router.navigate(['/dashboard'])
       }
     }
   }

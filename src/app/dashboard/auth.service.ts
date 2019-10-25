@@ -18,8 +18,7 @@ export class AuthService {
   constructor(
     private router: Router,
     private httpClient: HttpClient,
-    private databaseService: DatabaseService,
-    private modalService: ModalService
+    private databaseService: DatabaseService
   ) {
     // ? It is needed when local storage is empty
     if (localStorage.getItem('userData') === null) {
@@ -106,21 +105,8 @@ export class AuthService {
       )
       .pipe(
         retry(1),
-        catchError(this.errorHandler)
+        catchError(this.databaseService.httpErrorHandler)
       )
       .subscribe();
-  }
-
-  errorHandler(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    this.modalService.onOpenDialog(`Something went wrong: ${errorMessage}`);
-    return throwError(errorMessage);
   }
 }

@@ -28,23 +28,10 @@ export class AddNewBookService {
       )
       .pipe(
         retry(1),
-        catchError(this.errorHandler)
+        catchError(this.databaseService.httpErrorHandler)
       )
       .subscribe();
     this.resetFormTags();
-  }
-
-  errorHandler(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    this.modalService.onOpenDialog(`Something went wrong: ${errorMessage}`);
-    return throwError(errorMessage);
   }
 
   getFormTags(): Observable<string[]> {

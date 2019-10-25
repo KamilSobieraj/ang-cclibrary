@@ -7,6 +7,7 @@ import {catchError, retry} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {BookModel} from '../../../library/book.model';
 import {ModalService} from '../../../shared/modal/modal.service';
+import {AddUpdateBook} from './add-update-book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ import {ModalService} from '../../../shared/modal/modal.service';
 export class UpdateBookService {
   private formTags$ = new Subject<string[]>();
   tags: string[] = [];
-  pickedBookData;
+  pickedBookData: AddUpdateBook;
 
   constructor(private booksService: BooksService,
               private httpClient: HttpClient,
@@ -22,7 +23,7 @@ export class UpdateBookService {
               private router: Router,
               private modalService: ModalService) { }
 
-  async setInitialBookDataForForm(bookID: string) {
+  async setInitialBookDataForForm(bookID: string): Promise<void> {
     await this.booksService.getBooksDataFromDB().toPromise().then(allBooksData => {
       const bookData = allBooksData.find(book => book.id === bookID);
       this.pickedBookData = {
@@ -42,11 +43,11 @@ export class UpdateBookService {
     });
   }
 
-  getInitialBookDataForForm() {
+  getInitialBookDataForForm(): AddUpdateBook {
     return this.pickedBookData;
   }
 
-  updateBookData(bookData: BookModel) {
+  updateBookData(bookData: AddUpdateBook): void {
     this.httpClient
       .patch<any>(
         this.databaseService.databaseURL + '/books/' + bookData.id,
@@ -55,22 +56,9 @@ export class UpdateBookService {
       )
       .pipe(
         retry(1),
-        catchError(this.errorHandler)
+        catchError(this.databaseService.httpErrorHandler)
       )
       .subscribe();
-  }
-
-  errorHandler(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    this.modalService.onOpenDialog(`Something went wrong: ${errorMessage}`);
-    return throwError(errorMessage);
   }
 
   getFormTags(): Observable<string[]> {
