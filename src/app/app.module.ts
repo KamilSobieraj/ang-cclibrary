@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooksListComponent } from './library/books-list/books-list.component';
@@ -17,7 +16,7 @@ import {
   MatCardModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatListModule,
+  MatInputModule, MatListModule, MatPaginatorModule,
   MatProgressSpinnerModule, MatTableModule
 } from '@angular/material';
 import { LoginPanelComponent } from './dashboard/login-panel/login-panel.component';
@@ -88,7 +87,8 @@ import { ModalComponent } from './shared/modal/modal.component';
     MaterialModule,
     MatIconModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule
   ],
   entryComponents: [
     ModalComponent

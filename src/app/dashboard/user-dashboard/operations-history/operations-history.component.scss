@@ -1,8 +1,18 @@
 @import "src/app/shared/sass/variables";
 
-.operations-history-table {
-  width: 80%;
-  margin: 20px auto 50px auto;
+.operations-history {
+  &__wrapper {
+    width: 80%;
+    margin: 20px auto 50px auto;
+  }
+
+  &__header {
+    margin-left: 20px;
+  }
+
+  &__table {
+    width: 100%;
+  }
 
   &__title-cell {
     &:hover {
@@ -10,8 +20,4 @@
       background-color: $color-hover;
     }
   }
-}
-
-h3 {
-  margin-left: 15%;
 }

@@ -1,21 +1,35 @@
-<h3>Historia wypożyczeń:</h3>
-<table mat-table [dataSource]="operationsHistoryTableDataSource" class="mat-elevation-z8 operations-history-table" >
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef> Tytuł </th>
-    <td mat-cell
+<div class="operations-history__wrapper">
+  <h3 class="operations-history__header">Historia wypożyczeń:</h3>
+  <table
+    *ngIf="operationsHistoryTableDataSource"
+    mat-table
+    [dataSource]="operationsHistoryTableDataSource"
+    class="mat-elevation-z8 operations-history__table">
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Tytuł</th>
+      <td
+        mat-cell
         *matCellDef="let element"
-        routerLink="/library/book-details/{{element.id}}"
-        class="operations-history-table__title-cell"> {{element.title}}
-    </td>
-  </ng-container>
-  <ng-container matColumnDef="operationType">
-    <th mat-header-cell *matHeaderCellDef> Operacja </th>
-    <td mat-cell *matCellDef="let element"> {{element.operationType}} </td>
-  </ng-container>
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Data </th>
-    <td mat-cell *matCellDef="let element"> {{element.operationDate}} </td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+        routerLink="/library/book-details/{{ element.id }}"
+        class="operations-history__title-cell">
+        {{ element.title }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="operationType">
+      <th mat-header-cell *matHeaderCellDef>Operacja</th>
+      <td mat-cell *matCellDef="let element">{{ element.operationType }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Data</th>
+      <td mat-cell *matCellDef="let element">{{ element.operationDate }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    class="operations-history-table__paginator"
+    [pageSizeOptions]="[5, 10, 15]"
+    [pageSize]="5"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { takeUntil } from 'rxjs/operators';
 import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
 import { OperationsService } from '../../../order-panel/operations.service';
@@ -11,9 +11,10 @@ import { BookHistory } from './book-history.model';
   templateUrl: './book-operations-history-list.component.html',
   styleUrls: ['./book-operations-history-list.component.scss']
 })
-export class BookOperationsHistoryListComponent implements OnInit, OnDestroy {
+export class BookOperationsHistoryListComponent implements OnInit, OnDestroy, AfterViewInit {
   bookHistoryTableDataSource: MatTableDataSource<BookHistory>;
   displayedColumns = ['userEmail', 'operationType', 'date'];
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
     private operationsService: OperationsService,
@@ -27,6 +28,10 @@ export class BookOperationsHistoryListComponent implements OnInit, OnDestroy {
     this.bookHistoryTableDataSource = new MatTableDataSource<BookHistory>(
       this.bookHistoryService.setBookHistoryData()
     );
+  }
+
+  ngAfterViewInit(): void {
+    this.bookHistoryTableDataSource.paginator = this.paginator
   }
 
   ngOnDestroy(): void {

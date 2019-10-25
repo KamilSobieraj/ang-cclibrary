@@ -1,10 +1,16 @@
 @import "src/app/shared/sass/variables";
 
-.operations-history-table {
-  width: 80%;
-  margin: 20px auto 50px auto;
-}
+.operations-history {
+  &__wrapper {
+    width: 80%;
+    margin: 20px auto 50px auto;
+  }
 
-h3 {
-  margin-left: 15%;
+  &__header {
+    margin-left: 20px;
+  }
+
+  &__table {
+    width: 100%;
+  }
 }

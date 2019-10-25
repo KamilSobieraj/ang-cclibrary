@@ -9,7 +9,7 @@
       "currentBorrowedBooks": []
     },
     {
-      "email": "fake@codeconcept.pl",
+      "email": "kamil.sobieraj@codeconcept.pl",
       "password": "$2a$10$f8yQDVtDRZiC6eKtQvL6degjKbUl0pGYTfqSRMVMlTCs6VdlE9.Ka",
       "id": "95b3a863-edbf-4b69-a28a-611e32988ed1",
       "userType": "admin",
@@ -17,7 +17,7 @@
       "currentBorrowedBooks": []
     },
     {
-      "email": "fake@interia.pl",
+      "email": "kellycmi@interia.pl",
       "password": "$2a$10$tJ5yaUI1fRjY3dxrHjxFeOnh.iW6yv1I4shST2h/nlu84elOd4L0G",
       "id": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "userType": "regular",
