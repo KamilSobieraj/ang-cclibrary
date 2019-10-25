@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { DatabaseService } from '../../../core/database.service';
 import { catchError, retry } from 'rxjs/operators';
 import { Observable, Subject, throwError } from 'rxjs';
+import {ModalService} from '../../../shared/modal/modal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class AddNewBookService {
 
   constructor(
     private httpClient: HttpClient,
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
+    private modalService: ModalService
   ) {}
 
   addNewBook(book: BookModel): void {
@@ -41,7 +43,7 @@ export class AddNewBookService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(`Something went wrong: ${errorMessage}`);
+    this.modalService.onOpenDialog(`Something went wrong: ${errorMessage}`);
     return throwError(errorMessage);
   }
 

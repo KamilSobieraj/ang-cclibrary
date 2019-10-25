@@ -1,6 +1,14 @@
 {
   "users": [
     {
+      "email": "admin@admin.pl",
+      "password": "$2a$10$PqiFQX.pfINRXrXZgwKMiOkwVXgk1L46No.wPDgaAkWtOmthL31cW",
+      "id": "6602f536-5ce6-49d9-8d04-b2be13d4613a",
+      "userType": "admin",
+      "history": [],
+      "currentBorrowedBooks": []
+    },
+    {
       "email": "kamil.sobieraj@codeconcept.pl",
       "password": "$2a$10$f8yQDVtDRZiC6eKtQvL6degjKbUl0pGYTfqSRMVMlTCs6VdlE9.Ka",
       "id": "95b3a863-edbf-4b69-a28a-611e32988ed1",

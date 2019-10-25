@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import {AuthService} from '../auth.service';
+import {ModalService} from '../../shared/modal/modal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import {AuthService} from '../auth.service';
 export class AdminGuard implements CanActivate {
 
   constructor(private authService: AuthService,
-              private router: Router
+              private router: Router,
+              private modalService: ModalService
   ) {}
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -17,9 +19,10 @@ export class AdminGuard implements CanActivate {
     if (this.authService.userType$.getValue() === 'admin') {
       return true;
     } else {
-      window.alert('Musisz mieć status administratora, żeby mieć dostęp do tego zasobu');
+      this.modalService.onOpenDialog('Musisz mieć status administratora, żeby mieć dostęp do tego zasobu');
       this.router.navigate(['/library']);
     }
+
 
   }
 

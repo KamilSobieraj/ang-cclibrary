@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule, MatListModule,
@@ -39,6 +39,7 @@ import { AddNewUserComponent } from './dashboard/admin-dashboard/add-new-user/ad
 import { UpdateBookComponent } from './dashboard/admin-dashboard/update-book/update-book.component';
 import { BookFormComponent } from './shared/book-form/book-form.component';
 import { BookFormTagsComponent } from './shared/book-form/book-form-tags/book-form-tags.component';
+import { ModalComponent } from './shared/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { BookFormTagsComponent } from './shared/book-form/book-form-tags/book-fo
     UpdateBookComponent,
     BookFormComponent,
     BookFormTagsComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,12 @@ import { BookFormTagsComponent } from './shared/book-form/book-form-tags/book-fo
     MatListModule,
     MatTableModule,
     MaterialModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule
+  ],
+  entryComponents: [
+    ModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

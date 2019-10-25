@@ -6,6 +6,7 @@ import {DatabaseService} from '../../../core/database.service';
 import {catchError, retry} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {BookModel} from '../../../library/book.model';
+import {ModalService} from '../../../shared/modal/modal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class UpdateBookService {
   constructor(private booksService: BooksService,
               private httpClient: HttpClient,
               private databaseService: DatabaseService,
-              private router: Router) { }
+              private router: Router,
+              private modalService: ModalService) { }
 
   async setInitialBookDataForForm(bookID: string) {
     await this.booksService.getBooksDataFromDB().toPromise().then(allBooksData => {
@@ -67,7 +69,7 @@ export class UpdateBookService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(`Something went wrong: ${errorMessage}`);
+    this.modalService.onOpenDialog(`Something went wrong: ${errorMessage}`);
     return throwError(errorMessage);
   }
 

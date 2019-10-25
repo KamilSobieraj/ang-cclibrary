@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 import { DatabaseService } from '../core/database.service';
 import { User } from './user.model';
+import {ModalService} from '../shared/modal/modal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class AuthService {
     private router: Router,
     private httpClient: HttpClient,
     private databaseService: DatabaseService,
+    private modalService: ModalService
   ) {
     // ? It is needed when local storage is empty
     if (localStorage.getItem('userData') === null) {
@@ -118,7 +120,7 @@ export class AuthService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(`Something went wrong: ${errorMessage}`);
+    this.modalService.onOpenDialog(`Something went wrong: ${errorMessage}`);
     return throwError(errorMessage);
   }
 }
