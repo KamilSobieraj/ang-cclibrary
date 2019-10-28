@@ -39,6 +39,7 @@ import { UpdateBookComponent } from './dashboard/admin-dashboard/update-book/upd
 import { BookFormComponent } from './shared/book-form/book-form.component';
 import { BookFormTagsComponent } from './shared/book-form/book-form-tags/book-form-tags.component';
 import { ModalComponent } from './shared/modal/modal.component';
+import { UsersManagementComponent } from './dashboard/admin-dashboard/users-management/users-management.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { ModalComponent } from './shared/modal/modal.component';
     BookFormComponent,
     BookFormTagsComponent,
     ModalComponent,
+    UsersManagementComponent,
   ],
   imports: [
     BrowserModule,

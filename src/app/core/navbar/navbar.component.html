@@ -6,7 +6,12 @@
   </p>
   <div class="navbar__button-row">
     <button class="navbar__button" mat-button color="primary" routerLink="/library">
-      {{currentUserType === 'admin' ? 'Zasób' : 'Książki'}}
+      {{currentUserType === 'admin' ? 'Księgozbiór' : 'Książki'}}
+    </button>
+    <button class="navbar__button"
+            *ngIf="currentUserType === 'admin'"
+            mat-button color="primary"
+            routerLink="/dashboard/admin/users">Użytkownicy
     </button>
     <button class="navbar__button"
             *ngIf="!isUserLoggedIn"
@@ -21,7 +26,7 @@
     <button class="navbar__button"
             *ngIf="currentUserType === 'admin'"
             mat-button color="primary"
-            routerLink="/dashboard/admin/users">Dodaj użytkownika
+            routerLink="/dashboard/admin/users/add-new-user">Dodaj użytkownika
     </button>
     <button class="navbar__button"
             *ngIf="currentUserType === 'admin'"
