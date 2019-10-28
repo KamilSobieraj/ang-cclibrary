@@ -7,6 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { DatabaseService } from '../core/database.service';
 import { User } from './user.model';
 import {ModalService} from '../shared/modal/modal.service';
+import {error} from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class AuthService {
   constructor(
     private router: Router,
     private httpClient: HttpClient,
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
+    private modalService: ModalService
   ) {
     // ? It is needed when local storage is empty
     if (localStorage.getItem('userData') === null) {
@@ -53,8 +55,9 @@ export class AuthService {
             this.router.navigate(['library']) :
             this.router.navigate(['dashboard']);
         }, 500)
-        // this.router.navigate(['dashboard']);
-      });
+      },
+        err => this.modalService.onOpenDialog('Nieprawidłowy adres e-mail lub hasło')
+      );
 
   }
 
