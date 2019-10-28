@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserForm} from './userForm.model';
 
 @Component({
   selector: 'app-email-password-form',
@@ -9,7 +10,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class EmailPasswordFormComponent implements OnInit {
   userEmail: string;
   userPassword: string;
-  @Output() submitForm = new EventEmitter();
+  @Output() submitForm = new EventEmitter<UserForm>();
   isPasswordHidden = true;
   @Input() header: string;
   @Input() buttonTitle: string;
@@ -27,8 +28,8 @@ export class EmailPasswordFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    this.submitForm.emit({userEmail: this.emailInput, userPassword: this.passwordInput, userType: this.userTypeInput });
+  @HostListener('document:keydown.enter', ['$event']) onSubmit(): void {
+    this.submitForm.emit({userEmail: this.emailInput, userPassword: this.passwordInput, userType: this.userTypeInput});
   }
 
   getEmailLoginErrorMessage() {
