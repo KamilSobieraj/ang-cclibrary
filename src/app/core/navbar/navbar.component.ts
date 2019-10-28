@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthService} from '../../dashboard/auth.service';
-import {takeUntil} from 'rxjs/operators';
-import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
-import {UserService} from '../../dashboard/user.service';
-import {User} from '../../dashboard/user.model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../dashboard/auth.service';
+import { takeUntil } from 'rxjs/operators';
+import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
+import { UserService } from '../../dashboard/user.service';
+import { User } from '../../dashboard/user.model';
 
 @Component({
   selector: 'app-navbar',
@@ -14,18 +14,26 @@ import {User} from '../../dashboard/user.model';
 export class NavbarComponent implements OnInit, OnDestroy {
   isUserLoggedIn: boolean;
   userData;
+  currentUserType: string;
 
-  constructor(private router: Router,
-              private authService: AuthService,
-              private userService: UserService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.authService.userLoginStatus()
       .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(isUserLoggedIn => this.isUserLoggedIn = isUserLoggedIn);
+      .subscribe(isUserLoggedIn => (this.isUserLoggedIn = isUserLoggedIn));
     this.userService.currentUserData$
       .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(currentUserData => this.userData = currentUserData);
+      .subscribe(currentUserData => (this.userData = currentUserData));
+    this.authService.userType$
+      .pipe(takeUntil(componentDestroyed(this)))
+      .subscribe(
+      userType => (this.currentUserType = userType)
+    );
   }
 
   goToLoginPanel(): void {

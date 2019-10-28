@@ -23,11 +23,11 @@
       </mat-icon>
     </td>
   </ng-container>
-  <ng-container *ngIf="this.authService.userType$.getValue() === 'admin'" matColumnDef="removeBook" >
+  <ng-container *ngIf="currentUserType === 'admin'" matColumnDef="removeBook" >
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element"> <button mat-button color="warn" (click)="onRemoveBook(element.id)">Usuń książkę</button> </td>
   </ng-container>
-  <ng-container *ngIf="this.authService.userType$.getValue() === 'admin'" matColumnDef="updateBook" >
+  <ng-container *ngIf="currentUserType === 'admin'" matColumnDef="updateBook" >
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
       <button mat-button color="primary" (click)="this.updateBookService.setInitialBookDataForForm(element.id)">Aktualizuj</button>

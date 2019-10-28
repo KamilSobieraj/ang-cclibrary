@@ -1,5 +1,5 @@
 <ng-container *ngIf="currentUserData">
-  <ng-container *ngIf="this.authService.userType$.getValue() === 'admin'; then adminPanel else regularPanel"></ng-container>
+  <ng-container *ngIf="currentUserType === 'admin'; then adminPanel else regularPanel"></ng-container>
 </ng-container>
 
 <ng-template #adminPanel><app-admin-dashboard></app-admin-dashboard></ng-template>

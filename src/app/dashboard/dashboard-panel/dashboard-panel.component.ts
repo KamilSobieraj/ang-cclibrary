@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
+import {takeUntil} from 'rxjs/operators';
+import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 
 @Component({
   selector: 'app-dashboard-panel',
@@ -11,6 +13,7 @@ import { UserService } from '../user.service';
 })
 export class DashboardPanelComponent implements OnInit, OnDestroy {
   currentUserData: User;
+  currentUserType: string;
 
   constructor(
     private httpClient: HttpClient,
@@ -19,6 +22,12 @@ export class DashboardPanelComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.authService.userType$
+      .pipe(takeUntil(componentDestroyed(this)))
+      .subscribe(
+        userType => this.currentUserType = userType
+      );
+
     this.userService.getCurrentUserData();
     // TODO: make it right!
     setTimeout(() => this.getCurrentUserData(),100);
