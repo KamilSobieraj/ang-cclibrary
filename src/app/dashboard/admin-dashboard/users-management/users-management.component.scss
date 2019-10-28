@@ -1,0 +1,30 @@
+@import "src/app/shared/sass/variables.scss";
+
+.books-table {
+  width: 80%;
+  margin: 20px auto;
+  &__row {
+    &:hover {
+      cursor: pointer;
+      background-color: $color-hover;
+    }
+  }
+  &__title-cell {
+    &:hover {
+      cursor: pointer;
+    }
+    &-asd {
+      height: 24px;
+      width: 24px;
+      fill: #3F51BC;
+      border-bottom: 1px #e0e0e0 solid;
+    }
+    &-dsa {
+      height: 24px;
+      width: 24px;
+      fill: #f44336;
+      border-bottom: 1px #e0e0e0 solid;
+    }
+  }
+}
+

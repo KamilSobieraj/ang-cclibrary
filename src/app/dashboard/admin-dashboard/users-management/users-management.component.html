@@ -1,1 +1,25 @@
-<p>users-management works!</p>
+<table mat-table [dataSource]="usersTableDataSource" class="mat-elevation-z8 books-table" >
+  <ng-container matColumnDef="userEmail">
+    <th mat-header-cell *matHeaderCellDef> E-mail użytkownika </th>
+    <td mat-cell routerLink="/dashboard/admin/users/{{element.id}}" class="books-table__title-cell" *matCellDef="let element"> {{element.email}}
+      <span *ngIf="element.userType === 'admin'">({{element.userType}})
+      </span>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="currentlyBorrowedBooksQuantity">
+    <th mat-header-cell *matHeaderCellDef> Liczba wypożyczonych książek </th>
+    <td mat-cell *matCellDef="let element" routerLink="/dashboard/admin/users/{{element.id}}"> {{element.currentBorrowedBooks.length}} </td>
+  </ng-container>
+  <ng-container matColumnDef="removeUser" >
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> <button mat-button color="warn" (click)="onRemoveUser(element.id)">Usuń użytkownika</button> </td>
+  </ng-container>
+  <ng-container matColumnDef="userDetails" >
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button color="primary" routerLink="/dashboard/admin/users/{{element.id}}">Szczegóły</button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row class="books-table__row" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
