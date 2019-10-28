@@ -25,6 +25,10 @@ export class DatabaseService {
     return this.httpClient.delete(`${this.databaseURL}/${collection}/${id}`);
   }
 
+  getItemData(collection: string, id: string) {
+    return this.httpClient.get(`${this.databaseURL}/${collection}/${id}`);
+  }
+
   httpErrorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

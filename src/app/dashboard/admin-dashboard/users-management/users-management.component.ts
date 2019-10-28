@@ -29,5 +29,4 @@ export class UsersManagementComponent implements OnInit {
   onRemoveUser(userID: string) {
     this.usersService.removeUser(userID);
   }
-
 }

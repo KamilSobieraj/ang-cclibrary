@@ -30,7 +30,6 @@ import { BookDetailsElementComponent } from './shared/book-details-element/book-
 import { BookAvailabilityDetailComponent } from './library/book-details/book-availability-detail/book-availability-detail.component';
 import { BookTagsDetailComponent } from './library/book-details/book-tags-detail/book-tags-detail.component';
 import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
-import { OperationsHistoryComponent } from './dashboard/user-dashboard/operations-history/operations-history.component';
 import { CurrentBorrowedBooksComponent } from './dashboard/user-dashboard/current-borrowed-books/current-borrowed-books.component';
 import { AddNewBookComponent } from './dashboard/admin-dashboard/add-new-book/add-new-book.component';
 import { BookOperationsHistoryListComponent } from './library/book-details/book-operations-history-list/book-operations-history-list.component';
@@ -40,6 +39,8 @@ import { BookFormComponent } from './shared/book-form/book-form.component';
 import { BookFormTagsComponent } from './shared/book-form/book-form-tags/book-form-tags.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { UsersManagementComponent } from './dashboard/admin-dashboard/users-management/users-management.component';
+import { UserDetailsComponent } from './dashboard/admin-dashboard/users-management/user-details/user-details.component';
+import {OperationsHistoryComponent} from './shared/operations-history/operations-history.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,6 @@ import { UsersManagementComponent } from './dashboard/admin-dashboard/users-mana
     BookAvailabilityDetailComponent,
     BookTagsDetailComponent,
     UserDashboardComponent,
-    OperationsHistoryComponent,
     CurrentBorrowedBooksComponent,
     AddNewBookComponent,
     BookOperationsHistoryListComponent,
@@ -70,6 +70,8 @@ import { UsersManagementComponent } from './dashboard/admin-dashboard/users-mana
     BookFormTagsComponent,
     ModalComponent,
     UsersManagementComponent,
+    UserDetailsComponent,
+    OperationsHistoryComponent
   ],
   imports: [
     BrowserModule,

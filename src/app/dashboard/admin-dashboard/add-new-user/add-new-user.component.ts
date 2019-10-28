@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from '../../auth.service';
+import {ModalService} from '../../../shared/modal/modal.service';
 
 @Component({
   selector: 'app-add-new-user',
@@ -9,13 +10,17 @@ import {AuthService} from '../../auth.service';
 export class AddNewUserComponent implements OnInit {
   @Input()  userLoginEmail: string;
   @Input()  userLoginPassword: string;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private modalService: ModalService) { }
 
   ngOnInit() {
   }
 
   onAddNewUser($event): void {
     this.authService.addNewUser($event.userEmail, $event.userPassword, $event.userType);
-    window.location.reload();
+    // TODO: Must do it much better...
+    this.modalService.onOpenDialog('Nowy użytkownik został dodany');
+    setTimeout(() => window.location.reload(), 1000);
+
   }
 }

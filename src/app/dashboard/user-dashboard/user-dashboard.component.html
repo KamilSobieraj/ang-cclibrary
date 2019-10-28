@@ -1,2 +1,5 @@
 <app-current-borrowed-books></app-current-borrowed-books>
-<app-operations-history></app-operations-history>
+<app-operations-history
+  [operationsHistoryTableDataSource]="operationsHistoryTableDataSource"
+  [displayedColumns]="columnsToDisplay">
+</app-operations-history>

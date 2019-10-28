@@ -3,6 +3,7 @@ import {Observable, Subject} from 'rxjs';
 import {User} from '../../user.model';
 import {DatabaseService} from '../../../core/database.service';
 import {UserTable} from './users-table.model';
+import {OperationsService} from '../../../order-panel/operations.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,10 @@ import {UserTable} from './users-table.model';
 export class UsersService {
   usersData$ = new Subject<User[]>();
   usersData: User[];
+  chosenUserDetails$ = new Subject<UserTable[]>();
 
-  constructor(private databaseService: DatabaseService) { }
+  constructor(private databaseService: DatabaseService,
+              private operationsService: OperationsService) { }
 
   getUsersBasicData(): Observable<User[]> {
     this.databaseService.getData('users').subscribe(allUsersData => {
@@ -25,5 +28,16 @@ export class UsersService {
     this.databaseService.deleteData('users', userID).subscribe(res => {
       this.getUsersBasicData().subscribe();
     });
+  }
+
+  getChosenUserDetails(userID: string) {
+    const userDetails = [];
+    this.databaseService.getItemData('users', userID).subscribe((userData: User) => {
+      userData.history.map(operationID => {
+        console.log(this.operationsService.getOperationData(operationID));
+
+
+      });
+    })
   }
 }
