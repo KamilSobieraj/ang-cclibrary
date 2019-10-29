@@ -22,19 +22,23 @@
       "id": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "userType": "regular",
       "history": [
-        "borrow-e14fae79-c16f-4836-8979-a14ca103c477",
-        "return-630ec8e5-fbe9-4632-bada-9d62611e3f9c",
-        "borrow-65da8101-8c89-48cc-a985-79751016ed2d",
-        "borrow-a819b2bd-3820-4176-a549-d0d4f0523df5"
+        "borrow-5f68445e-dff6-4f51-8b67-cd19a83c2c61",
+        "borrow-174672d8-8013-45a8-8d6d-9ba05927ea91",
+        "return-0677cd2c-cbea-4114-bcce-1ec55fc48973",
+        "borrow-c04f970d-b8c1-4bc2-b2b6-960e0f0f2bcd",
+        "borrow-46b07b77-8bd5-4072-9727-5b5dc6ae19a5",
+        "return-1ae9e919-cd3a-4d7c-a78a-0decb0c99dd9",
+        "borrow-1db68dfd-05de-4ec7-9856-8922e109f31f",
+        "return-acd6baa8-0464-4a2d-8d16-043360f1d4c3"
       ],
       "currentBorrowedBooks": [
         {
-          "bookID": "01",
-          "operationID": "borrow-65da8101-8c89-48cc-a985-79751016ed2d"
+          "bookID": "02",
+          "operationID": "borrow-174672d8-8013-45a8-8d6d-9ba05927ea91"
         },
         {
-          "bookID": "02",
-          "operationID": "borrow-a819b2bd-3820-4176-a549-d0d4f0523df5"
+          "bookID": "03",
+          "operationID": "borrow-c04f970d-b8c1-4bc2-b2b6-960e0f0f2bcd"
         }
       ]
     },
@@ -52,22 +56,22 @@
       "id": "e0be1a8f-8ecd-4bde-8460-1e06cc559816",
       "userType": "regular",
       "history": [
-        "borrow-96bf8c26-7330-49b5-8b0f-8c79cf25a1cb",
-        "borrow-294bd7fe-e0c6-4db0-8e9d-48913ef09e2a",
-        "borrow-533880b5-57fa-4d6e-bbdb-785570709085"
+        "borrow-06696ff2-2af0-40f4-ae3a-00577dea22d5",
+        "borrow-02451aaf-b285-4f9f-9d64-dd3dcf695b7e",
+        "borrow-cd16ee6f-84fd-4940-a32f-5e3636912658"
       ],
       "currentBorrowedBooks": [
         {
           "bookID": "07",
-          "operationID": "borrow-96bf8c26-7330-49b5-8b0f-8c79cf25a1cb"
+          "operationID": "borrow-06696ff2-2af0-40f4-ae3a-00577dea22d5"
         },
         {
           "bookID": "06",
-          "operationID": "borrow-294bd7fe-e0c6-4db0-8e9d-48913ef09e2a"
+          "operationID": "borrow-02451aaf-b285-4f9f-9d64-dd3dcf695b7e"
         },
         {
           "bookID": "05",
-          "operationID": "borrow-533880b5-57fa-4d6e-bbdb-785570709085"
+          "operationID": "borrow-cd16ee6f-84fd-4940-a32f-5e3636912658"
         }
       ]
     }
@@ -85,11 +89,10 @@
       ],
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
-      "isAvailable": false,
+      "isAvailable": true,
       "history": [
-        "borrow-e14fae79-c16f-4836-8979-a14ca103c477",
-        "return-630ec8e5-fbe9-4632-bada-9d62611e3f9c",
-        "borrow-65da8101-8c89-48cc-a985-79751016ed2d"
+        "borrow-5f68445e-dff6-4f51-8b67-cd19a83c2c61",
+        "return-0677cd2c-cbea-4114-bcce-1ec55fc48973"
       ],
       "reservations": []
     },
@@ -108,7 +111,7 @@
       "currentLocation": "VI piętro",
       "isAvailable": false,
       "history": [
-        "borrow-a819b2bd-3820-4176-a549-d0d4f0523df5"
+        "borrow-174672d8-8013-45a8-8d6d-9ba05927ea91"
       ],
       "reservations": []
     },
@@ -123,8 +126,10 @@
       ],
       "remarks": "e-book",
       "currentLocation": "VI piętro",
-      "isAvailable": true,
-      "history": [],
+      "isAvailable": false,
+      "history": [
+        "borrow-c04f970d-b8c1-4bc2-b2b6-960e0f0f2bcd"
+      ],
       "reservations": []
     },
     {
@@ -139,7 +144,10 @@
       "remarks": "",
       "currentLocation": "VI piętro",
       "isAvailable": true,
-      "history": [],
+      "history": [
+        "borrow-46b07b77-8bd5-4072-9727-5b5dc6ae19a5",
+        "return-1ae9e919-cd3a-4d7c-a78a-0decb0c99dd9"
+      ],
       "reservations": []
     },
     {
@@ -155,7 +163,7 @@
       "currentLocation": "VI piętro",
       "isAvailable": false,
       "history": [
-        "borrow-533880b5-57fa-4d6e-bbdb-785570709085"
+        "borrow-cd16ee6f-84fd-4940-a32f-5e3636912658"
       ],
       "reservations": []
     },
@@ -176,7 +184,9 @@
       "currentLocation": "VI piętro",
       "isAvailable": false,
       "history": [
-        "borrow-294bd7fe-e0c6-4db0-8e9d-48913ef09e2a"
+        "borrow-1db68dfd-05de-4ec7-9856-8922e109f31f",
+        "return-acd6baa8-0464-4a2d-8d16-043360f1d4c3",
+        "borrow-02451aaf-b285-4f9f-9d64-dd3dcf695b7e"
       ],
       "reservations": []
     },
@@ -194,64 +204,96 @@
       "currentLocation": "VI piętro",
       "isAvailable": false,
       "history": [
-        "borrow-96bf8c26-7330-49b5-8b0f-8c79cf25a1cb"
+        "borrow-06696ff2-2af0-40f4-ae3a-00577dea22d5"
       ],
       "reservations": []
     }
   ],
   "operations": [
     {
-      "id": "borrow-e14fae79-c16f-4836-8979-a14ca103c477",
+      "id": "borrow-5f68445e-dff6-4f51-8b67-cd19a83c2c61",
       "bookID": "01",
-      "date": "2019-10-29 9:21:8",
+      "date": "2019-10-29 12:38:58",
       "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "operationType": "borrow",
       "movedTo": "somewhere"
     },
     {
-      "id": "return-630ec8e5-fbe9-4632-bada-9d62611e3f9c",
+      "id": "borrow-174672d8-8013-45a8-8d6d-9ba05927ea91",
+      "bookID": "02",
+      "date": "2019-10-29 12:39:3",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "return-0677cd2c-cbea-4114-bcce-1ec55fc48973",
       "bookID": "01",
-      "date": "2019-10-29 9:21:10",
+      "date": "2019-10-29 12:39:8",
       "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "operationType": "return",
       "movedTo": "somewhere"
     },
     {
-      "id": "borrow-65da8101-8c89-48cc-a985-79751016ed2d",
-      "bookID": "01",
-      "date": "2019-10-29 9:21:12",
+      "id": "borrow-c04f970d-b8c1-4bc2-b2b6-960e0f0f2bcd",
+      "bookID": "03",
+      "date": "2019-10-29 12:39:12",
       "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "operationType": "borrow",
       "movedTo": "somewhere"
     },
     {
-      "id": "borrow-a819b2bd-3820-4176-a549-d0d4f0523df5",
-      "bookID": "02",
-      "date": "2019-10-29 9:21:16",
+      "id": "borrow-46b07b77-8bd5-4072-9727-5b5dc6ae19a5",
+      "bookID": "04",
+      "date": "2019-10-29 12:53:10",
       "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "operationType": "borrow",
       "movedTo": "somewhere"
     },
     {
-      "id": "borrow-96bf8c26-7330-49b5-8b0f-8c79cf25a1cb",
-      "bookID": "07",
-      "date": "2019-10-29 9:21:30",
-      "userID": "e0be1a8f-8ecd-4bde-8460-1e06cc559816",
-      "operationType": "borrow",
+      "id": "return-1ae9e919-cd3a-4d7c-a78a-0decb0c99dd9",
+      "bookID": "04",
+      "date": "2019-10-29 12:54:41",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "return",
       "movedTo": "somewhere"
     },
     {
-      "id": "borrow-294bd7fe-e0c6-4db0-8e9d-48913ef09e2a",
+      "id": "borrow-1db68dfd-05de-4ec7-9856-8922e109f31f",
       "bookID": "06",
-      "date": "2019-10-29 9:21:34",
+      "date": "2019-10-29 12:55:31",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "return-acd6baa8-0464-4a2d-8d16-043360f1d4c3",
+      "bookID": "06",
+      "date": "2019-10-29 12:55:37",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "return",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "borrow-06696ff2-2af0-40f4-ae3a-00577dea22d5",
+      "bookID": "07",
+      "date": "2019-10-29 13:32:16",
       "userID": "e0be1a8f-8ecd-4bde-8460-1e06cc559816",
       "operationType": "borrow",
       "movedTo": "somewhere"
     },
     {
-      "id": "borrow-533880b5-57fa-4d6e-bbdb-785570709085",
+      "id": "borrow-02451aaf-b285-4f9f-9d64-dd3dcf695b7e",
+      "bookID": "06",
+      "date": "2019-10-29 13:32:19",
+      "userID": "e0be1a8f-8ecd-4bde-8460-1e06cc559816",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "borrow-cd16ee6f-84fd-4940-a32f-5e3636912658",
       "bookID": "05",
-      "date": "2019-10-29 9:21:37",
+      "date": "2019-10-29 13:32:22",
       "userID": "e0be1a8f-8ecd-4bde-8460-1e06cc559816",
       "operationType": "borrow",
       "movedTo": "somewhere"

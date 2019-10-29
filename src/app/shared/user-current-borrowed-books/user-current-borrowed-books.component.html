@@ -1,0 +1,43 @@
+<div class="borrowed-books-table__wrapper">
+  <h3 class="borrowed-books-table__header">Wypożyczone książki:</h3>
+  <table
+    mat-table
+    [dataSource]="borrowedBooksTableDataSource"
+    class="mat-elevation-z8 borrowed-books-table__table">
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Tytuł</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        routerLink="/library/book-details/{{ element.bookID }}"
+        class="borrowed-books-table__title-cell">
+        {{ element.borrowedBookTitle }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Data</th>
+      <td mat-cell *matCellDef="let element">{{ element.borrowedBookDate }}</td>
+    </ng-container>
+    <ng-container matColumnDef="returnBookAction">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-button
+          color="primary"
+          (click)="onReturnBook(element.bookID)">
+          Oddaj
+        </button>
+      </td>
+    </ng-container>
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns; sticky: true"
+      class="borrowed-books-table__row">
+    </tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      class="borrowed-books-table__row">
+    </tr>
+  </table>
+</div>

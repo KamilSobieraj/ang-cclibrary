@@ -1,2 +1,10 @@
 <p>user-details works!</p>
 <p>{{userID}}</p>
+<app-user-current-borrowed-books
+  [borrowedBooksTableDataSource]="borrowedBooksTableDataSource"
+  [displayedColumns]="borrowedBooksColumns"
+></app-user-current-borrowed-books>
+<app-operations-history
+  [operationsHistoryTableDataSource]="operationsHistoryTableDataSource"
+  [displayedColumns]="operationsColumns">
+</app-operations-history>
