@@ -41,6 +41,7 @@ import { ModalComponent } from './shared/modal/modal.component';
 import { UsersManagementComponent } from './dashboard/admin-dashboard/users-management/users-management.component';
 import { UserDetailsComponent } from './dashboard/admin-dashboard/users-management/user-details/user-details.component';
 import {OperationsHistoryComponent} from './shared/operations-history/operations-history.component';
+import { GoBackButtonComponent } from './shared/go-back-button/go-back-button.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import {OperationsHistoryComponent} from './shared/operations-history/operations
     ModalComponent,
     UsersManagementComponent,
     UserDetailsComponent,
-    OperationsHistoryComponent
+    OperationsHistoryComponent,
+    GoBackButtonComponent
   ],
   imports: [
     BrowserModule,
