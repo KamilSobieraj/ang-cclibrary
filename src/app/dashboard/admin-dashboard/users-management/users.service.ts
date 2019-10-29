@@ -41,9 +41,10 @@ export class UsersService {
     this.databaseService.getItemData('users', userID).subscribe((userData: User) => {
       userData.history.map(operationID => {
         const operationDetails = this.operationsService.getOperationData(operationID);
-        const bookTitle = this.bookService.getBookDetails(operationDetails.bookID).title;
+        const bookID = operationDetails.bookID;
+        const bookTitle = this.bookService.getBookDetails(bookID).title;
         const operationType = operationDetails.operationType === 'borrow' ? 'Wypożyczono' : 'Oddano';
-        userDetails.push({title: bookTitle, operationType, operationDate: operationDetails.date });
+        userDetails.push({bookID, title: bookTitle, operationType, operationDate: operationDetails.date });
         this.chosenUserDetails$.next(userDetails);
       });
     });
@@ -63,9 +64,7 @@ export class UsersService {
       const borrowedBookTitle = this.bookService.getBookDetails(bookID).title;
       borrowedBooksDetails.push({borrowedBookTitle, borrowedBookDate, bookID});
     });
-    // console.log(borrowedBooksDetails);
     this.chosenUserBorrowedBooksDetails$.next(borrowedBooksDetails);
-    // return borrowedBooksDetails;
   }
 
   getChosenUserBorrowedBooksDetails(userID: string): Observable<CurrentBorrowedBookDetails[]> {
