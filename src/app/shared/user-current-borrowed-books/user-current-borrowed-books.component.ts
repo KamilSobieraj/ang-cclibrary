@@ -12,6 +12,8 @@ import {OperationsService} from '../../order-panel/operations.service';
 export class UserCurrentBorrowedBooksComponent implements OnInit {
   @Input() borrowedBooksTableDataSource: MatTableDataSource<CurrentBorrowedBookDetails>;
   @Input() displayedColumns = ['title', 'date', 'returnBookAction'];
+  @Input() addReturnBookOption: boolean;
+
   constructor(private userService: UserService,
               private operationsService: OperationsService) { }
 

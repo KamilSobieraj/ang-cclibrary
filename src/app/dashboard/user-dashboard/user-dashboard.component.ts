@@ -3,6 +3,8 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {OperationsService} from '../../order-panel/operations.service';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
+import {CurrentBorrowedBookDetails} from '../currentBorrowedBookDetails.model';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -12,9 +14,12 @@ import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 export class UserDashboardComponent implements OnInit, OnDestroy {
   operationsHistoryTableDataSource: MatTableDataSource<any>;
   columnsToDisplay = ['title', 'operationType', 'date'];
+  borrowedBooksTableDataSource: MatTableDataSource<CurrentBorrowedBookDetails>;
+  displayedColumns = ['title', 'date', 'returnBookAction'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private operationsService: OperationsService) {}
+  constructor(private operationsService: OperationsService,
+              private userService: UserService) {}
 
   ngOnInit() {
     this.operationsService.getOperationsData()
@@ -30,6 +35,19 @@ export class UserDashboardComponent implements OnInit, OnDestroy {
           this.operationsHistoryTableDataSource.paginator = this.paginator;
         }
       );
+    this.operationsService.setOperationsHistoryData();
+
+    this.operationsService.setCurrentUserBorrowedBooksDetails();
+    this.userService.currentBorrowedBooksDetails$
+      .pipe(takeUntil(componentDestroyed(this)))
+      .subscribe((currentBorrowedBooks : CurrentBorrowedBookDetails[]) => {
+        this.borrowedBooksTableDataSource = new MatTableDataSource(currentBorrowedBooks);
+      });
+  }
+
+  onReturnBook(bookID: string): void {
+    this.userService.removeBookFromBorrowed(bookID);
+    this.operationsService.onBookAction('return', bookID);
     this.operationsService.setOperationsHistoryData();
   }
 

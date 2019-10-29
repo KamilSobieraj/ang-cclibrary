@@ -1,4 +1,8 @@
-<app-current-borrowed-books></app-current-borrowed-books>
+<app-user-current-borrowed-books
+  [borrowedBooksTableDataSource]="borrowedBooksTableDataSource"
+  [displayedColumns]="displayedColumns"
+  [addReturnBookOption]=true>
+</app-user-current-borrowed-books>
 <app-operations-history
   [operationsHistoryTableDataSource]="operationsHistoryTableDataSource"
   [displayedColumns]="columnsToDisplay">

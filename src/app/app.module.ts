@@ -30,7 +30,6 @@ import { BookDetailsElementComponent } from './shared/book-details-element/book-
 import { BookAvailabilityDetailComponent } from './library/book-details/book-availability-detail/book-availability-detail.component';
 import { BookTagsDetailComponent } from './library/book-details/book-tags-detail/book-tags-detail.component';
 import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
-import { CurrentBorrowedBooksComponent } from './dashboard/user-dashboard/current-borrowed-books/current-borrowed-books.component';
 import { AddNewBookComponent } from './dashboard/admin-dashboard/add-new-book/add-new-book.component';
 import { BookOperationsHistoryListComponent } from './library/book-details/book-operations-history-list/book-operations-history-list.component';
 import { AddNewUserComponent } from './dashboard/admin-dashboard/add-new-user/add-new-user.component';
@@ -63,7 +62,6 @@ import { UserCurrentBorrowedBooksComponent } from './shared/user-current-borrowe
     BookAvailabilityDetailComponent,
     BookTagsDetailComponent,
     UserDashboardComponent,
-    CurrentBorrowedBooksComponent,
     AddNewBookComponent,
     BookOperationsHistoryListComponent,
     AddNewUserComponent,
