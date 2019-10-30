@@ -4,6 +4,7 @@ import * as uuid from 'uuid';
 import { AddNewBookService } from './add-new-book.service';
 import { takeUntil } from 'rxjs/operators';
 import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
+import {ModalService} from '../../../shared/modal/modal.service';
 
 @Component({
   selector: 'app-add-new-book',
@@ -14,7 +15,8 @@ export class AddNewBookComponent implements OnInit, OnDestroy {
   book: BookModel;
   tags;
 
-  constructor(private addNewBookService: AddNewBookService) {
+  constructor(private addNewBookService: AddNewBookService,
+              private modalService: ModalService) {
     this.book = {
       id: '',
       title: '',
@@ -43,7 +45,7 @@ export class AddNewBookComponent implements OnInit, OnDestroy {
   onSubmitForm() {
     this.book.id = uuid.v4();
     this.addNewBookService.addNewBook(this.book);
-    alert('New book added!');
+    this.modalService.onOpenDialog('Dodano nową książkę!');
     this.book = {
       id: '',
       title: '',

@@ -152,6 +152,11 @@ export class OperationsService {
         }
       });
     });
+    // ? changing property name 'id' to 'bookID'
+    historySet.map(element => {
+      element.bookID = element.id;
+      delete element.id;
+    });
     this.operationsHistoryDataForTable$.next(historySet.reverse());
     this.operationsHistoryTableDataSource$.next(
       new MatTableDataSource(historySet)

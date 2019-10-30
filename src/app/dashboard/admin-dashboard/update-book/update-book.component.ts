@@ -4,6 +4,7 @@ import { UpdateBookService } from './update-book.service';
 import { Router } from '@angular/router';
 import { BooksService } from '../../../library/books.service';
 import {AddUpdateBook} from './add-update-book.model';
+import {ModalService} from '../../../shared/modal/modal.service';
 
 @Component({
   selector: 'app-update-book',
@@ -16,18 +17,17 @@ export class UpdateBookComponent implements OnInit, OnDestroy {
   constructor(
     private updateBookService: UpdateBookService,
     private router: Router,
-    private booksService: BooksService) {
+    private modalService: ModalService) {
     this.book = this.updateBookService.getInitialBookDataForForm();
   }
 
   ngOnInit() {
-    this.booksService.updateAllBooksData();
     this.book = this.updateBookService.getInitialBookDataForForm();
   }
 
   onSubmitForm() {
     this.updateBookService.updateBookData(this.book);
-    alert('Book data updated!');
+    this.modalService.onOpenDialog('Dane książki zauktualizowane!');
     setTimeout(() => this.router.navigate(['/library']), 500);
   }
   ngOnDestroy(): void {

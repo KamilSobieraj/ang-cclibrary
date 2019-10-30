@@ -31,7 +31,7 @@ export class BooksListComponent implements OnInit, OnDestroy {
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
   ) {
-    this.setCurrentUserTypeDisplayedColumns();
+    this.setColumnsSetDueToUserType();
 
     this.matIconRegistry.addSvgIcon(
       'book-available', this.domSanitizer.bypassSecurityTrustResourceUrl('../../../assets/icons/available.svg')
@@ -41,11 +41,10 @@ export class BooksListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.authService.userType$
-      .pipe(takeUntil(componentDestroyed(this))).subscribe(
-      userType => (this.currentUserType = userType)
-    );
+    this.setCurrentUserType();
+
     this.booksListService.setBooksTableDataSource();
+
     this.booksListService.booksListTableDataSource$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(
@@ -54,7 +53,14 @@ export class BooksListComponent implements OnInit, OnDestroy {
       );
   }
 
-  setCurrentUserTypeDisplayedColumns() {
+  setCurrentUserType() {
+    this.authService.userType$
+      .pipe(takeUntil(componentDestroyed(this))).subscribe(
+      userType => (this.currentUserType = userType)
+    );
+  }
+
+  setColumnsSetDueToUserType() {
     this.authService.userType$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(
