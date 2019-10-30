@@ -7,6 +7,8 @@ import { BooksService } from '../books.service';
 import { Location } from '@angular/common';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import {UpdateBookService} from '../../dashboard/admin-dashboard/update-book/update-book.service';
+import {AuthService} from '../../dashboard/auth.service';
 
 @Component({
   selector: 'app-book-details',
@@ -15,13 +17,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class BookDetailsComponent implements OnInit, OnDestroy {
   bookDetails: BookModel;
+  currentUserType: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private booksService: BooksService,
     private location: Location,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private updateBookService: UpdateBookService,
+    private authService: AuthService
   ) {
     this.matIconRegistry.addSvgIcon('book-cover', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/book.svg')
     );
@@ -29,6 +34,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getBookDetails();
+    this.setCurrentUserType();
   }
 
   getBookDetails(): void {
@@ -38,9 +44,12 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
         this.booksService.getBookDetailsObs(params.id).subscribe(res => this.bookDetails = res);
       });
   }
-
-  onGoBack(): void {
-    this.location.back();
+  // ! to pójdzie z serwisu
+  setCurrentUserType(): void {
+    this.authService.userType$
+      .pipe(takeUntil(componentDestroyed(this))).subscribe(
+      userType => (this.currentUserType = userType)
+    );
   }
 
   ngOnDestroy(): void {

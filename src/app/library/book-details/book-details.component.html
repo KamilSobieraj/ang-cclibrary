@@ -1,4 +1,9 @@
 <app-go-back-button class="go-back-button"></app-go-back-button>
+<button
+  *ngIf="currentUserType==='admin'"
+  mat-button color="primary"
+  (click)="this.updateBookService.setInitialBookDataForForm(bookDetails.id)">Aktualizuj
+</button>
 <mat-list role="list" class="book-details-list" *ngIf="bookDetails">
   <mat-icon svgIcon="book-cover" class="book-details-list__element book-details-list__book-cover"></mat-icon>
   <app-book-details-element
