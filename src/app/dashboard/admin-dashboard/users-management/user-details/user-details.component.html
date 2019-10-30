@@ -1,6 +1,8 @@
 <app-go-back-button class="go-back-button"></app-go-back-button>
-<p>user-details works!</p>
-<p>{{userID}}</p>
+<mat-card class="user-details__header">
+  <mat-card-subtitle>Dane użytkownika:</mat-card-subtitle>
+  <mat-card-title>{{userEmail}}</mat-card-title>
+</mat-card>
 <app-user-current-borrowed-books
   [borrowedBooksTableDataSource]="borrowedBooksTableDataSource"
   [displayedColumns]="borrowedBooksColumns"

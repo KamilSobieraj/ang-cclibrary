@@ -33,7 +33,6 @@ export class UserDashboardComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(
         operationsHistory => {
-          console.log(operationsHistory);
           this.operationsHistoryTableDataSource = new MatTableDataSource(operationsHistory);
           // TODO: remove error
           this.operationsHistoryTableDataSource.paginator = this.paginator;

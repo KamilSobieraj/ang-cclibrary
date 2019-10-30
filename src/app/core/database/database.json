@@ -22,12 +22,17 @@
       "id": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "userType": "regular",
       "history": [
-        "borrow-550647d1-f317-48ff-9232-8c568f840b30"
+        "borrow-550647d1-f317-48ff-9232-8c568f840b30",
+        "borrow-8eb3dc4d-ca8e-40f0-b4e9-fadcbc32bec4"
       ],
       "currentBorrowedBooks": [
         {
           "bookID": "01",
           "operationID": "borrow-550647d1-f317-48ff-9232-8c568f840b30"
+        },
+        {
+          "bookID": "05",
+          "operationID": "borrow-8eb3dc4d-ca8e-40f0-b4e9-fadcbc32bec4"
         }
       ]
     },
@@ -125,8 +130,10 @@
       ],
       "remarks": "",
       "currentLocation": "VI piętro",
-      "isAvailable": true,
-      "history": [],
+      "isAvailable": false,
+      "history": [
+        "borrow-8eb3dc4d-ca8e-40f0-b4e9-fadcbc32bec4"
+      ],
       "reservations": []
     },
     {
@@ -170,6 +177,14 @@
       "id": "borrow-550647d1-f317-48ff-9232-8c568f840b30",
       "bookID": "01",
       "date": "2019-10-30 7:23:27",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "borrow-8eb3dc4d-ca8e-40f0-b4e9-fadcbc32bec4",
+      "bookID": "05",
+      "date": "2019-10-30 7:43:49",
       "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "operationType": "borrow",
       "movedTo": "somewhere"

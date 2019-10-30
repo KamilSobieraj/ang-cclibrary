@@ -6,6 +6,7 @@ import {UsersService} from '../users.service';
 import {MatTableDataSource} from '@angular/material';
 import {CurrentBorrowedBookDetails} from '../../../../shared/user-current-borrowed-books/currentBorrowedBookDetails.model';
 import {UserTable} from '../users-table.model';
+import {UserService} from '../../../user.service';
 
 @Component({
   selector: 'app-user-details',
@@ -14,13 +15,15 @@ import {UserTable} from '../users-table.model';
 })
 export class UserDetailsComponent implements OnInit, OnDestroy {
   userID: string;
+  userEmail: string;
   operationsHistoryTableDataSource: MatTableDataSource<UserTable>;
   borrowedBooksTableDataSource: MatTableDataSource<CurrentBorrowedBookDetails>;
   operationsColumns = ['title', 'operationType', 'date'];
   borrowedBooksColumns = ['title', 'date', 'returnBookAction'];
 
   constructor(private activatedRoute: ActivatedRoute,
-              private usersService: UsersService) { }
+              private usersService: UsersService,
+              private userService: UserService) { }
 
   ngOnInit() {
     this.setChosenUserID();
@@ -37,6 +40,9 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     });
 
     this.usersService.getChosenUserBorrowedBooksDetails(this.userID);
+
+    this.userEmail = this.userService.getUserDataByID(this.userID)[0].email;
+
   }
 
   setChosenUserID(): void {
