@@ -1,0 +1,13 @@
+.tags-table {
+  width: 80%;
+  margin: 20px auto;
+  &__book-title {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.go-back-button {
+  margin-left: 10%;
+}

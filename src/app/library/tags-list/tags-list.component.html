@@ -1,0 +1,16 @@
+<app-go-back-button class="go-back-button"></app-go-back-button>
+<div class="tags-table">
+  <mat-accordion *ngFor="let tag of tags | keyvalue; let i = index">
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>{{tag.key}}</p>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <ul *ngFor="let book of tag.value">
+          <li class="tags-table__book-title"
+            routerLink="/library/book-details/{{book.id}}">{{book.title}}</li>
+        </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -14,10 +14,12 @@ import {AdminGuard} from './dashboard/admin-dashboard/admin.guard';
 import {UpdateBookComponent} from './dashboard/admin-dashboard/update-book/update-book.component';
 import {UsersManagementComponent} from './dashboard/admin-dashboard/users-management/users-management.component';
 import {UserDetailsComponent} from './dashboard/admin-dashboard/users-management/user-details/user-details.component';
+import {TagsListComponent} from './library/tags-list/tags-list.component';
 
 const routes: Routes = [
   {path: 'library', component: LibraryComponent},
   {path: 'library/book-details/:id', component: BookDetailsComponent},
+  {path: 'library/tags-list', component: TagsListComponent},
   {path: 'order-panel', component: OrderPanelComponent},
   {path: 'dashboard', component: DashboardPanelComponent, canActivate: [AuthGuard]},
   {path: 'dashboard/admin', component: AdminDashboardComponent, canActivate: [AdminGuard]},

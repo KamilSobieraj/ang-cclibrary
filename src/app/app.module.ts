@@ -42,6 +42,7 @@ import { UserDetailsComponent } from './dashboard/admin-dashboard/users-manageme
 import {OperationsHistoryComponent} from './shared/operations-history/operations-history.component';
 import { GoBackButtonComponent } from './shared/go-back-button/go-back-button.component';
 import { UserCurrentBorrowedBooksComponent } from './shared/user-current-borrowed-books/user-current-borrowed-books.component';
+import { TagsListComponent } from './library/tags-list/tags-list.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { UserCurrentBorrowedBooksComponent } from './shared/user-current-borrowe
     UserDetailsComponent,
     OperationsHistoryComponent,
     GoBackButtonComponent,
-    UserCurrentBorrowedBooksComponent
+    UserCurrentBorrowedBooksComponent,
+    TagsListComponent
   ],
   imports: [
     BrowserModule,
