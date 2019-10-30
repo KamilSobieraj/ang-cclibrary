@@ -25,7 +25,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   }
 
   // ? Searches tags as well
-  searchFilter(filterValue: string) {
+  searchFilter(filterValue: string): void {
     this.booksListTableDataSource.filter = filterValue.trim().toLowerCase();
   }
 

@@ -29,14 +29,7 @@ export class BooksService {
     return this.databaseService.getData('books');
   }
 
-  updateAllBooksData() {
-    this.getBooksDataFromDB().subscribe(
-      (booksData: BookModel[]) => (this.allBooksData = booksData)
-    );
-  }
-
   getBookDetails(id: string = this.chosenBookID): BookModel {
-    // this.updateAllBooksData();
     return this.allBooksData.find(book => book.id === id);
   }
 

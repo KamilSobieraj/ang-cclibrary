@@ -9,7 +9,8 @@
       </mat-expansion-panel-header>
         <ul *ngFor="let book of tag.value">
           <li class="tags-table__book-title"
-            routerLink="/library/book-details/{{book.id}}">{{book.title}}</li>
+            routerLink="/library/book-details/{{book.id}}">{{book.title}} ({{book.isAvailable ? 'Dostępna' : 'Niedostępna'}})
+          </li>
         </ul>
     </mat-expansion-panel>
   </mat-accordion>

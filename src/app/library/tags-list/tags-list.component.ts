@@ -9,13 +9,13 @@ import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
   styleUrls: ['./tags-list.component.scss']
 })
 export class TagsListComponent implements OnInit, OnDestroy {
-  tags;
+  tags: {};
   constructor(private tagsService: TagsService) { }
 
   ngOnInit() {
     this.tagsService.getBooksSortedByTags()
       .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(res => this.tags = res);
+      .subscribe(tagsWithBooks => this.tags = tagsWithBooks);
   }
 
   ngOnDestroy(): void {

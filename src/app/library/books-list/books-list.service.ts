@@ -26,7 +26,7 @@ export class BooksListService {
 
   setBooksTableDataSource(): void {
     this.setBooksSetForTable();
-    this.booksListTableSet$.subscribe(booksTableSet => {
+    this.booksListTableSet$.subscribe((booksTableSet: BookTable[]) => {
       this.booksListTableDataSource$.next(
         new MatTableDataSource(booksTableSet)
       );

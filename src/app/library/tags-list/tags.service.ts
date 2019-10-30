@@ -15,7 +15,6 @@ export class TagsService {
     const tags = [];
     this.booksService.getBooksDataFromDB().subscribe(allBooks => {
       allBooks.map(book => book.tags.map(tag => tags.push({tagName: tag, ...book})));
-      console.log(groupBy(tags, 'tagName'));
       this.tagsSet$.next(groupBy(tags, 'tagName'));
     });
     return this.tagsSet$.asObservable();

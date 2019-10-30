@@ -53,14 +53,14 @@ export class BooksListComponent implements OnInit, OnDestroy {
       );
   }
 
-  setCurrentUserType() {
+  setCurrentUserType(): void {
     this.authService.userType$
       .pipe(takeUntil(componentDestroyed(this))).subscribe(
       userType => (this.currentUserType = userType)
     );
   }
 
-  setColumnsSetDueToUserType() {
+  setColumnsSetDueToUserType(): void {
     this.authService.userType$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(

@@ -48,12 +48,6 @@ export class UserDashboardComponent implements OnInit, OnDestroy {
       });
   }
 
-  onReturnBook(bookID: string): void {
-    this.userService.removeBookFromBorrowed(bookID);
-    this.operationsService.onBookAction('return', bookID);
-    this.operationsService.setOperationsHistoryData();
-  }
-
   ngOnDestroy(): void {
     // ! need to be called (even empty) for componentDestroyed(this) to work
   }

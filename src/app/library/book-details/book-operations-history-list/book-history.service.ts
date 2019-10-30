@@ -19,8 +19,8 @@ export class BookHistoryService {
     private operationsService: OperationsService,
     private userService: UserService
   ) {
-    // this.getBooksData();
   }
+
   getBooksData(): BookModel {
     const chosenBookID = this.booksService.chosenBookID$.getValue();
     return this.booksService.getBookDetails(chosenBookID);

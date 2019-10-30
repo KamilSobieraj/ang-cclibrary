@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { takeUntil } from 'rxjs/operators';
 import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
@@ -25,9 +25,11 @@ export class BookOperationsHistoryListComponent implements OnInit, OnDestroy {
     this.operationsService.getOperationsData()
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe();
+
     this.bookHistoryTableDataSource = new MatTableDataSource<BookHistory>(
       this.bookHistoryService.setBookHistoryData().reverse()
     );
+
     this.bookHistoryTableDataSource.paginator = this.paginator
   }
 
