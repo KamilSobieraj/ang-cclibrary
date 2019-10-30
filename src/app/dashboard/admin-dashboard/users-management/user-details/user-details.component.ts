@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 import {ActivatedRoute, Params} from '@angular/router';
-import {UsersService} from '../users.service';
+import {UsersManagementService} from '../users-management.service';
 import {MatTableDataSource} from '@angular/material';
 import {CurrentBorrowedBookDetails} from '../../../../shared/user-current-borrowed-books/currentBorrowedBookDetails.model';
 import {UserTable} from '../users-table.model';
@@ -22,24 +22,24 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   borrowedBooksColumns = ['title', 'date', 'returnBookAction'];
 
   constructor(private activatedRoute: ActivatedRoute,
-              private usersService: UsersService,
+              private usersManagementService: UsersManagementService,
               private userService: UserService) { }
 
   ngOnInit() {
     this.setChosenUserID();
 
-    this.usersService.getChosenUserOperationsDetails(this.userID)
+    this.usersManagementService.getChosenUserOperationsDetails(this.userID)
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(chosenUserOperationsData =>
       this.operationsHistoryTableDataSource = new MatTableDataSource(chosenUserOperationsData));
 
-    this.usersService.getChosenUserBorrowedBooksDetails(this.userID)
+    this.usersManagementService.getChosenUserBorrowedBooksDetails(this.userID)
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(chosenUserBorrowedBooks => {
       this.borrowedBooksTableDataSource  = new MatTableDataSource(chosenUserBorrowedBooks);
     });
 
-    this.usersService.getChosenUserBorrowedBooksDetails(this.userID);
+    this.usersManagementService.getChosenUserBorrowedBooksDetails(this.userID);
 
     this.userEmail = this.userService.getUserDataByID(this.userID)[0].email;
 

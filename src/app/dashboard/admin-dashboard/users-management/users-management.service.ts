@@ -12,7 +12,7 @@ import {CurrentBorrowedBookBasic} from '../../../shared/user-current-borrowed-bo
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UsersManagementService {
   usersData$ = new Subject<User[]>();
   usersData: User[];
   chosenUserDetails$ = new Subject<UserTable[]>();
