@@ -44,7 +44,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
         this.booksService.getBookDetailsObs(params.id).subscribe(res => this.bookDetails = res);
       });
   }
-  // ! to pójdzie z serwisu
+
   setCurrentUserType(): void {
     this.authService.userType$
       .pipe(takeUntil(componentDestroyed(this))).subscribe(

@@ -52,7 +52,7 @@ export class BooksListComponent implements OnInit, OnDestroy {
           (this.booksTableDataSource = booksTableDataSource)
       );
   }
-  // ! move it to service and use here and in book-details.component
+
   setCurrentUserType(): void {
     this.authService.userType$
       .pipe(takeUntil(componentDestroyed(this))).subscribe(
