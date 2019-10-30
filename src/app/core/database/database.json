@@ -21,8 +21,15 @@
       "password": "$2a$10$tJ5yaUI1fRjY3dxrHjxFeOnh.iW6yv1I4shST2h/nlu84elOd4L0G",
       "id": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "userType": "regular",
-      "history": [],
-      "currentBorrowedBooks": []
+      "history": [
+        "borrow-550647d1-f317-48ff-9232-8c568f840b30"
+      ],
+      "currentBorrowedBooks": [
+        {
+          "bookID": "01",
+          "operationID": "borrow-550647d1-f317-48ff-9232-8c568f840b30"
+        }
+      ]
     },
     {
       "email": "anonym@codeconcept.pl",
@@ -54,8 +61,10 @@
       ],
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
-      "isAvailable": true,
-      "history": [],
+      "isAvailable": false,
+      "history": [
+        "borrow-550647d1-f317-48ff-9232-8c568f840b30"
+      ],
       "reservations": []
     },
     {
@@ -156,5 +165,14 @@
       "reservations": []
     }
   ],
-  "operations": []
+  "operations": [
+    {
+      "id": "borrow-550647d1-f317-48ff-9232-8c568f840b30",
+      "bookID": "01",
+      "date": "2019-10-30 7:23:27",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    }
+  ]
 }

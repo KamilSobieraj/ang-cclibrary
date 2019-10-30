@@ -3,8 +3,11 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {OperationsService} from '../../order-panel/operations.service';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
-import {CurrentBorrowedBookDetails} from '../currentBorrowedBookDetails.model';
+import {CurrentBorrowedBookDetails} from '../../shared/user-current-borrowed-books/currentBorrowedBookDetails.model';
 import {UserService} from '../user.service';
+import {UserTable} from '../admin-dashboard/users-management/users-table.model';
+import {OperationsHistoryTable} from '../../shared/operations-history/operations-history-table.model';
+import {Operation} from '../../order-panel/operation.model';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -30,6 +33,7 @@ export class UserDashboardComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(
         operationsHistory => {
+          console.log(operationsHistory);
           this.operationsHistoryTableDataSource = new MatTableDataSource(operationsHistory);
           // TODO: remove error
           this.operationsHistoryTableDataSource.paginator = this.paginator;

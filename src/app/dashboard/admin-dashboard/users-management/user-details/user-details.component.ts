@@ -4,7 +4,8 @@ import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 import {ActivatedRoute, Params} from '@angular/router';
 import {UsersService} from '../users.service';
 import {MatTableDataSource} from '@angular/material';
-import {CurrentBorrowedBookDetails} from '../../../currentBorrowedBookDetails.model';
+import {CurrentBorrowedBookDetails} from '../../../../shared/user-current-borrowed-books/currentBorrowedBookDetails.model';
+import {UserTable} from '../users-table.model';
 
 @Component({
   selector: 'app-user-details',
@@ -13,7 +14,7 @@ import {CurrentBorrowedBookDetails} from '../../../currentBorrowedBookDetails.mo
 })
 export class UserDetailsComponent implements OnInit, OnDestroy {
   userID: string;
-  operationsHistoryTableDataSource: MatTableDataSource<any>;
+  operationsHistoryTableDataSource: MatTableDataSource<UserTable>;
   borrowedBooksTableDataSource: MatTableDataSource<CurrentBorrowedBookDetails>;
   operationsColumns = ['title', 'operationType', 'date'];
   borrowedBooksColumns = ['title', 'date', 'returnBookAction'];
@@ -38,7 +39,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     this.usersService.getChosenUserBorrowedBooksDetails(this.userID);
   }
 
-  setChosenUserID() {
+  setChosenUserID(): void {
     this.activatedRoute.params
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe((params: Params) => {

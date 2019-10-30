@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
-import {CurrentBorrowedBookDetails} from '../../dashboard/currentBorrowedBookDetails.model';
+import {CurrentBorrowedBookDetails} from './currentBorrowedBookDetails.model';
 import {UserService} from '../../dashboard/user.service';
 import {OperationsService} from '../../order-panel/operations.service';
 

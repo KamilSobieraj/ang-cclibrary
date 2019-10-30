@@ -1,5 +1,6 @@
 export interface CurrentBorrowedBookDetails {
   bookID: string;
   borrowedBookDate: string;
-  borrowedBookTitle: string
+  borrowedBookTitle: string;
+  operationType?: string;
 }

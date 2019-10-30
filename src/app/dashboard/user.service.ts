@@ -6,8 +6,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {DatabaseService} from '../core/database.service';
 import {BooksService} from '../library/books.service';
 import {Operation} from '../order-panel/operation.model';
-import {CurrentBorrowedBookBasic} from './currentBorrowedBookBasic.model';
-import {CurrentBorrowedBookDetails} from './currentBorrowedBookDetails.model';
+import {CurrentBorrowedBookBasic} from '../shared/user-current-borrowed-books/currentBorrowedBookBasic.model';
+import {CurrentBorrowedBookDetails} from '../shared/user-current-borrowed-books/currentBorrowedBookDetails.model';
 
 @Injectable({
   providedIn: 'root'

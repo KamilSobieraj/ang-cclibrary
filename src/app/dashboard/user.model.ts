@@ -1,4 +1,4 @@
-import {CurrentBorrowedBookBasic} from './currentBorrowedBookBasic.model';
+import {CurrentBorrowedBookBasic} from '../shared/user-current-borrowed-books/currentBorrowedBookBasic.model';
 
 export interface User {
   id: string;

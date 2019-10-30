@@ -9,7 +9,7 @@ import { Operation } from './operation.model';
 import { BookModel } from '../library/book.model';
 import { MatTableDataSource } from '@angular/material';
 import { AuthService } from '../dashboard/auth.service';
-import {CurrentBorrowedBookBasic} from '../dashboard/currentBorrowedBookBasic.model';
+import {CurrentBorrowedBookBasic} from '../shared/user-current-borrowed-books/currentBorrowedBookBasic.model';
 
 @Injectable({
   providedIn: 'root'
