@@ -5,7 +5,7 @@ import {AuthService} from './auth.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {DatabaseService} from '../core/database.service';
 import {BooksService} from '../library/books.service';
-import {Operation} from '../order-panel/operation.model';
+import {Operation} from '../shared/operations-history/operation.model';
 import {CurrentBorrowedBookBasic} from '../shared/user-current-borrowed-books/currentBorrowedBookBasic.model';
 import {CurrentBorrowedBookDetails} from '../shared/user-current-borrowed-books/currentBorrowedBookDetails.model';
 

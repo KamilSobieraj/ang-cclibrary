@@ -3,7 +3,7 @@ import {Observable, Subject} from 'rxjs';
 import {User} from '../../user.model';
 import {DatabaseService} from '../../../core/database.service';
 import {UserTable} from './users-table.model';
-import {OperationsService} from '../../../order-panel/operations.service';
+import {OperationsService} from '../../../shared/operations-history/operations.service';
 import {BooksService} from '../../../library/books.service';
 import {CurrentBorrowedBookDetails} from '../../../shared/user-current-borrowed-books/currentBorrowedBookDetails.model';
 import {UserService} from '../../user.service';

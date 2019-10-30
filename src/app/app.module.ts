@@ -4,8 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooksListComponent } from './library/books-list/books-list.component';
 import { BookDetailsComponent } from './library/book-details/book-details.component';
-import { OrderPanelComponent } from './order-panel/order-panel.component';
-import { ReserveBookComponent } from './order-panel/reserve-book/reserve-book.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { LibraryComponent } from './library/library.component';
 import { DashboardPanelComponent } from './dashboard/dashboard-panel/dashboard-panel.component';
@@ -49,8 +47,6 @@ import { TagsListComponent } from './library/tags-list/tags-list.component';
     AppComponent,
     BooksListComponent,
     BookDetailsComponent,
-    OrderPanelComponent,
-    ReserveBookComponent,
     PageNotFoundComponent,
     LibraryComponent,
     DashboardPanelComponent,

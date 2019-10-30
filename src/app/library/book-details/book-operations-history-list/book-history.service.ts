@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DatabaseService } from '../../../core/database.service';
 import { HttpClient } from '@angular/common/http';
 import { BooksService } from '../../books.service';
-import { OperationsService } from '../../../order-panel/operations.service';
+import { OperationsService } from '../../../shared/operations-history/operations.service';
 import { UserService } from '../../../dashboard/user.service';
 import {BookModel} from '../../book.model';
 import {BookHistory} from './book-history.model';

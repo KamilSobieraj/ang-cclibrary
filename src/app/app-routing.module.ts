@@ -6,7 +6,6 @@ import {DashboardPanelComponent} from './dashboard/dashboard-panel/dashboard-pan
 import {LoginPanelComponent} from './dashboard/login-panel/login-panel.component';
 import {AdminDashboardComponent} from './dashboard/admin-dashboard/admin-dashboard.component';
 import {BookDetailsComponent} from './library/book-details/book-details.component';
-import {OrderPanelComponent} from './order-panel/order-panel.component';
 import {AuthGuard} from './dashboard/auth.guard';
 import {AddNewUserComponent} from './dashboard/admin-dashboard/add-new-user/add-new-user.component';
 import {AddNewBookComponent} from './dashboard/admin-dashboard/add-new-book/add-new-book.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   {path: 'library', component: LibraryComponent},
   {path: 'library/book-details/:id', component: BookDetailsComponent},
   {path: 'library/tags-list', component: TagsListComponent},
-  {path: 'order-panel', component: OrderPanelComponent},
   {path: 'dashboard', component: DashboardPanelComponent, canActivate: [AuthGuard]},
   {path: 'dashboard/admin', component: AdminDashboardComponent, canActivate: [AdminGuard]},
   {path: 'dashboard/admin/users/add-new-user', component: AddNewUserComponent, canActivate: [AdminGuard]},

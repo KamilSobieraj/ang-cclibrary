@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BooksService } from '../../books.service';
 import { Router } from '@angular/router';
-import { OperationsService } from '../../../order-panel/operations.service';
+import { OperationsService } from '../../../shared/operations-history/operations.service';
 import { AuthService } from '../../../dashboard/auth.service';
 import {ModalService} from '../../../shared/modal/modal.service';
 

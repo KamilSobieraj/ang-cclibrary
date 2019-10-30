@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OperationsService } from '../order-panel/operations.service';
+import { OperationsService } from '../shared/operations-history/operations.service';
 
 @Component({
   selector: 'app-library',

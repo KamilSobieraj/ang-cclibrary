@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import * as uuid from 'uuid';
-import { UserService } from '../dashboard/user.service';
+import { UserService } from '../../dashboard/user.service';
 import { HttpClient } from '@angular/common/http';
-import { DatabaseService } from '../core/database.service';
-import { BooksService } from '../library/books.service';
+import { DatabaseService } from '../../core/database.service';
+import { BooksService } from '../../library/books.service';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Operation } from './operation.model';
-import { BookModel } from '../library/book.model';
+import { BookModel } from '../../library/book.model';
 import { MatTableDataSource } from '@angular/material';
-import { AuthService } from '../dashboard/auth.service';
-import {CurrentBorrowedBookBasic} from '../shared/user-current-borrowed-books/currentBorrowedBookBasic.model';
+import { AuthService } from '../../dashboard/auth.service';
+import {CurrentBorrowedBookBasic} from '../user-current-borrowed-books/currentBorrowedBookBasic.model';
 
 @Injectable({
   providedIn: 'root'

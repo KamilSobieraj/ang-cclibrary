@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {CurrentBorrowedBookDetails} from './currentBorrowedBookDetails.model';
 import {UserService} from '../../dashboard/user.service';
-import {OperationsService} from '../../order-panel/operations.service';
+import {OperationsService} from '../operations-history/operations.service';
 
 @Component({
   selector: 'app-user-current-borrowed-books',

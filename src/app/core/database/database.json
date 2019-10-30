@@ -29,7 +29,8 @@
         "borrow-2833040a-b94c-441a-9745-6d2e326349a0",
         "borrow-c43deb23-93c2-4924-b927-17c91cc9d1a6",
         "return-eb47fff3-9c43-4005-a89c-d1fa2356c5e0",
-        "return-4fca2201-5e68-431f-bcfa-e472280b6d87"
+        "return-4fca2201-5e68-431f-bcfa-e472280b6d87",
+        "borrow-e9a136c1-7ad4-4712-b84a-35bcaf706de1"
       ],
       "currentBorrowedBooks": [
         {
@@ -39,6 +40,10 @@
         {
           "bookID": "02",
           "operationID": "borrow-c43deb23-93c2-4924-b927-17c91cc9d1a6"
+        },
+        {
+          "bookID": "01",
+          "operationID": "borrow-e9a136c1-7ad4-4712-b84a-35bcaf706de1"
         }
       ]
     },
@@ -72,10 +77,11 @@
       ],
       "remarks": "Książka ma wyrwane pojedyncze strony",
       "currentLocation": "VI piętro",
-      "isAvailable": true,
+      "isAvailable": false,
       "history": [
         "borrow-550647d1-f317-48ff-9232-8c568f840b30",
-        "return-eb47fff3-9c43-4005-a89c-d1fa2356c5e0"
+        "return-eb47fff3-9c43-4005-a89c-d1fa2356c5e0",
+        "borrow-e9a136c1-7ad4-4712-b84a-35bcaf706de1"
       ],
       "reservations": [],
       "bookCoverUrl": ""
@@ -251,6 +257,14 @@
       "date": "2019-10-30 12:42:43",
       "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
       "operationType": "return",
+      "movedTo": "somewhere"
+    },
+    {
+      "id": "borrow-e9a136c1-7ad4-4712-b84a-35bcaf706de1",
+      "bookID": "01",
+      "date": "2019-10-30 13:37:47",
+      "userID": "2e8fa375-b19f-4495-a90e-79818b14cc79",
+      "operationType": "borrow",
       "movedTo": "somewhere"
     }
   ]

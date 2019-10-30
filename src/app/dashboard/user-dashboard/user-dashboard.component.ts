@@ -1,13 +1,13 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
-import {OperationsService} from '../../order-panel/operations.service';
+import {OperationsService} from '../../shared/operations-history/operations.service';
 import {takeUntil} from 'rxjs/operators';
 import {componentDestroyed} from '@w11k/ngx-componentdestroyed';
 import {CurrentBorrowedBookDetails} from '../../shared/user-current-borrowed-books/currentBorrowedBookDetails.model';
 import {UserService} from '../user.service';
 import {UserTable} from '../admin-dashboard/users-management/users-table.model';
 import {OperationsHistoryTable} from '../../shared/operations-history/operations-history-table.model';
-import {Operation} from '../../order-panel/operation.model';
+import {Operation} from '../../shared/operations-history/operation.model';
 
 @Component({
   selector: 'app-user-dashboard',

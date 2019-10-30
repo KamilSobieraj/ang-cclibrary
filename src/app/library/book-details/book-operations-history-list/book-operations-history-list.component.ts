@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { takeUntil } from 'rxjs/operators';
 import { componentDestroyed } from '@w11k/ngx-componentdestroyed';
-import { OperationsService } from '../../../order-panel/operations.service';
+import { OperationsService } from '../../../shared/operations-history/operations.service';
 import { BookHistoryService } from './book-history.service';
 import { BookHistory } from './book-history.model';
 
