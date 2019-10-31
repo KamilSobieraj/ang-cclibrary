@@ -100,13 +100,7 @@ export class OperationsService {
       operationType,
       movedTo: 'somewhere'
     };
-    this.httpClient
-      .post<any>(
-        this.databaseService.databaseURL + '/operations/',
-        JSON.stringify(newOperation),
-        this.databaseService.httpOptions
-      )
-      .subscribe();
+    this.databaseService.postData('operations', newOperation);
     this.allOperationsData.push(newOperation);
     this.userService.allOperationsData.push(newOperation);
   }

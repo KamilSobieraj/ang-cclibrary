@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { BookModel } from '../../../library/book.model';
 import { HttpClient } from '@angular/common/http';
 import { DatabaseService } from '../../../core/database.service';
-import { catchError, retry } from 'rxjs/operators';
-import { Observable, Subject, throwError } from 'rxjs';
-import {ModalService} from '../../../shared/modal/modal.service';
+import { Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,22 +13,11 @@ export class AddNewBookService {
 
   constructor(
     private httpClient: HttpClient,
-    private databaseService: DatabaseService,
-    private modalService: ModalService
+    private databaseService: DatabaseService
   ) {}
 
   addNewBook(book: BookModel): void {
-    this.httpClient
-      .post<any>(
-        this.databaseService.databaseURL + '/books/',
-        JSON.stringify(book),
-        this.databaseService.httpOptions
-      )
-      .pipe(
-        retry(1),
-        catchError(this.databaseService.httpErrorHandler)
-      )
-      .subscribe();
+    this.databaseService.postData('books', book);
     this.resetFormTags();
   }
 

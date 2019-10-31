@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {ModalService} from '../shared/modal/modal.service';
+import {catchError, retry} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,25 @@ export class DatabaseService {
     return this.httpClient.get(`${this.databaseURL}/${path}/`);
   }
 
-  deleteData(collection: string, id: string) {
+  deleteData(collection: string, id: string): Observable<any> {
     return this.httpClient.delete(`${this.databaseURL}/${collection}/${id}`);
   }
 
-  getItemData(collection: string, id: string) {
+  postData(collection: string, item: {}): void {
+    this.httpClient
+      .post<any>(
+        this.databaseURL + `/${collection}/`,
+        JSON.stringify(item),
+        this.httpOptions
+      )
+      .pipe(
+        retry(1),
+        catchError(this.httpErrorHandler)
+      )
+      .subscribe();
+  }
+
+  getItemData(collection: string, id: string): Observable<any> {
     return this.httpClient.get(`${this.databaseURL}/${collection}/${id}`);
   }
 
