@@ -33,11 +33,11 @@ export class OperationsService {
       this.allOperationsData = operationsData;
     });
     this.userService.currentUserOperationsIDS$.subscribe(
-      currentUserOperationsIDSHistory =>
+      (currentUserOperationsIDSHistory: Operation[]) =>
         (this.currentUserOperationsIDS = currentUserOperationsIDSHistory)
     );
     this.userService.currentBorrowedBooksBasicData$.subscribe(
-      currentUserBorrowedBooks =>
+      (currentUserBorrowedBooks: CurrentBorrowedBookBasic[]) =>
         (this.currentUserBorrowedBooksBasicData = currentUserBorrowedBooks)
     );
   }
@@ -54,7 +54,7 @@ export class OperationsService {
     return this.operationsData$.asObservable();
   }
 
-  setCurrentUserBorrowedBooksDetails() {
+  setCurrentUserBorrowedBooksDetails(): void {
     const borrowedBooksDetails = [];
     this.userService.getCurrentUserCurrentBorrowedBooksBasicData().subscribe();
     this.currentUserBorrowedBooksBasicData.map(borrowDetails => {
@@ -78,6 +78,7 @@ export class OperationsService {
         operationOutput = operation;
       }
     });
+    // * in fact operationOutput is returned
     return operationOutput;
   }
 
@@ -123,6 +124,7 @@ export class OperationsService {
         bookID = operationData.bookID.toString();
       }
     });
+    // * in fact bookID is returned
     return bookID;
   }
 

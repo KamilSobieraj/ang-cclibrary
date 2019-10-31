@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import {BooksService} from '../../../library/books.service';
-import {Observable, Subject, throwError} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {DatabaseService} from '../../../core/database.service';
 import {catchError, retry} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {BookModel} from '../../../library/book.model';
-import {ModalService} from '../../../shared/modal/modal.service';
 import {AddUpdateBook} from './add-update-book.model';
 
 @Injectable({
@@ -20,8 +18,7 @@ export class UpdateBookService {
   constructor(private booksService: BooksService,
               private httpClient: HttpClient,
               private databaseService: DatabaseService,
-              private router: Router,
-              private modalService: ModalService) { }
+              private router: Router) { }
 
   async setInitialBookDataForForm(bookID: string): Promise<void> {
     await this.booksService.getBooksDataFromDB().toPromise().then(allBooksData => {
@@ -66,7 +63,7 @@ export class UpdateBookService {
     return this.formTags$.asObservable();
   }
 
-  setFormTags(newTag) {
+  setFormTags(newTag): void {
     this.tags.push(newTag);
     this.formTags$.next(this.tags);
   }

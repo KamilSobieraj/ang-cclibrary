@@ -26,7 +26,7 @@ export class UsersManagementComponent implements OnInit {
     });
   }
 
-  onRemoveUser(userID: string) {
+  onRemoveUser(userID: string): void {
     this.usersManagementService.removeUser(userID);
   }
 }

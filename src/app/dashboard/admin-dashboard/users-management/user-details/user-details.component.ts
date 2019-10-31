@@ -30,12 +30,12 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
 
     this.usersManagementService.getChosenUserOperationsDetails(this.userID)
       .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(chosenUserOperationsData =>
+      .subscribe((chosenUserOperationsData: UserTable[]) =>
       this.operationsHistoryTableDataSource = new MatTableDataSource(chosenUserOperationsData));
 
     this.usersManagementService.getChosenUserBorrowedBooksDetails(this.userID)
       .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(chosenUserBorrowedBooks => {
+      .subscribe((chosenUserBorrowedBooks: CurrentBorrowedBookDetails[]) => {
       this.borrowedBooksTableDataSource  = new MatTableDataSource(chosenUserBorrowedBooks);
     });
 

@@ -22,8 +22,5 @@ export class AdminGuard implements CanActivate {
       this.modalService.onOpenDialog('Musisz mieć status administratora, żeby mieć dostęp do tego zasobu');
       this.router.navigate(['/library']);
     }
-
-
   }
-
 }

@@ -18,16 +18,15 @@ export class UpdateBookComponent implements OnInit, OnDestroy {
     private updateBookService: UpdateBookService,
     private router: Router,
     private modalService: ModalService) {
-    this.book = this.updateBookService.getInitialBookDataForForm();
   }
 
   ngOnInit() {
     this.book = this.updateBookService.getInitialBookDataForForm();
   }
 
-  onSubmitForm() {
+  onSubmitForm(): void {
     this.updateBookService.updateBookData(this.book);
-    this.modalService.onOpenDialog('Dane książki zauktualizowane!');
+    this.modalService.onOpenDialog('Zaktualizowano dane książki!');
     setTimeout(() => this.router.navigate(['/library']), 500);
   }
   ngOnDestroy(): void {

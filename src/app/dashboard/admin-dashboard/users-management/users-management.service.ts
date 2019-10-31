@@ -24,7 +24,7 @@ export class UsersManagementService {
               private userService: UserService) { }
 
   getUsersBasicData(): Observable<User[]> {
-    this.databaseService.getData('users').subscribe(allUsersData => {
+    this.databaseService.getData('users').subscribe((allUsersData: User[]) => {
       this.usersData = allUsersData;
       this.usersData$.next(allUsersData);
     });
