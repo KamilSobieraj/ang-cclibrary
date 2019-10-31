@@ -18,7 +18,7 @@ export class AddNewUserComponent implements OnInit {
 
   onAddNewUser($event): void {
     this.authService.addNewUser($event.userEmail, $event.userPassword, $event.userType);
-    // TODO: Must do it much better...
+    // TODO: do it much better...
     this.modalService.onOpenDialog('Nowy użytkownik został dodany');
     setTimeout(() => window.location.reload(), 1000);
 

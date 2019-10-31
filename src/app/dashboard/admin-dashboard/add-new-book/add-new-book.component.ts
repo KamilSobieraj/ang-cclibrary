@@ -13,39 +13,30 @@ import {ModalService} from '../../../shared/modal/modal.service';
 })
 export class AddNewBookComponent implements OnInit, OnDestroy {
   book: BookModel;
-  tags;
+  tags: string[];
 
   constructor(private addNewBookService: AddNewBookService,
               private modalService: ModalService) {
-    this.book = {
-      id: '',
-      title: '',
-      author: '',
-      publicationYear: '',
-      editorName: '',
-      tags: [],
-      remarks: '',
-      currentLocation: '',
-      isAvailable: true,
-      history: [],
-      reservations: [],
-      bookCoverUrl: ''
-    };
+    this.clearForm();
   }
 
   ngOnInit() {
     this.addNewBookService.getFormTags()
       .pipe(takeUntil(componentDestroyed(this)))
-      .subscribe(tags => {
+      .subscribe((tags: string[]) => {
         this.book.tags = tags;
         this.tags = tags;
       });
   }
 
-  onSubmitForm() {
+  onSubmitForm(): void {
     this.book.id = uuid.v4();
     this.addNewBookService.addNewBook(this.book);
     this.modalService.onOpenDialog('Dodano nową książkę!');
+    this.clearForm();
+  }
+
+  clearForm(): void {
     this.book = {
       id: '',
       title: '',

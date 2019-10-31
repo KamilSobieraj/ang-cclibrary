@@ -61,7 +61,7 @@ export class AuthService {
 
   }
 
-  setUserType() {
+  setUserType(): void {
     this.httpClient
       .get<User>(
         this.databaseService.databaseURL + '/users/' + this.getCurrentUserID()
