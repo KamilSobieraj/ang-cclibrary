@@ -125,7 +125,20 @@ export class AuthService {
         catchError(this.databaseService.httpErrorHandler)
       )
       .subscribe();
+
+    this.getCurrentUserType() === 'admin' ?
+      this.onUserPasswordResetByAdmin() :
+      this.onUserPasswordResetByRegularUser();
+  }
+
+  onUserPasswordResetByRegularUser() {
     this.modalService.onOpenDialog('Hasło zmienione - zaloguj się ponownie');
     this.logoutUser();
+    this.router.navigate(['login']);
+  }
+
+  onUserPasswordResetByAdmin() {
+    this.modalService.onOpenDialog('Hasło użytkownika zmienione');
+    this.router.navigate(['dashboard/admin/users'])
   }
 }

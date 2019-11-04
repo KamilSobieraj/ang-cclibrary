@@ -34,11 +34,18 @@
     },
     {
       "email": "maniek@onet.pl",
-      "password": "$2a$10$0AvpZ8IGdMFXHn77NghVuuxtCoc9DSUPHv2Wl4BlOJPGs/ugJR6qC",
+      "password": "$2a$10$GnzhpznIKCF3kywdZ5IBOu0HJfCdJw7xEVN0PAIkUXEebBPE99fWK",
       "id": "e0be1a8f-8ecd-4bde-8460-1e06cc559816",
       "userType": "regular",
-      "history": [],
-      "currentBorrowedBooks": []
+      "history": [
+        "borrow-4962033b-f44b-4593-971f-936d39654898"
+      ],
+      "currentBorrowedBooks": [
+        {
+          "bookID": "07",
+          "operationID": "borrow-4962033b-f44b-4593-971f-936d39654898"
+        }
+      ]
     }
   ],
   "books": [
@@ -151,10 +158,21 @@
       ],
       "remarks": "wydanie w języku staroaramejskim",
       "currentLocation": "VI piętro",
-      "isAvailable": true,
-      "history": [],
+      "isAvailable": false,
+      "history": [
+        "borrow-4962033b-f44b-4593-971f-936d39654898"
+      ],
       "reservations": []
     }
   ],
-  "operations": []
+  "operations": [
+    {
+      "id": "borrow-4962033b-f44b-4593-971f-936d39654898",
+      "bookID": "07",
+      "date": "2019-11-4 12:29:58",
+      "userID": "e0be1a8f-8ecd-4bde-8460-1e06cc559816",
+      "operationType": "borrow",
+      "movedTo": "somewhere"
+    }
+  ]
 }

@@ -29,10 +29,6 @@ export class ResetUserPasswordComponent implements OnInit, OnDestroy {
     this.setChosenUserID();
   }
 
-  @HostListener('document:keydown.enter', ['$event']) onSubmit(): void {
-    this.submitForm.emit({userNewPassword: this.userNewPasswordInput});
-  }
-
   get userNewPasswordInput(): string {
     return this.resetPasswordForm.get('userNewPassword').value;
   }
@@ -41,7 +37,7 @@ export class ResetUserPasswordComponent implements OnInit, OnDestroy {
     return this.resetPasswordForm.hasError('required') ? 'You must enter a value' : '';
   }
 
-  onResetUserPassword(): void {
+  @HostListener('document:keydown.enter', ['$event']) onResetUserPassword(): void {
     let userID;
     // * if admin want to change users password, gets userID from setChosenUserID()
     // * if current logged user want to change id, user ID is taken from authService
