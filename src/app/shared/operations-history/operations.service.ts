@@ -33,11 +33,11 @@ export class OperationsService {
       this.allOperationsData = operationsData;
     });
     this.userService.currentUserOperationsIDS$.subscribe(
-      (currentUserOperationsIDSHistory: Operation[]) =>
+      currentUserOperationsIDSHistory =>
         (this.currentUserOperationsIDS = currentUserOperationsIDSHistory)
     );
     this.userService.currentBorrowedBooksBasicData$.subscribe(
-      (currentUserBorrowedBooks: CurrentBorrowedBookBasic[]) =>
+      currentUserBorrowedBooks =>
         (this.currentUserBorrowedBooksBasicData = currentUserBorrowedBooks)
     );
   }
@@ -54,7 +54,7 @@ export class OperationsService {
     return this.operationsData$.asObservable();
   }
 
-  setCurrentUserBorrowedBooksDetails(): void {
+  setCurrentUserBorrowedBooksDetails() {
     const borrowedBooksDetails = [];
     this.userService.getCurrentUserCurrentBorrowedBooksBasicData().subscribe();
     this.currentUserBorrowedBooksBasicData.map(borrowDetails => {
@@ -78,7 +78,6 @@ export class OperationsService {
         operationOutput = operation;
       }
     });
-    // * in fact operationOutput is returned
     return operationOutput;
   }
 
@@ -101,7 +100,13 @@ export class OperationsService {
       operationType,
       movedTo: 'somewhere'
     };
-    this.databaseService.postData('operations', newOperation);
+    this.httpClient
+      .post<any>(
+        this.databaseService.databaseURL + '/operations/',
+        JSON.stringify(newOperation),
+        this.databaseService.httpOptions
+      )
+      .subscribe();
     this.allOperationsData.push(newOperation);
     this.userService.allOperationsData.push(newOperation);
   }
@@ -124,7 +129,6 @@ export class OperationsService {
         bookID = operationData.bookID.toString();
       }
     });
-    // * in fact bookID is returned
     return bookID;
   }
 

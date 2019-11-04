@@ -26,11 +26,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.authService.userLoginStatus()
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(isUserLoggedIn => (this.isUserLoggedIn = isUserLoggedIn));
-
     this.userService.currentUserData$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(currentUserData => (this.userData = currentUserData));
-
     this.authService.userType$
       .pipe(takeUntil(componentDestroyed(this)))
       .subscribe(

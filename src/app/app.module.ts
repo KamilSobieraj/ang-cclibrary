@@ -41,6 +41,7 @@ import {OperationsHistoryComponent} from './shared/operations-history/operations
 import { GoBackButtonComponent } from './shared/go-back-button/go-back-button.component';
 import { UserCurrentBorrowedBooksComponent } from './shared/user-current-borrowed-books/user-current-borrowed-books.component';
 import { TagsListComponent } from './library/tags-list/tags-list.component';
+import { ResetUserPasswordComponent } from './shared/reset-user-password/reset-user-password.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { TagsListComponent } from './library/tags-list/tags-list.component';
     OperationsHistoryComponent,
     GoBackButtonComponent,
     UserCurrentBorrowedBooksComponent,
-    TagsListComponent
+    TagsListComponent,
+    ResetUserPasswordComponent
   ],
   imports: [
     BrowserModule,

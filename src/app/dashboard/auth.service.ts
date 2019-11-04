@@ -61,7 +61,7 @@ export class AuthService {
 
   }
 
-  setUserType(): void {
+  setUserType() {
     this.httpClient
       .get<User>(
         this.databaseService.databaseURL + '/users/' + this.getCurrentUserID()
@@ -111,5 +111,21 @@ export class AuthService {
         catchError(this.databaseService.httpErrorHandler)
       )
       .subscribe();
+  }
+
+  resetUserPassword(userID: string, userNewPassword: string) {
+    this.httpClient
+      .patch<any>(
+        this.databaseService.databaseURL + '/users/' + userID,
+        JSON.stringify({password: userNewPassword}),
+        this.databaseService.httpOptions
+      )
+      .pipe(
+        retry(1),
+        catchError(this.databaseService.httpErrorHandler)
+      )
+      .subscribe();
+    this.modalService.onOpenDialog('Hasło zmienione - zaloguj się ponownie');
+    this.logoutUser();
   }
 }

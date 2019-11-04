@@ -2,6 +2,7 @@
 <mat-card class="user-details__header">
   <mat-card-subtitle>Dane użytkownika:</mat-card-subtitle>
   <mat-card-title>{{userEmail}}</mat-card-title>
+  <button mat-button color="primary" routerLink="resetpassword">Zmień hasło użytkownika</button>
 </mat-card>
 <app-user-current-borrowed-books
   [borrowedBooksTableDataSource]="borrowedBooksTableDataSource"
